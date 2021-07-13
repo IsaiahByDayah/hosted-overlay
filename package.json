@@ -1,7 +1,33 @@
 {
-  "name": "hosted-layout-test",
+  "name": "hosted-overlay",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "scripts": {
+    "firebase:login": "firebase login",
+    "firebase:init": "firebase init",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
+    "format": "prettier --write './src/**/*.{js,jsx,ts,tsx}'",
+    "shell": "firebase functions:shell",
+    "emulate": "firebase emulators:start --inspect-functions",
+    "emulate:import": "firebase emulators:start --import=db --inspect-functions",
+    "e:i": "npm run emulate:import",
+    "export": "firebase emulators:export db",
+    "deploy": "firebase deploy",
+    "deploy:only": "firebase deploy --only",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:rules": "firebase deploy --only database,storage,firestore",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "indexes:fetch": "firebase firestore:indexes > firestore.indexes.json",
+    "config:get": "firebase functions:config:get",
+    "config:set": "firebase functions:config:set",
+    "config:unset": "firebase functions:config:unset",
+    "config:fetch": "firebase functions:config:get > .runtimeconfig.json"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -10,6 +36,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "firebase": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -17,17 +44,23 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "firebase-tools": "^9.16.0",
+    "prettier": "^2.3.2"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "prettier"
+    ],
+    "rules": {
+      "semi": [
+        0,
+        "never"
+      ]
+    }
   },
   "browserslist": {
     "production": [
