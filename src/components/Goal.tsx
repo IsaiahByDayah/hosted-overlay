@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import ProgressBar from "./progressbar"
+import ProgressBar from "components/ProgressBar"
 
 interface GoalProps {
   className?: string

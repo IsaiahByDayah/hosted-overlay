@@ -1,19 +1,21 @@
 import "./App.css"
 
-import { getFollowerCount, getSubscriberCount } from "./lib/twitch"
+import { getFollowerCount, getSubscriberCount } from "lib/twitch"
 
-import Twitter from "./twitter"
-import Twitch from "./twitch"
-import TikTok from "./tiktok"
-import YouTube from "./youtube"
+import Root from "components/scaffold/Root"
 
-import Goal from "./goal"
-import Task from "./task"
-import Chat from "./chat"
+import Twitter from "components/svgs/Twitter"
+import Twitch from "components/svgs/Twitch"
+import TikTok from "components/svgs/TikTok"
+import YouTube from "components/svgs/YouTube"
+
+import Goal from "components/Goal"
+import Task from "components/Task"
+import Chat from "components/Chat"
 
 const App = () => {
   return (
-    <div className="app">
+    <Root className="app">
       <div className="main">
         <div className="content rounded shadow greenscreen" />
         <div className="details">
@@ -70,7 +72,7 @@ const App = () => {
         <Chat className="chat rounded shadow" />
         <div className="camera rounded shadow greenscreen" />
       </div>
-    </div>
+    </Root>
   )
 }
 
