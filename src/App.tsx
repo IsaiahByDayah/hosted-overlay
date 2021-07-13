@@ -1,15 +1,15 @@
-import "./App.css";
+import "./App.css"
 
-import { getFollowerCount, getSubscriberCount } from "./lib/twitch";
+import { getFollowerCount, getSubscriberCount } from "./lib/twitch"
 
-import Twitter from "./twitter";
-import Twitch from "./twitch";
-import TikTok from "./tiktok";
-import YouTube from "./youtube";
+import Twitter from "./twitter"
+import Twitch from "./twitch"
+import TikTok from "./tiktok"
+import YouTube from "./youtube"
 
-import Goal from "./goal";
-import Task from "./task";
-import Chat from "./chat";
+import Goal from "./goal"
+import Task from "./task"
+import Chat from "./chat"
 
 const App = () => {
   return (
@@ -71,7 +71,7 @@ const App = () => {
         <div className="camera rounded shadow greenscreen" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

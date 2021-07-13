@@ -1,46 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-import ProgressBar from "./progressbar";
+import ProgressBar from "./progressbar"
 
 interface GoalProps {
-  className?: string;
-  value: number | (() => Promise<number>);
-  total: number;
-  label: string;
+  className?: string
+  value: number | (() => Promise<number>)
+  total: number
+  label: string
 }
 
 const Goal = ({ className, value, total, label }: GoalProps) => {
   const [_value, setValue] = useState<number | undefined>(
     typeof value === "number" ? value : undefined
-  );
+  )
 
   const getValue = async (): Promise<number | undefined> => {
     if (typeof value !== "number") {
       try {
-        const newValue = await value();
-        return newValue;
+        const newValue = await value()
+        return newValue
       } catch (e) {
-        return _value;
+        return _value
       }
     } else {
-      return value;
+      return value
     }
-  };
+  }
 
   const updateValue = async () => {
-    const newValue = await getValue();
-    setValue(newValue);
-  };
+    const newValue = await getValue()
+    setValue(newValue)
+  }
 
   useEffect(() => {
-    const interval = window.setInterval(updateValue, 1000 * 60);
+    const interval = window.setInterval(updateValue, 1000 * 60)
 
     return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+      window.clearInterval(interval)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  if (!_value) return null;
+  if (!_value) return null
 
   return (
     <div className={`${className} goal-root`}>
@@ -53,7 +54,7 @@ const Goal = ({ className, value, total, label }: GoalProps) => {
       />
       <p className="bold medium-text">{label}</p>
     </div>
-  );
-};
+  )
+}
 
-export default Goal;
+export default Goal

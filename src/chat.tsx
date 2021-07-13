@@ -1,50 +1,49 @@
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
-import { Messages, ChatEvents, Commands, PrivateMessage } from "twitch-js";
+import { useState, useEffect, useLayoutEffect, useRef } from "react"
+import { Messages, ChatEvents, Commands, PrivateMessage } from "twitch-js"
 
-import { chat } from "./lib/twitch";
+import { chat } from "./lib/twitch"
 
 interface ChatProps {
-  className?: string;
+  className?: string
 }
 
 const Chat = ({ className }: ChatProps) => {
-  const [messages, setMessages] = useState<Messages[]>([]);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const [messages, setMessages] = useState<Messages[]>([])
+  const chatContainerRef = useRef<HTMLDivElement>(null)
 
   const updateScroll = () => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop =
-        chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
     }
-  };
+  }
 
   useEffect(() => {
-    let onChatEvent: undefined | ((message: Messages) => void);
+    let onChatEvent: undefined | ((message: Messages) => void)
 
     onChatEvent = (message: Messages) => {
       // console.log("New Message:", message);
       if (message.command === Commands.PRIVATE_MESSAGE) {
-        setMessages([...messages, message]);
+        setMessages([...messages, message])
       }
-    };
+    }
 
-    chat.on(ChatEvents.ALL, onChatEvent);
+    chat.on(ChatEvents.ALL, onChatEvent)
 
     const func = async () => {
-      await chat.connect();
-      await chat.join("isaiahbydayah");
-    };
-    func();
+      await chat.connect()
+      await chat.join("isaiahbydayah")
+    }
+    func()
 
     return () => {
-      chat.off(ChatEvents.ALL, onChatEvent);
-    };
+      chat.off(ChatEvents.ALL, onChatEvent)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [messages]);
+  }, [messages])
 
   useLayoutEffect(() => {
-    updateScroll();
-  });
+    updateScroll()
+  })
 
   return (
     <div
@@ -65,11 +64,11 @@ const Chat = ({ className }: ChatProps) => {
         <ChatMessage key={index} message={message as PrivateMessage} />
       ))}
     </div>
-  );
-};
+  )
+}
 
 interface ChatMessageProps {
-  message: PrivateMessage;
+  message: PrivateMessage
 }
 
 const ChatMessage = ({ message }: ChatMessageProps) => {
@@ -78,7 +77,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
       <p style={{ color: message.tags.color }}>{message.username}</p>{" "}
       <p style={{ marginLeft: 8 }}>{message.message}</p>
     </div>
-  );
-};
+  )
+}
 
-export default Chat;
+export default Chat

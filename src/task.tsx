@@ -1,7 +1,7 @@
 interface TaskProps {
-  className?: string;
-  label: string;
-  description?: string;
+  className?: string
+  label: string
+  description?: string
 }
 
 const Task = ({ className, label, description }: TaskProps) => (
@@ -11,6 +11,6 @@ const Task = ({ className, label, description }: TaskProps) => (
       <p className="medium-text task-description">{description}</p>
     )}
   </div>
-);
+)
 
-export default Task;
+export default Task

@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
+    "firebase:login": "firebase login",
+    "firebase:init": "firebase init",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "firebase-login": "firebase login",
-    "firebase-init": "firebase init",
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
+    "format": "prettier --write './src/**/*.{js,jsx,ts,tsx}'",
+    "shell": "firebase functions:shell",
     "emulate": "firebase emulators:start --inspect-functions",
     "emulate:import": "firebase emulators:start --import=db --inspect-functions",
     "e:i": "npm run emulate:import",
@@ -48,8 +52,15 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "prettier"
+    ],
+    "rules": {
+      "semi": [
+        0,
+        "never"
+      ]
+    }
   },
   "browserslist": {
     "production": [
