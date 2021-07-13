@@ -9,7 +9,20 @@
     "eject": "react-scripts eject",
     "firebase-login": "firebase login",
     "firebase-init": "firebase init",
-    "deploy": "firebase deploy"
+    "emulate": "firebase emulators:start --inspect-functions",
+    "emulate:import": "firebase emulators:start --import=db --inspect-functions",
+    "e:i": "npm run emulate:import",
+    "export": "firebase emulators:export db",
+    "deploy": "firebase deploy",
+    "deploy:only": "firebase deploy --only",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:rules": "firebase deploy --only database,storage,firestore",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "indexes:fetch": "firebase firestore:indexes > firestore.indexes.json",
+    "config:get": "firebase functions:config:get",
+    "config:set": "firebase functions:config:set",
+    "config:unset": "firebase functions:config:unset",
+    "config:fetch": "firebase functions:config:get > .runtimeconfig.json"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
