@@ -1,7 +1,16 @@
 {
-  "name": "hosted-layout-test",
+  "name": "hosted-overlay",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "firebase-login": "firebase login",
+    "firebase-init": "firebase init",
+    "deploy": "firebase deploy"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -10,6 +19,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "firebase": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -17,11 +27,10 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "firebase-tools": "^9.16.0",
+    "prettier": "^2.3.2"
   },
   "eslintConfig": {
     "extends": [
