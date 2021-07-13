@@ -1,7 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef } from "react"
 import { Messages, ChatEvents, Commands, PrivateMessage } from "twitch-js"
 
-import { chat } from "./lib/twitch"
+import { chat } from "lib/twitch"
 
 interface ChatProps {
   className?: string

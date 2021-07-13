@@ -5,6 +5,7 @@
   "scripts": {
     "firebase:login": "firebase login",
     "firebase:init": "firebase init",
+    "dev": "yarn start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -29,6 +30,22 @@
     "config:fetch": "firebase functions:config:get > .runtimeconfig.json"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.1",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "clsx": "^1.1.1",
+    "firebase": "^8.7.1",
+    "number-abbreviate": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "twitch-js": "^2.0.0-beta.42",
+    "typeface-nunito": "^1.1.13",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -36,18 +53,12 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "firebase": "^8.7.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "twitch-js": "^2.0.0-beta.42",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
-  },
-  "devDependencies": {
+    "@types/react-router-dom": "^5.1.8",
+    "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "firebase-tools": "^9.16.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "typescript": "^4.1.2"
   },
   "eslintConfig": {
     "extends": [
