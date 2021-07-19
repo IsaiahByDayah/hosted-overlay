@@ -16,3 +16,10 @@ Basic.args = {
   total: 100,
   label: "Label",
 }
+Basic.argTypes = {
+  value: {
+    control: {
+      type: "number",
+    },
+  },
+}

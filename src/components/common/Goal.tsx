@@ -33,15 +33,20 @@ const Goal = ({ className, value, total, label }: GoalProps) => {
   }
 
   useEffect(() => {
+    updateValue()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value])
+
+  useEffect(() => {
     const interval = window.setInterval(updateValue, 1000 * 60)
 
     return () => {
       window.clearInterval(interval)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [value])
 
-  if (!_value) return null
+  if (_value === null || _value === undefined) return null
 
   return (
     <div className={`${className} goal-root`}>
