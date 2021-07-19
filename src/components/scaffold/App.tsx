@@ -1,5 +1,3 @@
-import "./App.css"
-
 import { getFollowerCount, getSubscriberCount } from "lib/twitch"
 
 import Root from "components/scaffold/Root"
