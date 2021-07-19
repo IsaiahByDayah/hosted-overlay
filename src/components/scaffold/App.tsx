@@ -10,7 +10,7 @@ import TikTok from "components/svgs/TikTok"
 import YouTube from "components/svgs/YouTube"
 
 import Goal from "components/common/Goal"
-import Task from "components/Task"
+import Task from "components/common/Task"
 import Chat from "components/Chat"
 
 const App = () => {

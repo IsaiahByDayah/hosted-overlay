@@ -1,4 +1,4 @@
-interface TaskProps {
+export interface TaskProps {
   className?: string
   label: string
   description?: string
