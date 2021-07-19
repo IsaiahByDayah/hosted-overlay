@@ -15,4 +15,15 @@ export default {
 export const Basic: Story<ChatMessageProps> = (args) => (
   <ChatMessage {...args} />
 )
-Basic.args = {}
+Basic.args = {
+  username: "Jordan_Schuppe",
+  message: "Aliquip et ad sunt nostrud sint enim exercitation tempor fugiat.",
+  color: "#ee8a14",
+}
+Basic.argTypes = {
+  color: {
+    control: {
+      type: "color",
+    },
+  },
+}

@@ -1,4 +1,19 @@
-import {} from "twitch-js"
+import { makeStyles, Theme, Typography } from "@material-ui/core"
+
+interface StyleProps {
+  color?: string
+}
+
+const useStyles = makeStyles<Theme, StyleProps>(({ spacing }) => ({
+  root: {},
+  username: ({ color }) => ({
+    fontWeight: 700,
+    color,
+  }),
+  message: {
+    marginLeft: spacing(),
+  },
+}))
 
 export interface ChatMessageProps {
   username: string
@@ -7,10 +22,12 @@ export interface ChatMessageProps {
 }
 
 const ChatMessage = ({ username, message, color }: ChatMessageProps) => {
+  const classes = useStyles({ color })
+
   return (
     <div style={{ display: "flex", marginBottom: 16 }}>
-      <p style={{ color: color }}>{username}</p>{" "}
-      <p style={{ marginLeft: 8 }}>{message}</p>
+      <Typography className={classes.username}>{username}: </Typography>{" "}
+      <Typography className={classes.message}>{message}</Typography>
     </div>
   )
 }
