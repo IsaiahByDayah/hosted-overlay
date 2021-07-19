@@ -9,9 +9,10 @@ import Twitch from "components/svgs/Twitch"
 import TikTok from "components/svgs/TikTok"
 import YouTube from "components/svgs/YouTube"
 
+import Chat from "components/twitch-chat/Chat"
+
 import Goal from "components/common/Goal"
-import Task from "components/Task"
-import Chat from "components/Chat"
+import Task from "components/common/Task"
 
 const App = () => {
   return (
