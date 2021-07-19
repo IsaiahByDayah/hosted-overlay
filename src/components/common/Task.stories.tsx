@@ -14,4 +14,5 @@ export const Basic: Story<TaskProps> = (args) => <Task {...args} />
 Basic.args = {
   label: "Label",
   description: "labore dolorem minus",
+  completed: false,
 }
