@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Twitch Chat/Chat Message Basic 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "marginBottom": 16,
+    }
+  }
+>
+  <p
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  />
+   
+  <p
+    style={
+      Object {
+        "marginLeft": 8,
+      }
+    }
+  />
+</div>
+`;

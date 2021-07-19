@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common/Task Basic 1`] = `
+<div
+  className="undefined task-root rounded"
+>
+  <p
+    className="bold medium-text"
+  >
+    Label
+  </p>
+  <p
+    className="medium-text task-description"
+  >
+    labore dolorem minus
+  </p>
+</div>
+`;

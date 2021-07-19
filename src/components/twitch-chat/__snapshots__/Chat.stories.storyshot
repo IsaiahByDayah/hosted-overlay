@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Twitch Chat/Chat Basic 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "flexGrow": 1,
+      "msOverflowStyle": "none",
+      "overflow": "hidden",
+      "padding": 16,
+      "scrollbarGutter": "unset",
+      "scrollbarWidth": "none",
+    }
+  }
+/>
+`;
