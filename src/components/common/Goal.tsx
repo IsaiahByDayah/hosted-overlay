@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
-import ProgressBar from "components/ProgressBar"
+import ProgressBar from "components/common/ProgressBar"
 
-interface GoalProps {
+export interface GoalProps {
   className?: string
   value: number | (() => Promise<number>)
   total: number
@@ -48,10 +48,7 @@ const Goal = ({ className, value, total, label }: GoalProps) => {
       <p className="bold small-text">
         {_value} / {total}
       </p>
-      <ProgressBar
-        className="goal-progress-bar"
-        percent={(_value / total) * 100}
-      />
+      <ProgressBar className="goal-progress-bar" percent={_value / total} />
       <p className="bold medium-text">{label}</p>
     </div>
   )
