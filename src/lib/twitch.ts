@@ -21,7 +21,7 @@ const onAuthenticationFailure = async (): Promise<string> => {
 const twitchJS = new TwitchJS({
   token: process.env.REACT_APP_ACCESS_TOKEN,
   clientId: process.env.REACT_APP_CLIENT_ID,
-  username: "isaiahbydayah",
+  username: process.env.REACT_APP_USERNAME,
   onAuthenticationFailure,
   log: { level: "warn" },
 })
@@ -30,12 +30,10 @@ export const chat = twitchJS.chat
 
 export const api = twitchJS.api
 
-export const USER_ID = 50155579
-
 export const getFollowerCount = async (): Promise<number> => {
   const res = await api.get("users/follows", {
     search: {
-      to_id: USER_ID,
+      to_id: process.env.REACT_APP_USER_ID,
     },
   })
   console.log("Response: ", res)
@@ -45,7 +43,7 @@ export const getFollowerCount = async (): Promise<number> => {
 export const getSubscriberCount = async (): Promise<number> => {
   const res = await api.get("subscriptions", {
     search: {
-      broadcaster_id: USER_ID,
+      broadcaster_id: process.env.REACT_APP_USER_ID,
     },
   })
   console.log("Response: ", res)
