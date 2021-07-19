@@ -1,13 +1,13 @@
 import { FC } from "react"
 import {
   ThemeProvider as MuiThemeProvider,
-  createMuiTheme,
   responsiveFontSizes,
 } from "@material-ui/core"
+import { createTheme } from "@material-ui/core/styles"
 
 const ThemeProvider: FC = ({ children }) => {
   const theme = responsiveFontSizes(
-    createMuiTheme({
+    createTheme({
       typography: {
         fontFamily: ["Nunito", "sans-serif"].join(","),
       },

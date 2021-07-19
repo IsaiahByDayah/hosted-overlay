@@ -9,7 +9,7 @@ import Twitch from "components/svgs/Twitch"
 import TikTok from "components/svgs/TikTok"
 import YouTube from "components/svgs/YouTube"
 
-import Goal from "components/Goal"
+import Goal from "components/common/Goal"
 import Task from "components/Task"
 import Chat from "components/Chat"
 

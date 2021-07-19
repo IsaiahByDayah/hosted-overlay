@@ -1,9 +1,9 @@
 import { Meta, Story } from "@storybook/react"
 
-import ProgressBar, { ProgressBarProps } from "components/ProgressBar"
+import ProgressBar, { ProgressBarProps } from "components/common/ProgressBar"
 
 export default {
-  title: "Components/ProgressBar",
+  title: "Common/ProgressBar",
   component: ProgressBar,
   parameters: {
     layout: "centered",
