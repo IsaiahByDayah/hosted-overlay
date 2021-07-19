@@ -3,7 +3,9 @@ import { Messages, ChatEvents, Commands, PrivateMessage } from "twitch-js"
 
 import { chat } from "lib/twitch"
 
-interface ChatProps {
+import ChatMessage from "components/twitch-chat/ChatMessage"
+
+export interface ChatProps {
   className?: string
 }
 
@@ -60,22 +62,17 @@ const Chat = ({ className }: ChatProps) => {
         scrollbarGutter: "unset",
       }}
     >
-      {messages.map((message, index) => (
-        <ChatMessage key={index} message={message as PrivateMessage} />
-      ))}
-    </div>
-  )
-}
-
-interface ChatMessageProps {
-  message: PrivateMessage
-}
-
-const ChatMessage = ({ message }: ChatMessageProps) => {
-  return (
-    <div style={{ display: "flex", marginBottom: 16 }}>
-      <p style={{ color: message.tags.color }}>{message.username}</p>{" "}
-      <p style={{ marginLeft: 8 }}>{message.message}</p>
+      {messages.map((message, index) => {
+        message = message as PrivateMessage
+        return (
+          <ChatMessage
+            key={index}
+            username={message.username}
+            message={message.message}
+            color={message.tags.color}
+          />
+        )
+      })}
     </div>
   )
 }
