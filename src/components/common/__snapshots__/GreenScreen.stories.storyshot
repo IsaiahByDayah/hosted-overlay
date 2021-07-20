@@ -2,6 +2,6 @@
 
 exports[`Storyshots Common/GreenScreen Basic 1`] = `
 <div
-  className="commongreenscreen-basic-makestyles-root-1"
+  className="commongreenscreen-basic-makestyles-root-1 commongreenscreen-basic-makestyles-root-2"
 />
 `;

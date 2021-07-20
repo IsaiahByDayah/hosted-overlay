@@ -1,9 +1,6 @@
 import { Meta, Story } from "@storybook/react"
-import faker from "faker"
 
-import { Message } from "lib/types"
-
-import useChat from "hooks/useChat"
+import useChat, { useFakeChat } from "hooks/useChat"
 
 import Chat, { ChatProps } from "components/twitch-chat/Chat"
 
@@ -19,24 +16,7 @@ export const Basic: Story<ChatProps & { numMessages: number }> = ({
   numMessages,
   ...args
 }) => {
-  faker.seed(123)
-
-  const useData = () => {
-    const fakeData = Array(numMessages)
-      .fill(null)
-      .map((_, index) => {
-        console.log("Fake: ", index)
-        return {
-          id: `${index}`,
-          username: faker.internet.userName(),
-          message: faker.lorem.sentences(Math.ceil(Math.random() * 2)),
-          color: faker.commerce.color(),
-          sent: index % 4 === 0,
-        } as Message
-      })
-    console.log("Fake Data: ", fakeData)
-    return fakeData
-  }
+  const useData = () => useFakeChat({ count: numMessages, seed: 123 })
 
   return <Chat {...args} useData={useData} />
 }

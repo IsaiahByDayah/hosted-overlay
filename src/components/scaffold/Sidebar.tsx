@@ -40,7 +40,7 @@ const Sidebar = ({ className }: SidebarProps) => {
   // const useData = () =>
   //   useChat({ channel: process.env.REACT_APP_USERNAME ?? "" })
 
-  const useData = () => useFakeChat(10)
+  const useData = () => useFakeChat({ seed: 123 })
 
   return (
     <div className={cx(classes.root, className)}>

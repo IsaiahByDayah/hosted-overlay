@@ -2,15 +2,15 @@
 
 exports[`Storyshots Common/Task Basic 1`] = `
 <div
-  className="undefined task-root rounded"
+  className="commontask-basic-makestyles-root-1"
 >
   <p
-    className="bold medium-text"
+    className="commontask-basic-muitypography-root-1 commontask-basic-makestyles-label-1 commontask-basic-muitypography-body1-1"
   >
     Label
   </p>
   <p
-    className="medium-text task-description"
+    className="commontask-basic-muitypography-root-1 commontask-basic-makestyles-description-1 commontask-basic-muitypography-body2-1"
   >
     labore dolorem minus
   </p>

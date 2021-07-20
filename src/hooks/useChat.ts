@@ -57,18 +57,30 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
 
   return messages
 }
-export const useFakeChat = (count: number, sentMessageEvery = 4) =>
-  Array(count)
+
+interface UseFakeChatProps {
+  count?: number
+  seed?: number
+  sentMessageEvery?: number
+}
+export const useFakeChat = ({
+  count = 10,
+  sentMessageEvery = 4,
+  seed,
+}: UseFakeChatProps): Message[] => {
+  if (seed) faker.seed(seed)
+
+  return Array(count)
     .fill(null)
     .map((_, index) => {
-      console.log("Fake: ", index)
       return {
         id: `${index}`,
         username: faker.internet.userName(),
-        message: faker.lorem.sentences(Math.ceil(Math.random() * 2)),
+        message: faker.lorem.sentences(),
         color: faker.commerce.color(),
         sent: index % sentMessageEvery === 0,
-      } as Message
+      }
     })
+}
 
 export default useChat

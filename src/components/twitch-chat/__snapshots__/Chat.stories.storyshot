@@ -2,23 +2,20 @@
 
 exports[`Storyshots Twitch Chat/Chat Basic 1`] = `
 <div
-  style={
-    Object {
-      "display": "flex",
-      "flexDirection": "column",
-      "flexGrow": 1,
-      "msOverflowStyle": "none",
-      "overflow": "hidden",
-      "padding": 16,
-      "scrollbarGutter": "unset",
-      "scrollbarWidth": "none",
-    }
-  }
-/>
+  className="twitch-chatchat-basic-makestyles-root-1"
+>
+  <div
+    className="twitch-chatchat-basic-makestyles-fade-1"
+  />
+</div>
 `;
 
 exports[`Storyshots Twitch Chat/Chat Live Chat 1`] = `
 <div
   className="twitch-chatchat-live-chat-makestyles-root-1"
-/>
+>
+  <div
+    className="twitch-chatchat-live-chat-makestyles-fade-1"
+  />
+</div>
 `;

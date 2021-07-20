@@ -1,7 +1,195 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Scaffold/Sidebar Basic 1`] = `
-<div>
-  Sidebar
+<div
+  style={
+    Object {
+      "height": "100vh",
+      "width": "100vw",
+    }
+  }
+>
+  <div
+    className="scaffoldsidebar-basic-makestyles-root-1"
+  >
+    <div
+      className="scaffoldsidebar-basic-makestyles-currenttopic-1"
+    >
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-muitypography-body1-1 scaffoldsidebar-basic-muitypography-aligncenter-1"
+      >
+        Current Topic
+      </p>
+      <div
+        className="scaffoldsidebar-basic-muipaper-root-1 scaffoldsidebar-basic-muipaper-elevation1-1 scaffoldsidebar-basic-muipaper-rounded-1"
+        style={
+          Object {
+            "height": 64,
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="scaffoldsidebar-basic-makestyles-root-2 scaffoldsidebar-basic-makestyles-chat-1"
+    >
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-makestyles-sent-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-2"
+        >
+          Maurine42
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Omnis quisquam quisquam quos nihil dolor voluptatibus velit. Culpa deleniti eos reprehenderit in nisi et qui. Odio et inventore eligendi in.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-3"
+        >
+          Myrna44
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Provident quo provident. Harum ullam pariatur quos est quod.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-4"
+        >
+          Florencio.Reichert
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Autem tempora ut exercitationem doloribus. Voluptas sunt omnis et accusantium et quia quos. Molestiae beatae enim necessitatibus. Placeat saepe eligendi rerum excepturi et. Fuga similique fugit corporis voluptatem dolores.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-5"
+        >
+          Marjorie.Streich10
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Maiores incidunt occaecati iusto laborum facere. Deleniti dolorem quibusdam. Veniam perspiciatis et nisi aut corporis laboriosam. Est soluta accusamus officiis ut excepturi.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-makestyles-sent-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-6"
+        >
+          Marcelle_Gleichner
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Tempore non voluptas quia vitae. Voluptas necessitatibus et dolor adipisci. Sunt non explicabo occaecati rerum nesciunt. Sint est asperiores sit voluptatum mollitia enim iste. Nesciunt minima sequi voluptas optio aut voluptatem.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-7"
+        >
+          Mathew.Vandervort
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Molestiae at voluptas quo ex. Ipsa incidunt corporis vel in unde. Iste asperiores consequatur ex quidem omnis inventore deserunt.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-8"
+        >
+          Mateo29
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Labore consequatur nisi officiis excepturi doloremque nam omnis odit. Magni rerum quia praesentium. Adipisci nulla exercitationem omnis illum at natus eum.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-9"
+        >
+          Emile_Schowalter
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Eum inventore laboriosam deleniti omnis occaecati. Culpa occaecati nemo alias et doloribus expedita.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-makestyles-sent-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-10"
+        >
+          Fay.Durgan
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Veniam ut exercitationem voluptatibus error quaerat porro. Sint aut aliquid qui harum minus officiis. Dolorem animi maiores et. Voluptatibus dolorem beatae et molestiae.
+        </span>
+      </p>
+      <p
+        className="scaffoldsidebar-basic-muitypography-root-1 scaffoldsidebar-basic-makestyles-root-3 scaffoldsidebar-basic-makestyles-message-1 scaffoldsidebar-basic-muitypography-body1-1"
+      >
+        <span
+          className="scaffoldsidebar-basic-makestyles-username-1 scaffoldsidebar-basic-makestyles-username-11"
+        >
+          Conor_Torphy
+          : 
+        </span>
+        <span
+          className="scaffoldsidebar-basic-makestyles-message-2"
+        >
+          Explicabo accusantium exercitationem illum. Et similique illo blanditiis et facere rem quod molestias ab. Impedit aliquam quo vel dolorem consequatur. Consequatur quis nobis nemo asperiores nam ea aut consectetur.
+        </span>
+      </p>
+      <div
+        className="scaffoldsidebar-basic-makestyles-fade-1"
+      />
+    </div>
+    <div
+      className="scaffoldsidebar-basic-makestyles-root-4 scaffoldsidebar-basic-makestyles-root-5 scaffoldsidebar-basic-makestyles-webcam-1"
+    />
+  </div>
 </div>
 `;
