@@ -1,34 +1,44 @@
 import { makeStyles, Theme, Typography } from "@material-ui/core"
+import cx from "clsx"
+
+import { Message } from "lib/types"
 
 interface StyleProps {
   color?: string
 }
 
-const useStyles = makeStyles<Theme, StyleProps>(({ spacing }) => ({
-  root: {},
-  username: ({ color }) => ({
-    fontWeight: 700,
-    color,
-  }),
-  message: {
-    marginLeft: spacing(),
-  },
-}))
+const useStyles = makeStyles<Theme, StyleProps>(
+  ({ spacing, palette, shape, shadows }) => ({
+    root: {
+      padding: spacing(),
+      display: "inline-block",
+      background: palette.background.paper,
+      borderRadius: shape.borderRadius,
+      boxShadow: shadows[2],
+    },
+    username: ({ color }) => ({
+      fontWeight: 700,
+      color,
+    }),
+    message: {
+      marginLeft: spacing(),
+    },
+  })
+)
 
 export interface ChatMessageProps {
-  username: string
-  message: string
-  color?: string
+  className?: string
+  message: Message
 }
 
-const ChatMessage = ({ username, message, color }: ChatMessageProps) => {
-  const classes = useStyles({ color })
+const ChatMessage = ({ className, message }: ChatMessageProps) => {
+  const classes = useStyles({ color: message.color })
 
   return (
-    <div style={{ display: "flex", marginBottom: 16 }}>
-      <Typography className={classes.username}>{username}: </Typography>{" "}
-      <Typography className={classes.message}>{message}</Typography>
-    </div>
+    <Typography className={cx(classes.root, className)}>
+      <span className={classes.username}>{message.username}: </span>
+      <span className={classes.message}>{message.message}</span>
+    </Typography>
   )
 }
 

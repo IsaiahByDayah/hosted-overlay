@@ -1,75 +1,68 @@
-import { useState, useEffect, useLayoutEffect, useRef } from "react"
-import { Messages, ChatEvents, Commands, PrivateMessage } from "twitch-js"
+import { useLayoutEffect, useRef } from "react"
+import { makeStyles } from "@material-ui/core"
+import cx from "clsx"
 
-import { chat } from "lib/twitch"
+import { Message } from "lib/types"
 
 import ChatMessage from "components/twitch-chat/ChatMessage"
 
+const useStyles = makeStyles(({ spacing }) => ({
+  root: {
+    flexGrow: 1,
+    padding: spacing(2),
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+    scrollbarGutter: "unset",
+    alignItems: "flex-start",
+  },
+
+  message: {
+    width: "80%",
+
+    margin: spacing(1, 0),
+    "&:first-child": {
+      marginTop: 0,
+    },
+
+    "&:last-child": {
+      marginBottom: 0,
+    },
+  },
+
+  sent: {
+    alignSelf: "flex-end",
+  },
+}))
+
 export interface ChatProps {
   className?: string
+  useData: () => Message[]
 }
 
-const Chat = ({ className }: ChatProps) => {
-  const [messages, setMessages] = useState<Messages[]>([])
+const Chat = ({ className, useData }: ChatProps) => {
+  const classes = useStyles()
   const chatContainerRef = useRef<HTMLDivElement>(null)
+  const messages = useData()
 
-  const updateScroll = () => {
+  useLayoutEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
     }
-  }
-
-  useEffect(() => {
-    let onChatEvent: undefined | ((message: Messages) => void)
-
-    onChatEvent = (message: Messages) => {
-      // console.log("New Message:", message);
-      if (message.command === Commands.PRIVATE_MESSAGE) {
-        setMessages([...messages, message])
-      }
-    }
-
-    chat.on(ChatEvents.ALL, onChatEvent)
-
-    const func = async () => {
-      await chat.connect()
-      await chat.join("isaiahbydayah")
-    }
-    func()
-
-    return () => {
-      chat.off(ChatEvents.ALL, onChatEvent)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [messages])
-
-  useLayoutEffect(() => {
-    updateScroll()
   })
 
   return (
-    <div
-      className={className}
-      ref={chatContainerRef}
-      style={{
-        flexGrow: 1,
-        padding: 16,
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        scrollbarWidth: "none",
-        msOverflowStyle: "none",
-        scrollbarGutter: "unset",
-      }}
-    >
+    <div className={cx(classes.root, className)} ref={chatContainerRef}>
       {messages.map((message, index) => {
-        message = message as PrivateMessage
         return (
           <ChatMessage
             key={index}
-            username={message.username}
-            message={message.message}
-            color={message.tags.color}
+            className={cx(classes.message, {
+              [classes.sent]: message.sent,
+            })}
+            message={message}
           />
         )
       })}

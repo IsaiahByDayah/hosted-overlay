@@ -16,3 +16,9 @@ exports[`Storyshots Twitch Chat/Chat Basic 1`] = `
   }
 />
 `;
+
+exports[`Storyshots Twitch Chat/Chat Live Chat 1`] = `
+<div
+  className="twitch-chatchat-live-chat-makestyles-root-1"
+/>
+`;

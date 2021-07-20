@@ -12,8 +12,22 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ChatMessageProps> = (args) => (
-  <ChatMessage {...args} />
+export const Basic: Story<
+  Omit<ChatMessageProps, "message"> & {
+    username: string
+    message: string
+    color: string
+  }
+> = ({ username, message, color, ...args }) => (
+  <ChatMessage
+    {...args}
+    message={{
+      id: "123",
+      username,
+      message,
+      color,
+    }}
+  />
 )
 Basic.args = {
   username: "Jordan_Schuppe",
@@ -21,6 +35,11 @@ Basic.args = {
   color: "#ee8a14",
 }
 Basic.argTypes = {
+  message: {
+    control: {
+      type: "text",
+    },
+  },
   color: {
     control: {
       type: "color",
