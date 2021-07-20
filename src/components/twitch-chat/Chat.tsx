@@ -1,15 +1,15 @@
 import { useLayoutEffect, useRef } from "react"
 import { makeStyles } from "@material-ui/core"
+import { alpha } from "@material-ui/core/styles"
 import cx from "clsx"
 
 import { Message } from "lib/types"
 
 import ChatMessage from "components/twitch-chat/ChatMessage"
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ spacing, palette }) => ({
   root: {
     flexGrow: 1,
-    padding: spacing(2),
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
@@ -17,6 +17,20 @@ const useStyles = makeStyles(({ spacing }) => ({
     msOverflowStyle: "none",
     scrollbarGutter: "unset",
     alignItems: "flex-start",
+    justifyContent: "flex-end",
+    position: "relative",
+  },
+
+  fade: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    background: `linear-gradient(0deg, transparent 84%, ${alpha(
+      palette.background.default,
+      1
+    )} 100%)`,
   },
 
   message: {
@@ -66,6 +80,7 @@ const Chat = ({ className, useData }: ChatProps) => {
           />
         )
       })}
+      <div className={classes.fade} />
     </div>
   )
 }

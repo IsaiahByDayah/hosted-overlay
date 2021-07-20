@@ -1,23 +1,44 @@
 import { useState, useEffect } from "react"
-import { Messages, ChatEvents, Commands } from "twitch-js"
+import { Messages, ChatEvents, Commands, PrivateMessage } from "twitch-js"
+import faker from "faker"
 
 import { chat } from "lib/twitch"
+import { Message } from "lib/types"
+
+const toMessage = (
+  twitchMessage: Messages,
+  channel: string
+): Message | undefined => {
+  switch (twitchMessage.command) {
+    case Commands.PRIVATE_MESSAGE:
+      twitchMessage = twitchMessage as PrivateMessage
+      return {
+        id: `${twitchMessage.username}-${twitchMessage.timestamp.toString()}`,
+        username: twitchMessage.tags.displayName,
+        message: twitchMessage.message,
+        color: twitchMessage.tags.color,
+        sent: twitchMessage.username === channel,
+      } as Message
+  }
+}
 
 interface UseChatProps {
   channel: string
 }
 
-const useChat = ({ channel }: UseChatProps): Messages[] => {
-  const [messages, setMessages] = useState<Messages[]>([])
+const useChat = ({ channel }: UseChatProps): Message[] => {
+  const [messages, setMessages] = useState<Message[]>([])
 
   useEffect(() => {
     let onChatEvent: undefined | ((message: Messages) => void)
 
     onChatEvent = (message: Messages) => {
       // console.log("New Message:", message);
-      if (message.command === Commands.PRIVATE_MESSAGE) {
-        setMessages([...messages, message])
-      }
+      // if (message.command === Commands.PRIVATE_MESSAGE) {
+      //   setMessages([...messages, message])
+      // }
+      const newMessage = toMessage(message, channel)
+      if (newMessage) setMessages([...messages, newMessage])
     }
 
     chat.on(ChatEvents.ALL, onChatEvent)
@@ -36,5 +57,18 @@ const useChat = ({ channel }: UseChatProps): Messages[] => {
 
   return messages
 }
+export const useFakeChat = (count: number, sentMessageEvery = 4) =>
+  Array(count)
+    .fill(null)
+    .map((_, index) => {
+      console.log("Fake: ", index)
+      return {
+        id: `${index}`,
+        username: faker.internet.userName(),
+        message: faker.lorem.sentences(Math.ceil(Math.random() * 2)),
+        color: faker.commerce.color(),
+        sent: index % sentMessageEvery === 0,
+      } as Message
+    })
 
 export default useChat
