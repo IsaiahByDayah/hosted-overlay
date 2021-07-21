@@ -1,3 +1,4 @@
+import { createElement } from "react"
 import { Meta, Story } from "@storybook/react"
 
 import useChat, { useFakeChat } from "hooks/useChat"
@@ -12,12 +13,16 @@ export default {
   },
 } as Meta
 
-type BasicStoryArgs = ChatProps & { numMessages: number }
-export const Basic: Story<BasicStoryArgs> = (args) => <BasicWrapper {...args} />
-const BasicWrapper = ({ numMessages, ...args }: BasicStoryArgs) => {
-  const useData = () => useFakeChat({ count: numMessages, seed: 123 })
-  return <Chat {...args} useData={useData} />
-}
+// NOTE: using createElement to hack around using hooks in storybook stories
+// REF: https://github.com/storybookjs/storybook/issues/5721#issuecomment-472769646
+export const Basic: Story<ChatProps & { numMessages: number }> = ({
+  numMessages,
+  ...args
+}) =>
+  createElement(() => {
+    const useData = () => useFakeChat({ count: numMessages, seed: 123 })
+    return <Chat {...args} useData={useData} />
+  })
 Basic.args = {
   numMessages: 3,
 }
