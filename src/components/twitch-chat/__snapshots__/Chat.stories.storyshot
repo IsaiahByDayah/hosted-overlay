@@ -4,18 +4,53 @@ exports[`Storyshots Twitch Chat/Chat Basic 1`] = `
 <div
   className="twitch-chatchat-basic-makestyles-root-1"
 >
+  <p
+    className="twitch-chatchat-basic-muitypography-root-1 twitch-chatchat-basic-makestyles-root-2 twitch-chatchat-basic-makestyles-message-1 twitch-chatchat-basic-makestyles-sent-1 twitch-chatchat-basic-muitypography-body1-1"
+  >
+    <span
+      className="twitch-chatchat-basic-makestyles-username-1 twitch-chatchat-basic-makestyles-username-2"
+    >
+      Maurine42
+      : 
+    </span>
+    <span
+      className="twitch-chatchat-basic-makestyles-message-2"
+    >
+      Omnis quisquam quisquam quos nihil dolor voluptatibus velit. Culpa deleniti eos reprehenderit in nisi et qui. Odio et inventore eligendi in.
+    </span>
+  </p>
+  <p
+    className="twitch-chatchat-basic-muitypography-root-1 twitch-chatchat-basic-makestyles-root-2 twitch-chatchat-basic-makestyles-message-1 twitch-chatchat-basic-muitypography-body1-1"
+  >
+    <span
+      className="twitch-chatchat-basic-makestyles-username-1 twitch-chatchat-basic-makestyles-username-3"
+    >
+      Myrna44
+      : 
+    </span>
+    <span
+      className="twitch-chatchat-basic-makestyles-message-2"
+    >
+      Provident quo provident. Harum ullam pariatur quos est quod.
+    </span>
+  </p>
+  <p
+    className="twitch-chatchat-basic-muitypography-root-1 twitch-chatchat-basic-makestyles-root-2 twitch-chatchat-basic-makestyles-message-1 twitch-chatchat-basic-muitypography-body1-1"
+  >
+    <span
+      className="twitch-chatchat-basic-makestyles-username-1 twitch-chatchat-basic-makestyles-username-4"
+    >
+      Florencio.Reichert
+      : 
+    </span>
+    <span
+      className="twitch-chatchat-basic-makestyles-message-2"
+    >
+      Autem tempora ut exercitationem doloribus. Voluptas sunt omnis et accusantium et quia quos. Molestiae beatae enim necessitatibus. Placeat saepe eligendi rerum excepturi et. Fuga similique fugit corporis voluptatem dolores.
+    </span>
+  </p>
   <div
     className="twitch-chatchat-basic-makestyles-fade-1"
-  />
-</div>
-`;
-
-exports[`Storyshots Twitch Chat/Chat Live Chat 1`] = `
-<div
-  className="twitch-chatchat-live-chat-makestyles-root-1"
->
-  <div
-    className="twitch-chatchat-live-chat-makestyles-fade-1"
   />
 </div>
 `;

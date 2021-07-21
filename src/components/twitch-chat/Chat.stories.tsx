@@ -21,7 +21,7 @@ export const Basic: Story<ChatProps & { numMessages: number }> = ({
   return <Chat {...args} useData={useData} />
 }
 Basic.args = {
-  numMessages: 0,
+  numMessages: 3,
 }
 Basic.argTypes = {
   numMessages: {
@@ -35,4 +35,7 @@ export const LiveChat: Story<ChatProps> = (args) => {
   const useData = () => useChat({ channel: "isaiahbydayah" })
 
   return <Chat {...args} useData={useData} />
+}
+LiveChat.parameters = {
+  storyshots: { disable: true },
 }
