@@ -12,12 +12,10 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<ChatProps & { numMessages: number }> = ({
-  numMessages,
-  ...args
-}) => {
+type BasicStoryArgs = ChatProps & { numMessages: number }
+export const Basic: Story<BasicStoryArgs> = (args) => <BasicWrapper {...args} />
+const BasicWrapper = ({ numMessages, ...args }: BasicStoryArgs) => {
   const useData = () => useFakeChat({ count: numMessages, seed: 123 })
-
   return <Chat {...args} useData={useData} />
 }
 Basic.args = {
@@ -32,9 +30,10 @@ Basic.argTypes = {
 }
 
 export const LiveChat: Story<ChatProps> = (args) => {
-  const useData = () => useChat({ channel: "isaiahbydayah" })
-
-  return <Chat {...args} useData={useData} />
+  return <Chat {...args} />
+}
+LiveChat.args = {
+  useData: () => useChat({ channel: "isaiahbydayah" }),
 }
 LiveChat.parameters = {
   storyshots: { disable: true },
