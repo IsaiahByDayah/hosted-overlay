@@ -15,3 +15,6 @@ export const Basic: Story<SidebarProps> = (args) => (
     <Sidebar {...args} />
   </div>
 )
+Basic.parameters = {
+  storyshots: { disable: true },
+}

@@ -30,17 +30,17 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }))
 
+// const useData = () =>
+//   useChat({ channel: process.env.REACT_APP_USERNAME ?? "" })
+
+const useData = () => useFakeChat({ seed: 123 })
+
 export interface SidebarProps {
   className?: string
 }
 
 const Sidebar = ({ className }: SidebarProps) => {
   const classes = useStyles()
-
-  // const useData = () =>
-  //   useChat({ channel: process.env.REACT_APP_USERNAME ?? "" })
-
-  const useData = () => useFakeChat({ seed: 123 })
 
   return (
     <div className={cx(classes.root, className)}>
