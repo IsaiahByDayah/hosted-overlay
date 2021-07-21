@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { ReactNode } from "react"
 import { StoryContext, Story } from "@storybook/react/types-6-0"
 import { StylesProvider } from "@material-ui/core"
 import { GenerateId } from "jss"
@@ -6,6 +6,7 @@ import { GenerateId } from "jss"
 import { slugify } from "lib/util"
 
 interface SnapshotStylesProviderProps extends StoryContext {
+  children?: ReactNode
   kind: string
   story: string
 }
@@ -31,10 +32,10 @@ const getGenerateClassName =
     return id
   }
 
-const SnapshotStylesProvider: FC<SnapshotStylesProviderProps> = ({
+const SnapshotStylesProvider = ({
   children,
   ...rest
-}) => {
+}: SnapshotStylesProviderProps) => {
   return (
     <StylesProvider generateClassName={getGenerateClassName(rest)}>
       {children}

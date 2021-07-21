@@ -12,13 +12,17 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<
-  Omit<ChatMessageProps, "message"> & {
-    username: string
-    message: string
-    color: string
-  }
-> = ({ username, message, color, ...args }) => (
+type BasicStoryArgs = Omit<ChatMessageProps, "message"> & {
+  username: string
+  message: string
+  color: string
+}
+export const Basic: Story<BasicStoryArgs> = ({
+  username,
+  message,
+  color,
+  ...args
+}: BasicStoryArgs) => (
   <ChatMessage
     {...args}
     message={{

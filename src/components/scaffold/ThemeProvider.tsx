@@ -1,11 +1,14 @@
-import { FC } from "react"
+import { ReactNode } from "react"
 import {
   ThemeProvider as MuiThemeProvider,
   responsiveFontSizes,
 } from "@material-ui/core"
 import { createTheme } from "@material-ui/core/styles"
 
-const ThemeProvider: FC = ({ children }) => {
+interface ThemeProviderProps {
+  children?: ReactNode
+}
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const theme = responsiveFontSizes(
     createTheme({
       typography: {

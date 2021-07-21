@@ -16,10 +16,11 @@ export default {
 
 // NOTE: using createElement to hack around using hooks in storybook stories
 // REF: https://github.com/storybookjs/storybook/issues/5721#issuecomment-472769646
-export const Basic: Story<ChatProps & { numMessages: number }> = ({
+type BasicStoryArgs = ChatProps & { numMessages: number }
+export const Basic: Story<BasicStoryArgs> = ({
   numMessages,
   ...args
-}) =>
+}: BasicStoryArgs) =>
   createElement(() => {
     const useData = () => useFakeChat({ count: numMessages, seed: 123 })
     return <Chat {...args} useData={useData} />

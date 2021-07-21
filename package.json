@@ -81,7 +81,8 @@
       "semi": [
         0,
         "never"
-      ]
+      ],
+      "react/prop-types": "warn"
     },
     "overrides": [
       {
