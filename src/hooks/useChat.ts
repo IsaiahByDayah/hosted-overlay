@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { Messages, ChatEvents, Commands, PrivateMessage } from "twitch-js"
-import faker from "faker"
 
 import { chat } from "lib/twitch"
 import { Message } from "lib/types"
@@ -56,31 +55,6 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
   }, [messages])
 
   return messages
-}
-
-interface UseFakeChatProps {
-  count?: number
-  seed?: number
-  sentMessageEvery?: number
-}
-export const useFakeChat = ({
-  count = 10,
-  sentMessageEvery = 4,
-  seed,
-}: UseFakeChatProps): Message[] => {
-  if (seed) faker.seed(seed)
-
-  return Array(count)
-    .fill(null)
-    .map((_, index) => {
-      return {
-        id: `${index}`,
-        username: faker.internet.userName(),
-        message: faker.lorem.sentences(),
-        color: faker.commerce.color(),
-        sent: index % sentMessageEvery === 0,
-      }
-    })
 }
 
 export default useChat

@@ -1,7 +1,8 @@
 import { createElement } from "react"
 import { Meta, Story } from "@storybook/react"
 
-import useChat, { useFakeChat } from "hooks/useChat"
+import useChat from "hooks/useChat"
+import useFakeChat from "hooks/useFakeChat"
 
 import Chat, { ChatProps } from "components/twitch-chat/Chat"
 

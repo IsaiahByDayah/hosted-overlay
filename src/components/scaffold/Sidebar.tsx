@@ -1,7 +1,8 @@
 import { makeStyles, Typography, Paper } from "@material-ui/core"
 import cx from "clsx"
 
-import useChat, { useFakeChat } from "hooks/useChat"
+import useChat from "hooks/useChat"
+import useFakeChat from "hooks/useFakeChat"
 
 import Chat from "components/twitch-chat/Chat"
 
@@ -30,10 +31,13 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }))
 
-// const useData = () =>
-//   useChat({ channel: process.env.REACT_APP_USERNAME ?? "" })
+const useLiveData = () =>
+  useChat({ channel: process.env.REACT_APP_USERNAME ?? "" })
 
-const useData = () => useFakeChat({ seed: 123 })
+const useFakeData = () => useFakeChat({ seed: 123 })
+
+const useData =
+  process.env.NODE_ENV === "production" ? useLiveData : useFakeData
 
 export interface SidebarProps {
   className?: string
