@@ -13,5 +13,13 @@ export default {
 export const Basic: Story<GreenScreenProps> = (args) => (
   <GreenScreen {...args} />
 )
-Basic.args = {}
-Basic.argTypes = {}
+Basic.args = {
+  aspectRatio: 16 / 9,
+}
+Basic.argTypes = {
+  aspectRatio: {
+    control: {
+      type: "text",
+    },
+  },
+}

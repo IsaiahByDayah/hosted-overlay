@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common/Task Basic 1`] = `
+<div
+  className="commontask-basic-makestyles-root-1"
+>
+  <p
+    className="commontask-basic-muitypography-root-1 commontask-basic-makestyles-label-1 commontask-basic-muitypography-body1-1"
+  >
+    Label
+  </p>
+  <p
+    className="commontask-basic-muitypography-root-1 commontask-basic-makestyles-description-1 commontask-basic-muitypography-body2-1"
+  >
+    labore dolorem minus
+  </p>
+</div>
+`;

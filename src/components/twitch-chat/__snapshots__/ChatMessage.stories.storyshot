@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Twitch Chat/Chat Message Basic 1`] = `
+<p
+  className="twitch-chatchat-message-basic-muitypography-root-1 twitch-chatchat-message-basic-makestyles-root-1 twitch-chatchat-message-basic-muitypography-body1-1"
+>
+  <span
+    className="twitch-chatchat-message-basic-makestyles-username-1 twitch-chatchat-message-basic-makestyles-username-2"
+  >
+    Jordan_Schuppe
+    : 
+  </span>
+  <span
+    className="twitch-chatchat-message-basic-makestyles-message-1"
+  >
+    Aliquip et ad sunt nostrud sint enim exercitation tempor fugiat.
+  </span>
+</p>
+`;

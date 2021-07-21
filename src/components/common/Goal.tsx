@@ -1,15 +1,35 @@
 import { useEffect, useState } from "react"
+import { makeStyles, Typography } from "@material-ui/core"
 
 import ProgressBar from "components/common/ProgressBar"
+
+const useStyles = makeStyles(({ spacing }) => ({
+  progressText: {
+    fontWeight: 900,
+  },
+  label: {
+    marginTop: spacing(0.5),
+    fontWeight: 900,
+  },
+}))
 
 export interface GoalProps {
   className?: string
   value: number | (() => Promise<number>)
   total: number
   label: string
+  intervalTime?: number
 }
 
-const Goal = ({ className, value, total, label }: GoalProps) => {
+const Goal = ({
+  className,
+  value,
+  total,
+  label,
+  intervalTime = 1000 * 60,
+}: GoalProps) => {
+  const classes = useStyles()
+
   const [_value, setValue] = useState<number | undefined>(
     typeof value === "number" ? value : undefined
   )
@@ -38,7 +58,7 @@ const Goal = ({ className, value, total, label }: GoalProps) => {
   }, [value])
 
   useEffect(() => {
-    const interval = window.setInterval(updateValue, 1000 * 60)
+    const interval = window.setInterval(updateValue, intervalTime)
 
     return () => {
       window.clearInterval(interval)
@@ -50,11 +70,11 @@ const Goal = ({ className, value, total, label }: GoalProps) => {
 
   return (
     <div className={`${className} goal-root`}>
-      <p className="bold small-text">
+      <Typography className={classes.progressText} variant="caption">
         {_value} / {total}
-      </p>
+      </Typography>
       <ProgressBar className="goal-progress-bar" percent={_value / total} />
-      <p className="bold medium-text">{label}</p>
+      <Typography className={classes.label}>{label}</Typography>
     </div>
   )
 }

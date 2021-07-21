@@ -1,5 +1,3 @@
-import "./App.css"
-
 import { getFollowerCount, getSubscriberCount } from "lib/twitch"
 
 import Root from "components/scaffold/Root"
@@ -9,7 +7,7 @@ import Twitch from "components/svgs/Twitch"
 import TikTok from "components/svgs/TikTok"
 import YouTube from "components/svgs/YouTube"
 
-import Chat from "components/twitch-chat/Chat"
+// import Chat from "components/twitch-chat/Chat"
 
 import Goal from "components/common/Goal"
 import Task from "components/common/Task"
@@ -70,7 +68,7 @@ const App = () => {
           height="100%"
           width="100%"
         ></iframe> */}
-        <Chat className="chat rounded shadow" />
+        {/* <Chat className="chat rounded shadow" /> */}
         <div className="camera rounded shadow greenscreen" />
       </div>
     </Root>
