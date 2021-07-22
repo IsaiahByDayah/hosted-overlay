@@ -3,5 +3,29 @@
 exports[`Storyshots Widgets/Goals Basic 1`] = `
 <div
   className="widgetsgoals-basic-makestyles-root-1"
-/>
+>
+  <div
+    className="undefined goal-root"
+  >
+    <span
+      className="widgetsgoals-basic-muitypography-root-1 widgetsgoals-basic-makestyles-progresstext-1 widgetsgoals-basic-muitypography-caption-1"
+    >
+      100
+       / 
+      100
+    </span>
+    <div
+      className="widgetsgoals-basic-makestyles-root-2 goal-progress-bar"
+    >
+      <div
+        className="widgetsgoals-basic-makestyles-fill-1 widgetsgoals-basic-makestyles-fill-2"
+      />
+    </div>
+    <p
+      className="widgetsgoals-basic-muitypography-root-1 widgetsgoals-basic-makestyles-label-1 widgetsgoals-basic-muitypography-body1-1"
+    >
+      Correct Pronounciations
+    </p>
+  </div>
+</div>
 `;
