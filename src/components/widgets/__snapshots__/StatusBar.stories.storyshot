@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Widgets/StatusBar Basic 1`] = `
+<div
+  className="widgetsstatusbar-basic-makestyles-root-1"
+>
+  <div
+    className="widgetsstatusbar-basic-makestyles-root-2"
+  >
+    <p
+      className="widgetsstatusbar-basic-muitypography-root-1 widgetsstatusbar-basic-makestyles-label-1 widgetsstatusbar-basic-muitypography-body1-1"
+    >
+      Finish Overlay Layout
+    </p>
+    <p
+      className="widgetsstatusbar-basic-muitypography-root-1 widgetsstatusbar-basic-makestyles-description-1 widgetsstatusbar-basic-muitypography-body2-1"
+    >
+      Rebuild our prototype overlay using ReactJS & Material UI
+    </p>
+  </div>
+</div>
+`;

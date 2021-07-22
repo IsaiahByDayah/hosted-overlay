@@ -15,7 +15,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
         fontFamily: ["Nunito", "sans-serif"].join(","),
       },
       palette: {
-        // type: "dark",
+        type: "dark",
         primary: {
           main: "#006d77",
           // main: "#1B335C",

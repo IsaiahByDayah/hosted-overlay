@@ -1,19 +1,22 @@
-import { makeStyles, Typography, Paper } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core"
 import cx from "clsx"
 
 import useChat from "hooks/useChat"
 import useFakeChat from "hooks/useFakeChat"
 
-import Chat from "components/twitch-chat/Chat"
+import CurrentTopic from "components/widgets/CurrentTopic"
+import Chat from "components/widgets/twitch-chat/Chat"
 
 import GreenScreen from "components/common/GreenScreen"
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ spacing, palette }) => ({
   root: {
     padding: spacing(3),
     display: "flex",
     flexDirection: "column",
     height: "100%",
+    backgroundColor: palette.augmentColor({ main: palette.background.default })
+      .dark,
   },
   currentTopic: {
     flexShrink: 0,
@@ -36,8 +39,7 @@ const useLiveData = () =>
 
 const useFakeData = () => useFakeChat({ seed: 123 })
 
-const useData =
-  process.env.NODE_ENV === "production" ? useLiveData : useFakeData
+const useData = process.env.NODE_ENV === "test" ? useFakeData : useLiveData
 
 export interface SidebarProps {
   className?: string
@@ -48,10 +50,7 @@ const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <div className={cx(classes.root, className)}>
-      <div className={classes.currentTopic}>
-        <Typography align="center">Current Topic</Typography>
-        <Paper style={{ height: 64, width: "100%" }} />
-      </div>
+      <CurrentTopic className={classes.currentTopic} />
 
       <Chat className={classes.chat} useData={useData} />
 

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Widgets/Goals Basic 1`] = `
+<div
+  className="widgetsgoals-basic-makestyles-root-1"
+>
+  <div
+    className="widgetsgoals-basic-makestyles-goal-1 goal-root"
+  >
+    <span
+      className="widgetsgoals-basic-muitypography-root-1 widgetsgoals-basic-makestyles-progresstext-1 widgetsgoals-basic-muitypography-caption-1"
+    >
+      100
+       / 
+      100
+    </span>
+    <div
+      className="widgetsgoals-basic-makestyles-root-2 goal-progress-bar"
+    >
+      <div
+        className="widgetsgoals-basic-makestyles-fill-1 widgetsgoals-basic-makestyles-fill-2"
+      />
+    </div>
+    <p
+      className="widgetsgoals-basic-muitypography-root-1 widgetsgoals-basic-makestyles-label-1 widgetsgoals-basic-muitypography-body1-1"
+    >
+      Correct Pronounciations
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Widgets/Tasks Basic 1`] = `
+<div
+  className="widgetstasks-basic-makestyles-root-1"
+>
+  <div
+    className="widgetstasks-basic-makestyles-goal-1 goal-root"
+  >
+    <span
+      className="widgetstasks-basic-muitypography-root-1 widgetstasks-basic-makestyles-progresstext-1 widgetstasks-basic-muitypography-caption-1"
+    >
+      100
+       / 
+      100
+    </span>
+    <div
+      className="widgetstasks-basic-makestyles-root-2 goal-progress-bar"
+    >
+      <div
+        className="widgetstasks-basic-makestyles-fill-1 widgetstasks-basic-makestyles-fill-2"
+      />
+    </div>
+    <p
+      className="widgetstasks-basic-muitypography-root-1 widgetstasks-basic-makestyles-label-1 widgetstasks-basic-muitypography-body1-1"
+    >
+      Correct Pronounciations
+    </p>
+  </div>
+</div>
+`;

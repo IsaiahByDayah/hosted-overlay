@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Widgets/CurrentTopic Basic 1`] = `
+<div>
+  <p
+    className="widgetscurrenttopic-basic-muitypography-root-1 widgetscurrenttopic-basic-muitypography-body1-1 widgetscurrenttopic-basic-muitypography-aligncenter-1"
+  >
+    Current Topic
+  </p>
+  <div
+    className="widgetscurrenttopic-basic-muipaper-root-1 widgetscurrenttopic-basic-muipaper-elevation1-1 widgetscurrenttopic-basic-muipaper-rounded-1"
+    style={
+      Object {
+        "height": 64,
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;

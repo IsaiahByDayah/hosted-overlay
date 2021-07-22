@@ -4,7 +4,7 @@ import { Meta, Story } from "@storybook/react"
 import useChat from "hooks/useChat"
 import useFakeChat from "hooks/useFakeChat"
 
-import Chat, { ChatProps } from "components/twitch-chat/Chat"
+import Chat, { ChatProps } from "components/widgets/twitch-chat/Chat"
 
 export default {
   title: "Twitch Chat/Chat",

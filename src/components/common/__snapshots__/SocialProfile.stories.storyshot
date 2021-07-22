@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common/ProgressBar Basic 1`] = `
+<div
+  className="commonprogressbar-basic-makestyles-root-1"
+>
+  <div
+    className="commonprogressbar-basic-makestyles-fill-1 commonprogressbar-basic-makestyles-fill-2"
+  />
+</div>
+`;
+
+exports[`Storyshots Common/SocialProfile Basic 1`] = `
+<div
+  className="commonsocialprofile-basic-makestyles-root-1"
+>
+  <div
+    className="commonsocialprofile-basic-makestyles-fill-1 commonsocialprofile-basic-makestyles-fill-2"
+  />
+</div>
+`;
