@@ -2,7 +2,7 @@
 
 exports[`Storyshots Common/Task Basic 1`] = `
 <div
-  className="commontask-basic-makestyles-root-1"
+  className="commontask-basic-muipaper-root-1 commontask-basic-makestyles-root-1 commontask-basic-muipaper-elevation3-1 commontask-basic-muipaper-rounded-1"
 >
   <p
     className="commontask-basic-muitypography-root-1 commontask-basic-makestyles-label-1 commontask-basic-muitypography-body1-1"
