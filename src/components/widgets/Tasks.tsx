@@ -1,30 +1,56 @@
 import { makeStyles } from "@material-ui/core"
 import cx from "clsx"
 
+import { Task as ITask } from "lib/types"
+
 import Task from "components/common/Task"
 
 const useStyles = makeStyles(({ spacing }) => ({
   root: {
     height: "100%",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  task: {
+    "&:not(:last-child)": {
+      marginRight: spacing(2),
+      marginBottom: spacing(2),
+    },
   },
 }))
 
 export interface TasksProps {
   className?: string
+  tasks?: ITask[]
 }
 
-const Tasks = ({ className }: TasksProps) => {
+const Tasks = ({ className, tasks }: TasksProps) => {
   const classes = useStyles()
+
+  const incompleteTasks = tasks?.filter((task) => !task.completed)
+  const completeTasks = tasks?.filter((task) => task.completed)
+
   return (
     <div className={cx(classes.root, className)}>
-      <Task
-        label="Finish Overlay Layout"
-        description="Rebuild our prototype overlay using ReactJS & Material UI"
-        completed
-      />
+      {incompleteTasks?.map((task) => (
+        <Task
+          key={task.id}
+          className={classes.task}
+          label={task.label}
+          description={task.description}
+          completed={task.completed}
+        />
+      ))}
+      {completeTasks?.map((task) => (
+        <Task
+          key={task.id}
+          className={classes.task}
+          label={task.label}
+          description={task.description}
+          completed={task.completed}
+        />
+      ))}
     </div>
   )
 }
