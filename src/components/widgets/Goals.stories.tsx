@@ -12,5 +12,5 @@ export default {
 
 export const Basic: Story<GoalsProps> = (args) => <Goals {...args} />
 Basic.parameters = {
-  // storyshots: { disable: true },
+  storyshots: { disable: true },
 }
