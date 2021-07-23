@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Widgets/Tasks Basic 1`] = `
+<div
+  className="widgetstasks-basic-makestyles-root-1"
+>
+  <div
+    className="widgetstasks-basic-makestyles-root-2"
+  >
+    <p
+      className="widgetstasks-basic-muitypography-root-1 widgetstasks-basic-makestyles-label-1 widgetstasks-basic-makestyles-completedlabel-1 widgetstasks-basic-muitypography-body1-1"
+    >
+      Finish Overlay Layout
+    </p>
+    <p
+      className="widgetstasks-basic-muitypography-root-1 widgetstasks-basic-makestyles-description-1 widgetstasks-basic-makestyles-completeddescription-1 widgetstasks-basic-muitypography-body2-1"
+    >
+      Rebuild our prototype overlay using ReactJS & Material UI
+    </p>
+  </div>
+</div>
+`;

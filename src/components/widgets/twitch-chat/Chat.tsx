@@ -5,7 +5,7 @@ import cx from "clsx"
 
 import { Message } from "lib/types"
 
-import ChatMessage from "components/twitch-chat/ChatMessage"
+import ChatMessage from "components/widgets/twitch-chat/ChatMessage"
 
 const useStyles = makeStyles(({ spacing, palette }) => ({
   root: {
@@ -28,7 +28,8 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
     bottom: 0,
     left: 0,
     background: `linear-gradient(0deg, transparent 84%, ${alpha(
-      palette.background.default,
+      // palette.background.default,
+      palette.augmentColor({ main: palette.background.default }).dark,
       1
     )} 100%)`,
   },

@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react"
 
 import ChatMessage, {
   ChatMessageProps,
-} from "components/twitch-chat/ChatMessage"
+} from "components/widgets/twitch-chat/ChatMessage"
 
 export default {
   title: "Twitch Chat/Chat Message",
