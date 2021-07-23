@@ -1,9 +1,9 @@
-import { makeStyles, Typography } from "@material-ui/core"
+import { makeStyles, Typography, Paper } from "@material-ui/core"
 import cx from "clsx"
 
 const useStyles = makeStyles(({ spacing }) => ({
   root: {
-    padding: spacing(1),
+    padding: spacing(1, 2),
   },
   label: {
     fontWeight: 900,
@@ -31,7 +31,10 @@ const Task = ({ className, label, description, completed }: TaskProps) => {
   const classes = useStyles()
 
   return (
-    <div className={cx(classes.root, className)}>
+    <Paper
+      className={cx(classes.root, className)}
+      elevation={completed ? 0 : 3}
+    >
       <Typography
         className={cx(classes.label, { [classes.completedLabel]: completed })}
       >
@@ -47,7 +50,7 @@ const Task = ({ className, label, description, completed }: TaskProps) => {
           {description}
         </Typography>
       )}
-    </div>
+    </Paper>
   )
 }
 

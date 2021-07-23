@@ -5,3 +5,10 @@ export interface Message {
   color: string
   sent?: boolean
 }
+
+export interface Task {
+  id: string
+  label: string
+  description?: string
+  completed?: boolean
+}

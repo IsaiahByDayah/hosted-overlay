@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Widgets/Tasks All Complete 1`] = `
+<div
+  className="widgetstasks-all-complete-makestyles-root-1"
+>
+  <div
+    className="widgetstasks-all-complete-makestyles-root-2"
+  >
+    <p
+      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-label-1 widgetstasks-all-complete-makestyles-completedlabel-1 widgetstasks-all-complete-muitypography-body1-1"
+    >
+      Finish Overlay Layout
+    </p>
+    <p
+      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-description-1 widgetstasks-all-complete-makestyles-completeddescription-1 widgetstasks-all-complete-muitypography-body2-1"
+    >
+      Rebuild our prototype overlay using ReactJS & Material UI
+    </p>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Widgets/Tasks Basic 1`] = `
 <div
   className="widgetstasks-basic-makestyles-root-1"
@@ -14,6 +35,69 @@ exports[`Storyshots Widgets/Tasks Basic 1`] = `
     </p>
     <p
       className="widgetstasks-basic-muitypography-root-1 widgetstasks-basic-makestyles-description-1 widgetstasks-basic-makestyles-completeddescription-1 widgetstasks-basic-muitypography-body2-1"
+    >
+      Rebuild our prototype overlay using ReactJS & Material UI
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Widgets/Tasks Empty 1`] = `
+<div
+  className="widgetstasks-empty-makestyles-root-1"
+>
+  <div
+    className="widgetstasks-empty-makestyles-root-2"
+  >
+    <p
+      className="widgetstasks-empty-muitypography-root-1 widgetstasks-empty-makestyles-label-1 widgetstasks-empty-makestyles-completedlabel-1 widgetstasks-empty-muitypography-body1-1"
+    >
+      Finish Overlay Layout
+    </p>
+    <p
+      className="widgetstasks-empty-muitypography-root-1 widgetstasks-empty-makestyles-description-1 widgetstasks-empty-makestyles-completeddescription-1 widgetstasks-empty-muitypography-body2-1"
+    >
+      Rebuild our prototype overlay using ReactJS & Material UI
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
+<div
+  className="widgetstasks-half-complete-makestyles-root-1"
+>
+  <div
+    className="widgetstasks-half-complete-makestyles-root-2"
+  >
+    <p
+      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-label-1 widgetstasks-half-complete-makestyles-completedlabel-1 widgetstasks-half-complete-muitypography-body1-1"
+    >
+      Finish Overlay Layout
+    </p>
+    <p
+      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-description-1 widgetstasks-half-complete-makestyles-completeddescription-1 widgetstasks-half-complete-muitypography-body2-1"
+    >
+      Rebuild our prototype overlay using ReactJS & Material UI
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Widgets/Tasks None Complete 1`] = `
+<div
+  className="widgetstasks-none-complete-makestyles-root-1"
+>
+  <div
+    className="widgetstasks-none-complete-makestyles-root-2"
+  >
+    <p
+      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-label-1 widgetstasks-none-complete-makestyles-completedlabel-1 widgetstasks-none-complete-muitypography-body1-1"
+    >
+      Finish Overlay Layout
+    </p>
+    <p
+      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-description-1 widgetstasks-none-complete-makestyles-completeddescription-1 widgetstasks-none-complete-muitypography-body2-1"
     >
       Rebuild our prototype overlay using ReactJS & Material UI
     </p>
