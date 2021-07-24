@@ -31,7 +31,7 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
       // palette.background.default,
       palette.augmentColor({ main: palette.background.default }).dark,
       1
-    )} 100%)`,
+    )} 90%)`,
   },
 
   message: {

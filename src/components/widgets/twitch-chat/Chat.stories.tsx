@@ -36,11 +36,17 @@ Basic.argTypes = {
   },
 }
 
-export const LiveChat: Story<ChatProps> = (args) => {
-  return <Chat {...args} />
-}
+type LiveChatStoryArgs = ChatProps & { channel: string }
+export const LiveChat: Story<LiveChatStoryArgs> = ({
+  channel,
+  ...args
+}: LiveChatStoryArgs) =>
+  createElement(() => {
+    const useData = () => useChat({ channel })
+    return <Chat {...args} useData={useData} />
+  })
 LiveChat.args = {
-  useData: () => useChat({ channel: "isaiahbydayah" }),
+  channel: "isaiahbydayah",
 }
 LiveChat.parameters = {
   storyshots: { disable: true },

@@ -51,3 +51,6 @@ export const calculateAspectRatioVerticalPadding = (
   const _aspectRatio = calculateAspectRatio(aspectRatio, defaultAspectRatio)
   return `${(1 / _aspectRatio) * 100}%`
 }
+
+export const toArray = <T = unknown>(val: T | T[]): T[] =>
+  Array.isArray(val) ? val : [val]
