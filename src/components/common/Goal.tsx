@@ -26,7 +26,7 @@ const Goal = ({
   value,
   total,
   label,
-  intervalTime = 1000 * 60,
+  intervalTime = 1000 * 15,
 }: GoalProps) => {
   const classes = useStyles()
 
@@ -58,7 +58,10 @@ const Goal = ({
   }, [value])
 
   useEffect(() => {
-    const interval = window.setInterval(updateValue, intervalTime)
+    const interval = window.setInterval(
+      updateValue,
+      _value ? intervalTime : 1000 * 1
+    )
 
     return () => {
       window.clearInterval(interval)
