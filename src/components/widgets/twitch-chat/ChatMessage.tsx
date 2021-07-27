@@ -18,7 +18,7 @@ const useStyles = makeStyles<Theme, StyleProps>(
     },
     username: ({ color }) => ({
       fontWeight: 700,
-      color,
+      color: color,
     }),
     message: {
       marginLeft: spacing(),

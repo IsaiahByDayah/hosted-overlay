@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { makeStyles, Grid } from "@material-ui/core"
 import cx from "clsx"
 
@@ -33,6 +34,10 @@ export interface MainSectionProps {
 
 const MainSection = ({ className }: MainSectionProps) => {
   const classes = useStyles()
+
+  useEffect(() => {
+    window.document.getElementById("fake-button")?.click()
+  }, [])
 
   return (
     <div className={cx(classes.root, className)}>
