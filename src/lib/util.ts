@@ -1,3 +1,5 @@
+import firebase from "lib/firebase"
+
 // Creates a slug formatted string from supplied string
 export const slugify = (str: string): string => {
   return str
@@ -54,3 +56,11 @@ export const calculateAspectRatioVerticalPadding = (
 
 export const toArray = <T = unknown>(val: T | T[]): T[] =>
   Array.isArray(val) ? val : [val]
+
+// REF: https://leolabs.org/blog/typesafe-firebase-cloud-functions
+export const createCallable = <Params = unknown, Result = unknown>(
+  name: string
+): ((params: Params) => Promise<Result>) => {
+  const callable = firebase.functions().httpsCallable(name)
+  return async (params: Params) => (await callable(params)).data
+}
