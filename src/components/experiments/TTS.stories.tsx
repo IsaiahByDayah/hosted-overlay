@@ -3,10 +3,10 @@ import { Meta, Story } from "@storybook/react"
 
 import { createCallable } from "lib/util"
 
-const ttsCallable = createCallable("tts")
+const ttsCallable = createCallable<void, string>("tts")
 
 const TTS = () => {
-  const playAudio = (data) => {
+  const playAudio = (data: string) => {
     const mp3 = new Blob([data], { type: "audio/mp3" })
     const url = window.URL.createObjectURL(mp3)
     const audio = new Audio(url)
@@ -15,7 +15,9 @@ const TTS = () => {
   }
 
   const fetchAndPlay = async () => {
-    const data = await ttsCallable({})
+    const data = await ttsCallable()
+
+    console.log("Data: ", data)
 
     playAudio(data)
   }

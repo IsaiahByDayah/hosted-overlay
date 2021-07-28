@@ -23,6 +23,10 @@ export const tts = functions.https.onRequest(async (request, response) => {
       audioConfig: { audioEncoding: "MP3" },
     })
 
-    response.send(res.audioContent)
+    const returnData = res.audioContent?.toString()
+
+    console.log("Google TTS Response: ", returnData)
+
+    response.send(returnData)
   })
 })
