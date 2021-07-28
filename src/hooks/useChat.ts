@@ -43,7 +43,7 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
         client.say(channel, `Hello to you too, @${tags["display-name"]}`)
       }
 
-      if (!tags.id || !tags["display-name"] || !tags.color) return
+      if (!tags.id || !tags["display-name"]) return
 
       const newMessage: Message = {
         id: tags.id,
