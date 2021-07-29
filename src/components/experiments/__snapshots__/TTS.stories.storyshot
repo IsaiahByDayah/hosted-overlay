@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Experiments/TTS Basic 1`] = `
+<button
+  className="experimentstts-basic-muibuttonbase-root-1 experimentstts-basic-muibutton-root-1 experimentstts-basic-muibutton-text-1"
+  disabled={false}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="experimentstts-basic-muibutton-label-1"
+  >
+    Try TTS
+  </span>
+</button>
+`;
