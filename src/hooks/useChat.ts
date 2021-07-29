@@ -23,6 +23,7 @@ const LANGUAGE_MAPS: { [key: string]: string } = {
 
 const useChat = ({ channel }: UseChatProps): Message[] => {
   const [messages, setMessages] = useState<Message[]>([])
+  const [allowTTS, setAllowTTS] = useState(true)
 
   useEffect(() => {
     let client = new tmi.Client({
@@ -44,6 +45,24 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
 
       message = message.trim()
 
+      if (
+        message.startsWith("!kill-tts") &&
+        tags.username === process.env.REACT_APP_USERNAME
+      ) {
+        setAllowTTS(false)
+        client.say(channel, "Killing Text-To-Speech")
+        return
+      }
+
+      if (
+        message.startsWith("!allow-tts") &&
+        tags.username === process.env.REACT_APP_USERNAME
+      ) {
+        setAllowTTS(true)
+        client.say(channel, "Reviving Text-To-Speech")
+        return
+      }
+
       if (message.startsWith("!echo hello")) {
         // setMessages((old) => [
         //   ...old,
@@ -56,11 +75,12 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
         //   },
         // ])
         client.say(channel, `Hello to you too, @${tags["display-name"]}`)
+        return
       }
 
       if (
-        message.startsWith("!tts")
-        // && tags.username === process.env.REACT_APP_USERNAME
+        message.startsWith("!tts") &&
+        (tags.username === process.env.REACT_APP_USERNAME || allowTTS)
       ) {
         let text = message.substring(4).trim()
         let language: string | undefined = undefined
@@ -77,6 +97,7 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
         }
 
         if (text) textToSpeech({ text, language })
+        return
       }
 
       if (!tags.id || !tags["display-name"]) return
@@ -98,9 +119,10 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
 
     return () => {
       client.removeListener("message", onMessage)
+      client.disconnect()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [allowTTS])
 
   return messages
 }
