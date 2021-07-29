@@ -64,3 +64,40 @@ export const createCallable = <Params = unknown, Result = unknown>(
   const callable = firebase.functions().httpsCallable(name)
   return async (params: Params) => (await callable(params)).data
 }
+
+// REF: https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String
+export const str2ab = (str: string): ArrayBuffer => {
+  var buf = new ArrayBuffer(str.length * 2) // 2 bytes for each char
+  var bufView = new Uint16Array(buf)
+  for (var i = 0, strLen = str.length; i < strLen; i++) {
+    bufView[i] = str.charCodeAt(i)
+  }
+  return buf
+}
+
+interface TTSMessage {
+  text: string
+  gender?: "MALE" | "FEMALE" | "NEUTRAL"
+  language?: string
+}
+
+export const textToSpeech = async (message: TTSMessage) => {
+  const ttsCallable = createCallable<TTSMessage, string>("tts")
+
+  const data = await ttsCallable(message)
+
+  if (!data) return
+
+  const audioContent = Buffer.from(data, "base64")
+
+  const context = new window.AudioContext()
+
+  const buffer = await context.decodeAudioData(audioContent.buffer)
+
+  var source = context.createBufferSource()
+  source.buffer = buffer
+  // Connect to the final output node (the speakers)
+  source.connect(context.destination)
+  // Play immediately
+  source.start(0)
+}

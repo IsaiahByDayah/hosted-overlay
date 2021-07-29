@@ -1,5 +1,11 @@
 import * as functions from "firebase-functions"
 import textToSpeech from "@google-cloud/text-to-speech"
+import express from "express"
+// import { TextDecoder } from "util"
+// import { promisify } from "util"
+// import os from "os"
+// import fs from "fs"
+// import path from "path"
 
 import cors from "./middleware/cors"
 
@@ -11,22 +17,37 @@ export const helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!")
 })
 
-export const tts = functions.https.onRequest(async (request, response) => {
+export const echo = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
-    const text = "Hello, world!"
+    express.json()(request, response, async () => {
+      const res = request.query.msg
 
-    const client = new textToSpeech.TextToSpeechClient()
-
-    const [res] = await client.synthesizeSpeech({
-      input: { text: text },
-      voice: { languageCode: "en-US", ssmlGender: "FEMALE" },
-      audioConfig: { audioEncoding: "MP3" },
+      response.send(res)
     })
-
-    const returnData = res.audioContent?.toString()
-
-    console.log("Google TTS Response: ", returnData)
-
-    response.send(returnData)
   })
+})
+
+interface TTSMessage {
+  text: string
+  gender?: "MALE" | "FEMALE" | "NEUTRAL"
+  language?: string
+}
+
+export const tts = functions.https.onCall(async (msg: TTSMessage, _context) => {
+  if (!msg.text) return
+
+  const client = new textToSpeech.TextToSpeechClient()
+
+  const [res] = await client.synthesizeSpeech({
+    input: { text: msg.text },
+    voice: {
+      ssmlGender: msg.gender ?? "NEUTRAL",
+      languageCode: msg.language ?? "en-US",
+    },
+    audioConfig: { audioEncoding: "MP3" },
+  })
+
+  if (!res.audioContent) return
+
+  return Buffer.from(res.audioContent).toString("base64")
 })

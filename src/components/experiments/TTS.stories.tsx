@@ -1,28 +1,18 @@
 import { Button } from "@material-ui/core"
 import { Meta, Story } from "@storybook/react"
 
-import { createCallable } from "lib/util"
-
-const ttsCallable = createCallable<void, string>("tts")
+import { textToSpeech } from "lib/util"
 
 const TTS = () => {
-  const playAudio = (data: string) => {
-    const mp3 = new Blob([data], { type: "audio/mp3" })
-    const url = window.URL.createObjectURL(mp3)
-    const audio = new Audio(url)
-    audio.load()
-    audio.play()
-  }
-
-  const fetchAndPlay = async () => {
-    const data = await ttsCallable()
-
-    console.log("Data: ", data)
-
-    playAudio(data)
-  }
-
-  return <Button onClick={() => fetchAndPlay()}>Try TTS</Button>
+  return (
+    <Button
+      onClick={() =>
+        textToSpeech({ text: "The quick brown fox jumped over the lazy dog." })
+      }
+    >
+      Try TTS
+    </Button>
+  )
 }
 
 export default {
