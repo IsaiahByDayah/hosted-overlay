@@ -14,7 +14,6 @@ const onAuthenticationFailure = async (): Promise<string> => {
     },
   })
 
-  console.log("Response: ", response)
   return response.accessToken
 }
 

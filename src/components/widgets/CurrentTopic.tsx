@@ -26,7 +26,7 @@ const CurrentTopic = ({ className }: CurrentTopicProps) => {
       </Typography>
       <Paper className={classes.paper}>
         <Typography className={classes.topic} align="center" variant="h6">
-          Cooldown with Rocket League
+          Messing with Google TTS
         </Typography>
       </Paper>
     </div>
