@@ -1,5 +1,8 @@
 import TwitchJS from "twitch-js"
 import fetchUtil from "twitch-js/lib/utils/fetch"
+import tmi from "tmi.js"
+
+import { toArray } from "lib/util"
 
 const onAuthenticationFailure = async (): Promise<string> => {
   console.log("onAuthenticationFailure!")
@@ -53,7 +56,7 @@ export const getFollowerCount = async (): Promise<number> => {
       to_id: process.env.REACT_APP_USER_ID,
     },
   })
-  console.log("Response: ", res)
+  // console.log("Response: ", res)
   return res.total
   // return 69
 }
@@ -64,7 +67,25 @@ export const getSubscriberCount = async (): Promise<number> => {
       broadcaster_id: process.env.REACT_APP_USER_ID,
     },
   })
-  console.log("Response: ", res)
+  // console.log("Response: ", res)
   return res.total
   // return 69
 }
+
+export const getChatClient = (channel?: string | string[]): tmi.Client =>
+  new tmi.Client({
+    channels: channel
+      ? toArray(channel)
+      : [process.env.REACT_APP_USERNAME ?? ""],
+    options: {
+      clientId: process.env.REACT_APP_CLIENT_ID,
+      debug: true,
+    },
+    identity: {
+      username: process.env.REACT_APP_USERNAME,
+      password: process.env.REACT_APP_OAUTH_PASSWORD,
+    },
+  })
+
+export const chatClient = getChatClient()
+chatClient.connect()

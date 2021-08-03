@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import tmi from "tmi.js"
 
+import { chatClient } from "lib/twitch"
 import { Message } from "lib/types"
-import { toArray, textToSpeech } from "lib/util"
+import { textToSpeech } from "lib/util"
 
 import { useAlerts } from "components/scaffold/AlertsProvider"
 
@@ -26,23 +27,9 @@ const LANGUAGE_MAPS: { [key: string]: string } = {
 const useChat = ({ channel }: UseChatProps): Message[] => {
   const [messages, setMessages] = useState<Message[]>([])
   const { enqueueAlert } = useAlerts()
-  const [allowTTS, setAllowTTS] = useState(true)
+  const [allowTTS, setAllowTTS] = useState(false)
 
   useEffect(() => {
-    let client = new tmi.Client({
-      channels: channel
-        ? toArray(channel)
-        : [process.env.REACT_APP_USERNAME ?? ""],
-      options: {
-        clientId: process.env.REACT_APP_CLIENT_ID,
-        debug: true,
-      },
-      identity: {
-        username: process.env.REACT_APP_USERNAME,
-        password: process.env.REACT_APP_OAUTH_PASSWORD,
-      },
-    })
-
     const onMessage: tmi.Events["message"] = (channel, tags, message, self) => {
       console.log(`${tags["display-name"]}: ${message}`, channel, tags, self)
 
@@ -60,7 +47,7 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
         tags.username === process.env.REACT_APP_USERNAME
       ) {
         setAllowTTS(false)
-        client.say(channel, "Killing Text-To-Speech")
+        chatClient.say(channel, "Killing Text-To-Speech")
         return
       }
 
@@ -69,7 +56,7 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
         tags.username === process.env.REACT_APP_USERNAME
       ) {
         setAllowTTS(true)
-        client.say(channel, "Reviving Text-To-Speech")
+        chatClient.say(channel, "Reviving Text-To-Speech")
         return
       }
 
@@ -84,7 +71,17 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
         //     message: `Hello to you too, @${tags["display-name"]}`,
         //   },
         // ])
-        client.say(channel, `Hello to you too, @${tags["display-name"]}`)
+        chatClient.say(channel, `Hello to you too, @${tags["display-name"]}`)
+        return
+      }
+
+      if (message.startsWith("!accents")) {
+        chatClient.say(
+          channel,
+          `The various tts accents are: ${Object.keys(LANGUAGE_MAPS)
+            .map((key) => `!${key}`)
+            .join(", ")}`
+        )
         return
       }
 
@@ -106,7 +103,7 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
           console.log("TTS Lang: ", lang, text)
         }
 
-        if (text) textToSpeech({ text, language })
+        if (text) textToSpeech({ text, language, playImmediately: true })
         return
       }
 
@@ -135,17 +132,17 @@ const useChat = ({ channel }: UseChatProps): Message[] => {
       console.log("Redeem: ", channel, username, rewardType, tags)
     }
 
-    client.addListener("message", onMessage)
-    client.addListener("cheer", onCheer)
-    client.addListener("redeem", onRedeem)
+    chatClient.addListener("message", onMessage)
+    chatClient.addListener("cheer", onCheer)
+    chatClient.addListener("redeem", onRedeem)
 
-    client.connect()
+    // chatClient.connect()
 
     return () => {
-      client.removeListener("message", onMessage)
-      client.removeListener("cheer", onCheer)
-      client.removeListener("redeem", onRedeem)
-      client.disconnect()
+      chatClient.removeListener("message", onMessage)
+      chatClient.removeListener("cheer", onCheer)
+      chatClient.removeListener("redeem", onRedeem)
+      // chatClient.disconnect()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allowTTS])
