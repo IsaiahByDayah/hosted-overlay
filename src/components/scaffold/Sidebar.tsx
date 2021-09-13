@@ -39,7 +39,9 @@ const useLiveData = () =>
 
 const useFakeData = () => useFakeChat({ seed: 123 })
 
-const useData = process.env.NODE_ENV === "test" ? useFakeData : useLiveData
+// const useData = process.env.NODE_ENV === "test" ? useFakeData : useLiveData
+const useData =
+  process.env.NODE_ENV === "development" ? useFakeData : useLiveData
 
 export interface SidebarProps {
   className?: string

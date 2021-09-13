@@ -23,8 +23,8 @@ const Goals = ({ className }: GoalsProps) => {
   return (
     <div className={cx(classes.root, className)}>
       <Goal label="Correct Pronounciations" total={119} value={119} />
-      <Goal label="Follower Goal" total={625} value={getFollowerCount} />
-      <Goal label="Subscriber Goal" total={85} value={getSubscriberCount} />
+      {/* <Goal label="Follower Goal" total={625} value={getFollowerCount} />
+      <Goal label="Subscriber Goal" total={85} value={getSubscriberCount} /> */}
     </div>
   )
 }
