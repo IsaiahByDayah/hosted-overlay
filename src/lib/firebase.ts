@@ -20,7 +20,6 @@ const auth = getAuth(app)
 const firestore = getFirestore(app)
 const functions = getFunctions(app)
 
-// if (process.env.NODE_ENV === "development") {
 if (constatnts.IS_EMULATOR) {
   console.log(
     "%c Running Firebase in Dev Mode. Connecting to local emulator suite...",

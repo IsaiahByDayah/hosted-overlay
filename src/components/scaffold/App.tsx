@@ -1,10 +1,15 @@
 import { makeStyles } from "@material-ui/core"
-import { Switch, Route } from "react-router-dom"
+import { Switch, Route, Redirect } from "react-router-dom"
 
 import Root from "components/scaffold/Root"
 
+import Home from "components/pages/Home"
 import Admin from "components/pages/Admin"
 import Overlay from "components/pages/Overlay"
+
+import AdminRedirect from "components/common/AdminRedirect"
+import SignedIn from "components/common/SignedIn"
+import SignedOut from "components/common/SignedOut"
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -23,7 +28,20 @@ const App = () => {
           <Overlay />
         </Route>
         <Route path="/:userId">
-          <Admin />
+          <SignedIn>
+            <Admin />
+          </SignedIn>
+          <SignedOut>
+            <Redirect to="/" />
+          </SignedOut>
+        </Route>
+        <Route>
+          <SignedIn>
+            <AdminRedirect />
+          </SignedIn>
+          <SignedOut>
+            <Home />
+          </SignedOut>
         </Route>
       </Switch>
     </Root>
