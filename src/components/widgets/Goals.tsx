@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core"
 import cx from "clsx"
 
-import { getFollowerCount, getSubscriberCount } from "lib/twitch"
+// import { getFollowerCount, getSubscriberCount } from "lib/twitch"
 
 import Goal from "components/common/Goal"
 
