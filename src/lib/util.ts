@@ -79,14 +79,24 @@ interface TTSMessage {
   text: string
   gender?: "MALE" | "FEMALE" | "NEUTRAL"
   language?: string
+  onEnd?: () => void
+  playImmediately?: boolean
 }
 
-export const textToSpeech = async (message: TTSMessage) => {
+export const textToSpeech = async (
+  message: TTSMessage
+): Promise<AudioBufferSourceNode | null> => {
   const ttsCallable = createCallable<TTSMessage, string>("tts")
 
-  const data = await ttsCallable(message)
+  let data: string
+  try {
+    data = await ttsCallable(message)
+  } catch (e) {
+    console.log("Could not call ttsCallable")
+    return null
+  }
 
-  if (!data) return
+  if (!data) return null
 
   const audioContent = Buffer.from(data, "base64")
 
@@ -98,6 +108,11 @@ export const textToSpeech = async (message: TTSMessage) => {
   source.buffer = buffer
   // Connect to the final output node (the speakers)
   source.connect(context.destination)
-  // Play immediately
-  source.start(0)
+
+  if (message.onEnd) source.addEventListener("ended", () => message.onEnd?.())
+
+  // Play immediately?
+  if (message.playImmediately) source.start(0)
+
+  return source
 }

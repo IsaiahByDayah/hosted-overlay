@@ -22,9 +22,9 @@ const Goals = ({ className }: GoalsProps) => {
   const classes = useStyles()
   return (
     <div className={cx(classes.root, className)}>
-      <Goal label="Correct Pronounciations" total={100} value={100} />
-      <Goal label="Follower Goal" total={600} value={getFollowerCount} />
-      <Goal label="Subscriber Goal" total={75} value={getSubscriberCount} />
+      <Goal label="Correct Pronounciations" total={119} value={119} />
+      <Goal label="Follower Goal" total={625} value={getFollowerCount} />
+      <Goal label="Subscriber Goal" total={85} value={getSubscriberCount} />
     </div>
   )
 }
