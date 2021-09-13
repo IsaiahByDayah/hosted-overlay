@@ -16,6 +16,7 @@ const Alert = ({ children, duration, onComplete }: AlertProps) => {
     return () => {
       window.clearTimeout(timeout)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return <>{children}</>
