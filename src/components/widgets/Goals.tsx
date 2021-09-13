@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core"
 import cx from "clsx"
 
-import { getFollowerCount, getSubscriberCount } from "lib/twitch"
+// import { getFollowerCount, getSubscriberCount } from "lib/twitch"
 
 import Goal from "components/common/Goal"
 
@@ -31,8 +31,8 @@ const Goals = ({ className }: GoalsProps) => {
         total={nameCount}
         value={nameCount - numNamesWrong}
       />
-      <Goal label="Follower Goal" total={700} value={getFollowerCount} />
-      <Goal label="Subscriber Goal" total={50} value={getSubscriberCount} />
+      {/* <Goal label="Follower Goal" total={625} value={getFollowerCount} />
+      <Goal label="Subscriber Goal" total={85} value={getSubscriberCount} /> */}
     </div>
   )
 }

@@ -1,5 +1,7 @@
 import { makeStyles, Typography, Paper } from "@material-ui/core"
 
+import { useOverlayContext } from "components/scaffold/OverlayProvider"
+
 const useStyles = makeStyles(({ spacing }) => ({
   label: {
     fontWeight: 900,
@@ -18,6 +20,7 @@ export interface CurrentTopicProps {
 }
 const CurrentTopic = ({ className }: CurrentTopicProps) => {
   const classes = useStyles()
+  const { overlay } = useOverlayContext()
 
   return (
     <div className={className}>
@@ -26,7 +29,7 @@ const CurrentTopic = ({ className }: CurrentTopicProps) => {
       </Typography>
       <Paper className={classes.paper}>
         <Typography className={classes.topic} align="center" variant="h6">
-          Adding custom Twitch alerts
+          {overlay?.currentTopic}
         </Typography>
       </Paper>
     </div>

@@ -12,3 +12,7 @@ export interface Task {
   description?: string
   completed?: boolean
 }
+
+export interface Overlay {
+  currentTopic: String
+}

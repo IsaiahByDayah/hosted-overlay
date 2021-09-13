@@ -1,9 +1,7 @@
-import firebase from "firebase/app"
-
-import "firebase/auth"
-import "firebase/firestore"
-import "firebase/functions"
-import "firebase/analytics"
+import { initializeApp } from "firebase/app"
+import { getAuth, connectAuthEmulator } from "firebase/auth"
+import { getFirestore, connectFirestoreEmulator } from "firebase/firestore"
+import { getFunctions, connectFunctionsEmulator } from "firebase/functions"
 
 import constatnts from "lib/constants"
 
@@ -17,7 +15,10 @@ const firebaseConfig = {
   measurementId: "G-7V438VPSXK",
 }
 
-firebase.initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app)
+const firestore = getFirestore(app)
+const functions = getFunctions(app)
 
 // if (process.env.NODE_ENV === "development") {
 if (constatnts.IS_EMULATOR) {
@@ -25,14 +26,24 @@ if (constatnts.IS_EMULATOR) {
     "%c Running Firebase in Dev Mode. Connecting to local emulator suite...",
     "font-size: 18pt; color: #0984e3"
   )
-  firebase.auth().useEmulator("http://localhost:9099/")
-  firebase.firestore().useEmulator("localhost", 8080)
-  firebase.functions().useEmulator("localhost", 5001)
+  // Auth
+  connectAuthEmulator(auth, "http://localhost:9099/")
+  // Firestore
+  connectFirestoreEmulator(firestore, "localhost", 8080)
+  // Functions
+  connectFunctionsEmulator(functions, "localhost", 5001)
 } else {
   console.log(
     "%c Running Firebase in Production Mode.",
     "font-size: 18pt; color: #FC814A"
   )
+}
+
+const firebase = {
+  app,
+  auth,
+  firestore,
+  functions,
 }
 
 export default firebase

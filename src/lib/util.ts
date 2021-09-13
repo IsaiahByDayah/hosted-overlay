@@ -1,3 +1,5 @@
+import { httpsCallable } from "firebase/functions"
+
 import firebase from "lib/firebase"
 
 // Creates a slug formatted string from supplied string
@@ -61,7 +63,7 @@ export const toArray = <T = unknown>(val: T | T[]): T[] =>
 export const createCallable = <Params = unknown, Result = unknown>(
   name: string
 ): ((params: Params) => Promise<Result>) => {
-  const callable = firebase.functions().httpsCallable(name)
+  const callable = httpsCallable<Params, Result>(firebase.functions, name)
   return async (params: Params) => (await callable(params)).data
 }
 
