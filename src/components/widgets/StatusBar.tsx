@@ -113,6 +113,11 @@ const StatusBar = ({ className }: StatusBarProps) => {
           platform="youtube"
           label="/IsaiahSmith"
         />
+        <SocialProfile
+          className={classes.social}
+          platform="patreon"
+          label="/IsaiahByDayah"
+        />
       </div>
 
       <div
@@ -120,8 +125,13 @@ const StatusBar = ({ className }: StatusBarProps) => {
           [classes.hidden]: index !== 1,
         })}
       >
+        {/* <Typography className={classes.message}>
+          Highlighted messages are now spoken on stream! Redeem those channel
+          points!
+        </Typography> */}
         <Typography className={classes.message}>
-          Here is some message to periodically show on stream!
+          Follow me on Twitter or Patreon for game dev updates and sneak peak at
+          new features! Patreon.com/IsaiahByDayah
         </Typography>
       </div>
     </div>

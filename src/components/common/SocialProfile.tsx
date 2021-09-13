@@ -1,6 +1,12 @@
 import { makeStyles, Typography } from "@material-ui/core"
 import { IconType } from "react-icons"
-import { SiTiktok, SiTwitter, SiYoutube, SiTwitch } from "react-icons/si"
+import {
+  SiTiktok,
+  SiTwitter,
+  SiYoutube,
+  SiTwitch,
+  SiPatreon,
+} from "react-icons/si"
 import { FaRegUser } from "react-icons/fa"
 import cx from "clsx"
 
@@ -14,7 +20,7 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }))
 
-type SocialPlatform = "twitter" | "tiktok" | "twitch" | "youtube"
+type SocialPlatform = "twitter" | "tiktok" | "twitch" | "youtube" | "patreon"
 
 const getIcon = (platform: SocialPlatform): IconType => {
   switch (platform) {
@@ -26,6 +32,8 @@ const getIcon = (platform: SocialPlatform): IconType => {
       return SiTwitch
     case "youtube":
       return SiYoutube
+    case "patreon":
+      return SiPatreon
     default:
       return FaRegUser
   }

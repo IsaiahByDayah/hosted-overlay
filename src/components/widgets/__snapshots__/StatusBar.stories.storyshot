@@ -123,6 +123,35 @@ exports[`Storyshots Widgets/StatusBar Basic 1`] = `
         /IsaiahSmith
       </p>
     </div>
+    <div
+      className="widgetsstatusbar-basic-makestyles-root-2 widgetsstatusbar-basic-makestyles-social-1"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        role="img"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title />
+        <path
+          d="M15.386.524c-4.764 0-8.64 3.876-8.64 8.64 0 4.75 3.876 8.613 8.64 8.613 4.75 0 8.614-3.864 8.614-8.613C24 4.4 20.136.524 15.386.524M.003 23.537h4.22V.524H.003"
+        />
+      </svg>
+      <p
+        className="widgetsstatusbar-basic-muitypography-root-1 widgetsstatusbar-basic-makestyles-label-1 widgetsstatusbar-basic-muitypography-body1-1"
+      >
+        /IsaiahByDayah
+      </p>
+    </div>
   </div>
   <div
     className="widgetsstatusbar-basic-makestyles-messagecontainer-1 widgetsstatusbar-basic-makestyles-hidden-1"
@@ -130,7 +159,7 @@ exports[`Storyshots Widgets/StatusBar Basic 1`] = `
     <p
       className="widgetsstatusbar-basic-muitypography-root-1 widgetsstatusbar-basic-makestyles-message-1 widgetsstatusbar-basic-muitypography-body1-1"
     >
-      Here is some message to periodically show on stream!
+      Follow me on Twitter or Patreon for game dev updates and sneak peak at new features! Patreon.com/IsaiahByDayah
     </p>
   </div>
 </div>
