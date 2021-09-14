@@ -29,7 +29,7 @@ const CurrentTopic = ({ className }: CurrentTopicProps) => {
       </Typography>
       <Paper className={classes.paper}>
         <Typography className={classes.topic} align="center" variant="h6">
-          {overlay?.currentTopic}
+          {overlay?.currentTopic ?? "Having fun!"}
         </Typography>
       </Paper>
     </div>

@@ -10,6 +10,8 @@ import {
 import { FaRegUser } from "react-icons/fa"
 import cx from "clsx"
 
+import { SocialPlatform } from "lib/types"
+
 const useStyles = makeStyles(({ spacing }) => ({
   root: {
     display: "flex",
@@ -19,8 +21,6 @@ const useStyles = makeStyles(({ spacing }) => ({
     marginLeft: spacing(),
   },
 }))
-
-type SocialPlatform = "twitter" | "tiktok" | "twitch" | "youtube" | "patreon"
 
 const getIcon = (platform: SocialPlatform): IconType => {
   switch (platform) {

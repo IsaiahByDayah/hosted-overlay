@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { makeStyles, Typography } from "@material-ui/core"
 import cx from "clsx"
 
+import { useOverlayContext } from "components/scaffold/OverlayProvider"
+
 import SocialProfile from "components/common/SocialProfile"
 
 const useStyles = makeStyles(({ spacing, palette, shape, transitions }) => ({
@@ -75,6 +77,7 @@ const getWaitTimeSeconds = (index: number) => {
 const StatusBar = ({ className }: StatusBarProps) => {
   const classes = useStyles()
   const [index, setIndex] = useState(0)
+  const { overlay } = useOverlayContext()
 
   useEffect(() => {
     const seconds = getWaitTimeSeconds(index)
@@ -93,31 +96,13 @@ const StatusBar = ({ className }: StatusBarProps) => {
   return (
     <div className={cx(classes.root, className)}>
       <div className={cx(classes.socials, { [classes.hidden]: index !== 0 })}>
-        <SocialProfile
-          className={classes.social}
-          platform="twitter"
-          label="@IsaiahByDayah"
-        />
-        <SocialProfile
-          className={classes.social}
-          platform="twitch"
-          label="/IsaiahByDayah"
-        />
-        <SocialProfile
-          className={classes.social}
-          platform="tiktok"
-          label="IsaiahByDayah"
-        />
-        <SocialProfile
-          className={classes.social}
-          platform="youtube"
-          label="/IsaiahSmith"
-        />
-        <SocialProfile
-          className={classes.social}
-          platform="patreon"
-          label="/IsaiahByDayah"
-        />
+        {overlay?.socials?.map((social) => (
+          <SocialProfile
+            className={classes.social}
+            platform={social.platform}
+            label={social.handle}
+          />
+        ))}
       </div>
 
       <div

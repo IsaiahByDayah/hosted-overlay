@@ -13,6 +13,16 @@ export interface Task {
   completed?: boolean
 }
 
+export const SOCIAL_PLATFORMS = [
+  "patreon",
+  "tiktok",
+  "twitch",
+  "twitter",
+  "youtube",
+] as const
+export type SocialPlatform = typeof SOCIAL_PLATFORMS[number]
+
 export interface Overlay {
-  currentTopic: String
+  currentTopic?: string
+  socials?: { platform: SocialPlatform; handle: string }[]
 }
