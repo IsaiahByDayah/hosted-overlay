@@ -1,16 +1,20 @@
-import { makeStyles, Grid } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core"
+import { Switch, Route, Redirect } from "react-router-dom"
 
 import Root from "components/scaffold/Root"
-import MainSection from "components/scaffold/MainSection"
-import Sidebar from "components/scaffold/Sidebar"
+
+import Home from "components/pages/Home"
+import Admin from "components/pages/Admin"
+import Overlay from "components/pages/Overlay"
+
+import AdminRedirect from "components/common/AdminRedirect"
+import SignedIn from "components/common/SignedIn"
+import SignedOut from "components/common/SignedOut"
 
 const useStyles = makeStyles(() => ({
   root: {
     maxHeight: "100vh",
     maxWidth: "100vw",
-  },
-  fullheight: {
-    height: "100vh",
   },
 }))
 
@@ -19,14 +23,27 @@ const App = () => {
 
   return (
     <Root className={classes.root}>
-      <Grid className={classes.fullheight} container>
-        <Grid className={classes.fullheight} item xs={9}>
-          <MainSection />
-        </Grid>
-        <Grid className={classes.fullheight} item xs={3}>
-          <Sidebar />
-        </Grid>
-      </Grid>
+      <Switch>
+        <Route exact path="/:userId/overlay">
+          <Overlay />
+        </Route>
+        <Route path="/:userId">
+          <SignedIn>
+            <Admin />
+          </SignedIn>
+          <SignedOut>
+            <Redirect to="/" />
+          </SignedOut>
+        </Route>
+        <Route>
+          <SignedIn>
+            <AdminRedirect />
+          </SignedIn>
+          <SignedOut>
+            <Home />
+          </SignedOut>
+        </Route>
+      </Switch>
     </Root>
   )
 }

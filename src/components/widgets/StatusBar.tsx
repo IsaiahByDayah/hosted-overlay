@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { makeStyles, Typography } from "@material-ui/core"
 import cx from "clsx"
 
+import { useOverlayContext } from "components/scaffold/OverlayProvider"
+
 import SocialProfile from "components/common/SocialProfile"
 
 const useStyles = makeStyles(({ spacing, palette, shape, transitions }) => ({
@@ -75,6 +77,7 @@ const getWaitTimeSeconds = (index: number) => {
 const StatusBar = ({ className }: StatusBarProps) => {
   const classes = useStyles()
   const [index, setIndex] = useState(0)
+  const { overlay } = useOverlayContext()
 
   useEffect(() => {
     const seconds = getWaitTimeSeconds(index)
@@ -93,26 +96,13 @@ const StatusBar = ({ className }: StatusBarProps) => {
   return (
     <div className={cx(classes.root, className)}>
       <div className={cx(classes.socials, { [classes.hidden]: index !== 0 })}>
-        <SocialProfile
-          className={classes.social}
-          platform="twitter"
-          label="@IsaiahByDayah"
-        />
-        <SocialProfile
-          className={classes.social}
-          platform="twitch"
-          label="/IsaiahByDayah"
-        />
-        <SocialProfile
-          className={classes.social}
-          platform="tiktok"
-          label="IsaiahByDayah"
-        />
-        <SocialProfile
-          className={classes.social}
-          platform="youtube"
-          label="/IsaiahSmith"
-        />
+        {overlay?.socials?.map((social) => (
+          <SocialProfile
+            className={classes.social}
+            platform={social.platform}
+            label={social.handle}
+          />
+        ))}
       </div>
 
       <div
@@ -120,8 +110,13 @@ const StatusBar = ({ className }: StatusBarProps) => {
           [classes.hidden]: index !== 1,
         })}
       >
+        {/* <Typography className={classes.message}>
+          Highlighted messages are now spoken on stream! Redeem those channel
+          points!
+        </Typography> */}
         <Typography className={classes.message}>
-          Here is some message to periodically show on stream!
+          Follow me on Twitter or Patreon for game dev updates and sneak peak at
+          new features! Patreon.com/IsaiahByDayah
         </Typography>
       </div>
     </div>
