@@ -1,6 +1,8 @@
+import faker from "faker"
 import { httpsCallable } from "firebase/functions"
 
 import firebase from "lib/firebase"
+import { Message } from "lib/types"
 
 // Creates a slug formatted string from supplied string
 export const slugify = (str: string): string => {
@@ -117,4 +119,29 @@ export const textToSpeech = async (
   if (message.playImmediately) source.start(0)
 
   return source
+}
+
+interface GetFakeChatProps {
+  count?: number
+  seed?: number
+  sentMessageEvery?: number
+}
+export const getFakeChat = ({
+  count = 10,
+  sentMessageEvery = 4,
+  seed,
+}: GetFakeChatProps): Message[] => {
+  if (seed) faker.seed(seed)
+
+  return Array(count)
+    .fill(null)
+    .map((_, index) => {
+      return {
+        id: `${index}`,
+        username: faker.internet.userName(),
+        message: faker.lorem.sentences(),
+        color: faker.commerce.color(),
+        sent: index % sentMessageEvery === 0,
+      }
+    })
 }

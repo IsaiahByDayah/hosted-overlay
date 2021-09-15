@@ -2,9 +2,10 @@ import { ReactNode, useEffect } from "react"
 import tmi from "tmi.js"
 
 import { textToSpeech } from "lib/util"
-import { chatClient } from "lib/twitch"
+import { getChatClient } from "lib/twitch"
 
 import { useAlerts } from "components/scaffold/AlertsProvider"
+import { useOverlayContext } from "components/scaffold/OverlayProvider"
 
 interface TwitchAlertsProps {
   children?: ReactNode
@@ -12,8 +13,14 @@ interface TwitchAlertsProps {
 
 const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
   const { enqueueAlert } = useAlerts()
+  const { overlay } = useOverlayContext()
 
   useEffect(() => {
+    if (!overlay?.channel) return
+
+    // Create chat client
+    const chatClient = getChatClient(overlay.channel)
+
     const onMessage: tmi.Events["message"] = async (
       channel,
       tags,
@@ -90,6 +97,7 @@ const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
       console.log("Twitch Alert - Raided: ", channel, username, viewers)
     }
 
+    chatClient.connect()
     chatClient.addListener("message", onMessage)
     chatClient.addListener("cheer", onCheer)
     chatClient.addListener("redeem", onRedeem)
@@ -102,6 +110,7 @@ const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
       chatClient.removeListener("redeem", onRedeem)
       chatClient.removeListener("subscription", onSubscription)
       chatClient.removeListener("raided", onRaided)
+      chatClient.disconnect()
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

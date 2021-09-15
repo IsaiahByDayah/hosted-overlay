@@ -23,6 +23,11 @@ export const SOCIAL_PLATFORMS = [
 export type SocialPlatform = typeof SOCIAL_PLATFORMS[number]
 
 export interface Overlay {
-  currentTopic?: string
-  socials?: { platform: SocialPlatform; handle: string }[]
+  channel?: string // Used for what chat to connect to for messages / commands / etc.
+
+  currentTopic?: string // Displayed on the overlay
+
+  socials?: { platform: SocialPlatform; handle: string }[] // Displayed in the status bar
+
+  messages?: string | string[] // Message(s) to randomly cycle through the status bar
 }

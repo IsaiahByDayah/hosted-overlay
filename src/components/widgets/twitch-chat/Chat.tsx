@@ -54,13 +54,12 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
 
 export interface ChatProps {
   className?: string
-  useData: () => Message[]
+  messages: Message[]
 }
 
-const Chat = ({ className, useData }: ChatProps) => {
+const Chat = ({ className, messages }: ChatProps) => {
   const classes = useStyles()
   const chatContainerRef = useRef<HTMLDivElement>(null)
-  const messages = useData()
 
   useLayoutEffect(() => {
     if (chatContainerRef.current) {
