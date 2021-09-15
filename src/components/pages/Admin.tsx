@@ -54,14 +54,10 @@ const Admin = () => {
     })
     console.log("Social Platform Added!")
   }
-  const removeSocial = async () => {
-    if (!socialHandle.trim()) return
+  const removeSocial = async (platform: SocialPlatform, handle: string) => {
     await updateDoc(overlayDocRef, {
       socials: (overlay?.socials ?? []).filter(
-        (social) =>
-          !(
-            social.platform === socialPlatform && social.handle === socialHandle
-          )
+        (social) => !(social.platform === platform && social.handle === handle)
       ),
     })
     console.log("Social Platform Removed!")
@@ -97,7 +93,9 @@ const Admin = () => {
               }}
             >
               {SOCIAL_PLATFORMS.map((platform) => (
-                <MenuItem value={platform}>{platform}</MenuItem>
+                <MenuItem key={platform} value={platform}>
+                  {platform}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -110,11 +108,14 @@ const Admin = () => {
             InputLabelProps={{ shrink: true }}
           />
           <Button onClick={() => addSocial()}>Add</Button>
-          <Button onClick={() => removeSocial()}>Remove</Button>
         </div>
         <div>
           {overlay?.socials?.map((social) => (
-            <Chip label={`${social.platform} - ${social.handle}`} />
+            <Chip
+              key={`${social.platform}-${social.handle}`}
+              label={`${social.platform} - ${social.handle}`}
+              onDelete={() => removeSocial(social.platform, social.handle)}
+            />
           ))}
         </div>
       </Box>
