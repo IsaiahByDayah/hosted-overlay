@@ -29,5 +29,5 @@ export interface Overlay {
 
   socials?: { platform: SocialPlatform; handle: string }[] // Displayed in the status bar
 
-  messages?: string | string[] // Message(s) to randomly cycle through the status bar
+  messages?: string[] // Messages to randomly cycle through the status bar
 }
