@@ -11,11 +11,13 @@ const TwitchAlerts = () => {
   const { enqueueAlert } = useAlerts()
   const { overlay } = useOverlayContext()
 
+  const channel = overlay?.channel
+
   useEffect(() => {
-    if (!overlay?.channel) return
+    if (!channel) return
 
     // Create chat client
-    const chatClient = getChatClient(overlay.channel)
+    const chatClient = getChatClient(channel)
 
     const onMessage: tmi.Events["message"] = async (
       channel,
@@ -23,7 +25,7 @@ const TwitchAlerts = () => {
       message,
       self
     ) => {
-      console.log("Twitch Alert - Message: ", channel, tags, message, self)
+      console.log("Twitch Alert || Message: ", channel, tags, message, self)
 
       if (message.trim() === "!tts") {
         const tts = await textToSpeech({ text: "Text to speech test" })
@@ -132,7 +134,7 @@ const TwitchAlerts = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [channel])
 
   return null
 }

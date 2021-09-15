@@ -40,7 +40,12 @@ const useOverlayChat = ({ channel }: UseChatProps): Message[] => {
 
     // Handle new messages
     const onMessage: tmi.Events["message"] = (channel, tags, message, self) => {
-      console.log(`${tags["display-name"]}: ${message}`, channel, tags, self)
+      console.log(
+        `Overlay Chat || ${tags["display-name"]}: ${message}`,
+        channel,
+        tags,
+        self
+      )
 
       // Light message sanitization/formatting
       message = message.trim()
