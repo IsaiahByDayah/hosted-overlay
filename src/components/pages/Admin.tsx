@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import {
+  makeStyles,
   Box,
   InputLabel,
   Select,
@@ -8,9 +9,13 @@ import {
   Button,
   Chip,
   FormControl,
+  Typography,
+  Toolbar,
+  AppBar,
+  Container,
+  OutlinedInput,
 } from "@material-ui/core"
 import { doc, updateDoc } from "firebase/firestore"
-import { Link } from "react-router-dom"
 
 import firebase from "lib/firebase"
 import { SOCIAL_PLATFORMS, SocialPlatform } from "lib/types"
@@ -19,7 +24,33 @@ import useOverlay from "hooks/useOverlay"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
 
+const useStyles = makeStyles(({ spacing }) => ({
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    gap: spacing(4),
+  },
+  pageTitle: {
+    fontWeight: "bold",
+  },
+  section: {
+    display: "flex",
+    flexDirection: "column",
+    gap: spacing(2),
+  },
+  sectionTitle: {
+    fontWeight: "bold",
+  },
+  row: {
+    gap: spacing(2),
+  },
+  noShrink: {
+    flexShrink: 0,
+  },
+}))
+
 const Admin = () => {
+  const classes = useStyles()
   const { user } = useAuthContext()
   const overlay = useOverlay(user?.uid)
 
@@ -29,6 +60,8 @@ const Admin = () => {
 
   const [socialPlatform, setSocialPlatform] = useState<SocialPlatform>("twitch")
   const [socialHandle, setSocialHandle] = useState("")
+
+  const [message, setMessage] = useState("")
 
   useEffect(() => {
     if (newCurrentTopic === "") {
@@ -63,62 +96,167 @@ const Admin = () => {
     console.log("Social Platform Removed!")
   }
 
+  const addMessage = async () => {
+    if (!message.trim()) return
+    await updateDoc(overlayDocRef, {
+      messages: [...(overlay?.messages ?? []), message.trim()],
+    })
+    console.log("Message Added!")
+  }
+  const removeMessage = async (msg: string) => {
+    await updateDoc(overlayDocRef, {
+      messages: (overlay?.messages ?? []).filter((m) => !(msg === m)),
+    })
+    console.log("Message Removed!")
+  }
+
   return (
     <div>
-      <Link to={`/${user?.uid}/overlay`} target="_blank">
-        Open Overlay
-      </Link>
-      <div>
-        <TextField
-          label="Current Topic"
-          value={newCurrentTopic}
-          onChange={(e) => {
-            setNewCurrentTopic(e.currentTarget.value)
-          }}
-          InputLabelProps={{ shrink: true }}
-        />
-        <Button onClick={() => updateCurrentTopic()}>Update</Button>
-      </div>
+      <AppBar position="relative">
+        <Toolbar>
+          <Typography>Hosted Overlay</Typography>
+        </Toolbar>
+      </AppBar>
+      <Container className={classes.content} component={Box} mt={2}>
+        <Typography className={classes.pageTitle} variant="h5">
+          Admin Panel
+        </Typography>
 
-      <Box mt={4}>
-        <div>
-          <FormControl variant="outlined">
-            <InputLabel id="social-platform-select-label">Platform</InputLabel>
-            <Select
-              labelId="social-platform-select-label"
-              label="Platform"
-              value={socialPlatform}
+        {user && (
+          <Button
+            variant="contained"
+            href={`/${user.uid}/overlay`}
+            target="_blank"
+          >
+            Open Overlay
+          </Button>
+        )}
+
+        {/* Sidebar Section */}
+        <div className={classes.section}>
+          <Typography className={classes.sectionTitle}>Sidebar Data</Typography>
+
+          <Box className={classes.row} display="flex" alignItems="center">
+            <FormControl variant="outlined" fullWidth>
+              <InputLabel id="current-topic-select-label">
+                Current Topic
+              </InputLabel>
+              <OutlinedInput
+                // labelId="current-topic-select-label"
+                label="Current Topic"
+                value={newCurrentTopic}
+                onChange={(e) => {
+                  setNewCurrentTopic(e.currentTarget.value)
+                }}
+                // InputLabelProps={{ shrink: true }}
+              />
+            </FormControl>
+            <Button variant="contained" onClick={() => updateCurrentTopic()}>
+              Update
+            </Button>
+          </Box>
+
+          <Box className={classes.row} display="flex" alignItems="center">
+            <FormControl variant="outlined" fullWidth>
+              <InputLabel id="channel-select-label">Channel</InputLabel>
+              <OutlinedInput
+                label="Channel"
+                value={newCurrentTopic}
+                onChange={(e) => {
+                  setNewCurrentTopic(e.currentTarget.value)
+                }}
+              />
+            </FormControl>
+            <Button variant="contained" onClick={() => updateCurrentTopic()}>
+              Update
+            </Button>
+          </Box>
+        </div>
+
+        {/* Status Bar Section */}
+        <div className={classes.section}>
+          <Typography className={classes.sectionTitle}>
+            Status Bar Data
+          </Typography>
+
+          <Box className={classes.row} display="flex" alignItems="center">
+            <FormControl className={classes.noShrink} variant="outlined">
+              <InputLabel id="social-platform-select-label">
+                Platform
+              </InputLabel>
+              <Select
+                labelId="social-platform-select-label"
+                label="Platform"
+                value={socialPlatform}
+                onChange={(e) => {
+                  setSocialPlatform(e.target.value as SocialPlatform)
+                }}
+              >
+                {SOCIAL_PLATFORMS.map((platform) => (
+                  <MenuItem key={platform} value={platform}>
+                    {platform}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Handle"
+              value={socialHandle}
               onChange={(e) => {
-                setSocialPlatform(e.target.value as SocialPlatform)
+                setSocialHandle(e.currentTarget.value)
               }}
-            >
-              {SOCIAL_PLATFORMS.map((platform) => (
-                <MenuItem key={platform} value={platform}>
-                  {platform}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <TextField
-            label="Handle"
-            value={socialHandle}
-            onChange={(e) => {
-              setSocialHandle(e.currentTarget.value)
-            }}
-            InputLabelProps={{ shrink: true }}
-          />
-          <Button onClick={() => addSocial()}>Add</Button>
-        </div>
-        <div>
-          {overlay?.socials?.map((social) => (
-            <Chip
-              key={`${social.platform}-${social.handle}`}
-              label={`${social.platform} - ${social.handle}`}
-              onDelete={() => removeSocial(social.platform, social.handle)}
+              InputLabelProps={{ shrink: true }}
             />
-          ))}
+            <Button variant="contained" onClick={() => addSocial()}>
+              Add
+            </Button>
+          </Box>
+
+          <Box
+            className={classes.row}
+            display="flex"
+            alignItems="center"
+            flexWrap="wrap"
+          >
+            {overlay?.socials?.map((social) => (
+              <Chip
+                key={`${social.platform}-${social.handle}`}
+                label={`${social.platform} - ${social.handle}`}
+                onDelete={() => removeSocial(social.platform, social.handle)}
+              />
+            ))}
+          </Box>
+
+          <Box className={classes.row} display="flex" alignItems="center">
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Message"
+              value={message}
+              onChange={(e) => {
+                setMessage(e.currentTarget.value)
+              }}
+              InputLabelProps={{ shrink: true }}
+            />
+            <Button variant="contained" onClick={() => addMessage()}>
+              Add
+            </Button>
+          </Box>
+
+          <Box
+            className={classes.row}
+            display="flex"
+            alignItems="center"
+            flexWrap="wrap"
+          >
+            {overlay?.messages?.map((m) => (
+              <Chip key={m} label={m} onDelete={() => removeMessage(m)} />
+            ))}
+          </Box>
         </div>
-      </Box>
+      </Container>
     </div>
   )
 }
