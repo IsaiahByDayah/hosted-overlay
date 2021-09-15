@@ -47,6 +47,13 @@ const useStyles = makeStyles(({ spacing }) => ({
   noShrink: {
     flexShrink: 0,
   },
+  bigChip: {
+    height: "auto",
+    padding: spacing(),
+  },
+  bigChipLabel: {
+    whiteSpace: "normal",
+  },
 }))
 
 const Admin = () => {
@@ -252,7 +259,13 @@ const Admin = () => {
             flexWrap="wrap"
           >
             {overlay?.messages?.map((m) => (
-              <Chip key={m} label={m} onDelete={() => removeMessage(m)} />
+              <Chip
+                key={m}
+                className={classes.bigChip}
+                label={m}
+                onDelete={() => removeMessage(m)}
+                classes={{ label: classes.bigChipLabel }}
+              />
             ))}
           </Box>
         </div>
