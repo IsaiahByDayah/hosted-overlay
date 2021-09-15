@@ -10,6 +10,7 @@ import {
   FormControl,
 } from "@material-ui/core"
 import { doc, updateDoc } from "firebase/firestore"
+import { Link } from "react-router-dom"
 
 import firebase from "lib/firebase"
 import { SOCIAL_PLATFORMS, SocialPlatform } from "lib/types"
@@ -68,6 +69,9 @@ const Admin = () => {
 
   return (
     <div>
+      <Link to={`/${user?.uid}/overlay`} target="_blank">
+        Open Overlay
+      </Link>
       <div>
         <TextField
           label="Current Topic"

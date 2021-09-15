@@ -25,7 +25,29 @@ const TwitchAlerts = () => {
     ) => {
       console.log("Twitch Alert - Message: ", channel, tags, message, self)
 
+      if (message.trim() === "!tts") {
+        const tts = await textToSpeech({ text: "Text to speech test" })
+        if (tts) {
+          enqueueAlert({
+            id: tags.id ?? Date.now().toString(),
+            hidden: true,
+            duration: tts.buffer?.duration,
+            onStart: () => {
+              tts.start(0)
+            },
+          })
+        }
+      }
+
+      if (message.trim() === "!tts-now") {
+        textToSpeech({
+          text: "Immediate text to speech test",
+          playImmediately: true,
+        })
+      }
+
       if (tags["msg-id"] === "highlighted-message") {
+        console.log("Trying to tts: ", message)
         const tts = await textToSpeech({ text: message })
         if (tts) {
           enqueueAlert({
