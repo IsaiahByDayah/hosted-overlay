@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from "react"
+import { useEffect } from "react"
 import tmi from "tmi.js"
 
 import { textToSpeech } from "lib/util"
@@ -7,11 +7,7 @@ import { getChatClient } from "lib/twitch"
 import { useAlerts } from "components/scaffold/AlertsProvider"
 import { useOverlayContext } from "components/scaffold/OverlayProvider"
 
-interface TwitchAlertsProps {
-  children?: ReactNode
-}
-
-const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
+const TwitchAlerts = () => {
   const { enqueueAlert } = useAlerts()
   const { overlay } = useOverlayContext()
 
@@ -116,7 +112,7 @@ const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return <>{children}</>
+  return null
 }
 
 export default TwitchAlerts
