@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common/Header Basic 1`] = `
+<header
+  className="commonheader-basic-muipaper-root-1 commonheader-basic-muiappbar-root-1 commonheader-basic-muiappbar-positionrelative-1 commonheader-basic-muiappbar-colorprimary-1 commonheader-basic-muipaper-elevation4-1"
+>
+  <div
+    className="commonheader-basic-muitoolbar-root-1 commonheader-basic-muitoolbar-regular-1 commonheader-basic-muitoolbar-gutters-1"
+  >
+    <div
+      className="commonheader-basic-muibox-root-1 commonheader-basic-muibox-root-2"
+    >
+      <p
+        className="commonheader-basic-muitypography-root-1 commonheader-basic-muitypography-body1-1"
+      >
+        Hosted Overlay
+      </p>
+    </div>
+  </div>
+</header>
+`;

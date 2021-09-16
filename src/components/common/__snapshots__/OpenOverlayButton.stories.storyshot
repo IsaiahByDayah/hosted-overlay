@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common/OpenOverlayButton Basic 1`] = `
+<a
+  aria-disabled={true}
+  className="commonopenoverlaybutton-basic-muibuttonbase-root-1 commonopenoverlaybutton-basic-muibutton-root-1 commonopenoverlaybutton-basic-muibutton-contained-1 commonopenoverlaybutton-basic-muibutton-disabled-1 commonopenoverlaybutton-basic-muibuttonbase-disabled-1"
+  href="/undefined/overlay"
+  onBlur={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={-1}
+  target="_blank"
+>
+  <span
+    className="commonopenoverlaybutton-basic-muibutton-label-1"
+  >
+    Open Overlay
+    <span
+      className="commonopenoverlaybutton-basic-muibutton-endicon-1 commonopenoverlaybutton-basic-muibutton-iconsizemedium-1"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+      </svg>
+    </span>
+  </span>
+</a>
+`;

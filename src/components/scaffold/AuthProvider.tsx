@@ -5,7 +5,7 @@ import {
   ReactNode,
   useEffect,
 } from "react"
-import { User, onAuthStateChanged } from "firebase/auth"
+import { User, onAuthStateChanged, signOut } from "firebase/auth"
 
 import firebase from "lib/firebase"
 
@@ -39,11 +39,15 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     })
   }, [])
 
+  const _signOut = () => {
+    signOut(firebase.auth)
+  }
+
   return (
     <AuthContext.Provider
       value={{
         user,
-        signOut: firebase.auth.signOut,
+        signOut: _signOut,
       }}
     >
       {children}
