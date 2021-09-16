@@ -32,6 +32,8 @@ const TwitchAlerts = () => {
       console.log("Twitch Alert || Message: ", channel, tags, message, self)
 
       const formattedMessage = message.trim().substr(0, CHARACTER_LIMIT)
+      console.log("Twitch Alert || Formatted Message: ", formattedMessage)
+
       const isChannelOwner = `#${tags.username}` === channel
 
       if (message === "!tts" && isChannelOwner) {
