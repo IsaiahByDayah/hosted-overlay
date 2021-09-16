@@ -22,8 +22,15 @@ export const SOCIAL_PLATFORMS = [
 ] as const
 export type SocialPlatform = typeof SOCIAL_PLATFORMS[number]
 
+interface TTSRedemption {
+  customRewardId: string
+  langauge: TTSLanguage
+}
+
 export interface Overlay {
   channel?: string // Used for what chat to connect to for messages / commands / etc.
+
+  ttsRedemptions?: TTSRedemption[]
 
   currentTopic?: string // Displayed on the overlay
 

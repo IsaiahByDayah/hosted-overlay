@@ -18,7 +18,12 @@ import {
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"
-import { SOCIAL_PLATFORMS, SocialPlatform } from "lib/types"
+import {
+  SOCIAL_PLATFORMS,
+  SocialPlatform,
+  TTS_LANGUAGES,
+  TTSLanguage,
+} from "lib/types"
 
 import useOverlay from "hooks/useOverlay"
 
@@ -70,6 +75,10 @@ const Admin = () => {
 
   const [message, setMessage] = useState("")
 
+  const [ttsLangauge, setTTSLanguage] =
+    useState<TTSLanguage>("american-english")
+  const [ttsCustomId, setTTSCustomId] = useState("")
+
   useEffect(() => {
     if (newCurrentTopic === "") {
       setCurrentTopic(overlay?.currentTopic ?? "")
@@ -113,6 +122,28 @@ const Admin = () => {
   const removeMessage = async (msg: string) => {
     await updateDoc(overlayDocRef, {
       messages: (overlay?.messages ?? []).filter((m) => !(msg === m)),
+    })
+    console.log("Message Removed!")
+  }
+
+  const addTTSRedemption = async () => {
+    if (!ttsCustomId.trim()) return
+    await updateDoc(overlayDocRef, {
+      ttsRedemptions: [
+        ...(overlay?.ttsRedemptions ?? []),
+        {
+          customRewardId: ttsCustomId,
+          langauge: ttsLangauge,
+        },
+      ],
+    })
+    console.log("Message Added!")
+  }
+  const removeTTSRedemption = async (customId: string) => {
+    await updateDoc(overlayDocRef, {
+      ttsRedemptions: (overlay?.ttsRedemptions ?? []).filter(
+        (r) => !(r.customRewardId === customId)
+      ),
     })
     console.log("Message Removed!")
   }
@@ -177,6 +208,54 @@ const Admin = () => {
             <Button variant="contained" onClick={() => updateCurrentTopic()}>
               Update
             </Button>
+          </Box>
+
+          <Box className={classes.row} display="flex" alignItems="center">
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Custom Reward Id"
+              value={ttsCustomId}
+              onChange={(e) => {
+                setTTSCustomId(e.currentTarget.value)
+              }}
+              InputLabelProps={{ shrink: true }}
+            />
+            <FormControl className={classes.noShrink} variant="outlined">
+              <InputLabel id="tts-language-select-label">Language</InputLabel>
+              <Select
+                labelId="tts-langauge-select-label"
+                label="Language"
+                value={ttsLangauge}
+                onChange={(e) => {
+                  setTTSLanguage(e.target.value as TTSLanguage)
+                }}
+              >
+                {TTS_LANGUAGES.map((language) => (
+                  <MenuItem key={language} value={language}>
+                    {language}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <Button variant="contained" onClick={() => addTTSRedemption()}>
+              Add
+            </Button>
+          </Box>
+
+          <Box
+            className={classes.row}
+            display="flex"
+            alignItems="center"
+            flexWrap="wrap"
+          >
+            {overlay?.ttsRedemptions?.map((redemption) => (
+              <Chip
+                key={redemption.customRewardId}
+                label={`${redemption.customRewardId} - ${redemption.langauge}`}
+                onDelete={() => removeTTSRedemption(redemption.customRewardId)}
+              />
+            ))}
           </Box>
         </div>
 

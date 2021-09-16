@@ -12,6 +12,8 @@ const TwitchAlerts = () => {
   const { overlay } = useOverlayContext()
 
   const channel = overlay?.channel
+  const overlayTTSRedemptionsHash =
+    overlay?.ttsRedemptions?.map((r) => r.customRewardId).join() ?? ""
 
   useEffect(() => {
     if (!channel) return
@@ -67,19 +69,29 @@ const TwitchAlerts = () => {
         }
       }
 
-      // French test
-      if (tags["custom-reward-id"] === "1a21c4cf-6fbb-4837-a17d-e1704833544b") {
-        console.log("Trying to tts: ", message)
-        const tts = await textToSpeech({ text: message, language: "french" })
-        if (tts) {
-          enqueueAlert({
-            id: tags.id ?? Date.now().toString(),
-            hidden: true,
-            duration: tts.buffer?.duration,
-            onStart: () => {
-              tts.start(0)
-            },
+      // Check TTS Redemptions
+      if (tags["custom-reward-id"]) {
+        const customRewardId = tags["custom-reward-id"]
+
+        const foundRedemption = overlay?.ttsRedemptions?.find(
+          (r) => r.customRewardId === customRewardId
+        )
+
+        if (foundRedemption) {
+          const tts = await textToSpeech({
+            text: message,
+            language: foundRedemption.langauge,
           })
+          if (tts) {
+            enqueueAlert({
+              id: tags.id ?? Date.now().toString(),
+              hidden: true,
+              duration: tts.buffer?.duration,
+              onStart: () => {
+                tts.start(0)
+              },
+            })
+          }
         }
       }
     }
@@ -129,6 +141,25 @@ const TwitchAlerts = () => {
       )
     }
 
+    const onResub: tmi.Events["resub"] = (
+      channel,
+      username,
+      months,
+      message,
+      tags,
+      methods
+    ) => {
+      console.log(
+        "Twitch Alert - Subscription: ",
+        channel,
+        username,
+        months,
+        message,
+        tags,
+        methods
+      )
+    }
+
     const onRaided: tmi.Events["raided"] = (
       channel: string,
       username: string,
@@ -142,6 +173,7 @@ const TwitchAlerts = () => {
     chatClient.addListener("cheer", onCheer)
     chatClient.addListener("redeem", onRedeem)
     chatClient.addListener("subscription", onSubscription)
+    chatClient.addListener("resub", onResub)
     chatClient.addListener("raided", onRaided)
 
     return () => {
@@ -149,12 +181,13 @@ const TwitchAlerts = () => {
       chatClient.removeListener("cheer", onCheer)
       chatClient.removeListener("redeem", onRedeem)
       chatClient.removeListener("subscription", onSubscription)
+      chatClient.removeListener("resub", onResub)
       chatClient.removeListener("raided", onRaided)
       chatClient.disconnect()
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [channel])
+  }, [channel, overlayTTSRedemptionsHash])
 
   return null
 }
