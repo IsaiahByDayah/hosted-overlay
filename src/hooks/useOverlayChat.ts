@@ -11,19 +11,6 @@ interface UseChatProps {
   channel?: string | string[]
 }
 
-// const LANGUAGE_MAPS: { [key: string]: string } = {
-//   en: "en-US",
-//   au: "en-AU",
-//   uk: "en-GB",
-//   gb: "en-GB",
-//   es: "es-ES",
-//   sp: "es-ES",
-//   fr: "fr-FR",
-//   it: "it-IT",
-//   jp: "ja-JP",
-//   ja: "ja-JP",
-// }
-
 const useOverlayChat = ({ channel }: UseChatProps): Message[] => {
   const [messages, setMessages] = useState<Message[]>([])
   // const { enqueueAlert } = useAlerts()

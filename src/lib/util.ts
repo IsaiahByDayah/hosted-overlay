@@ -2,7 +2,7 @@ import faker from "faker"
 import { httpsCallable } from "firebase/functions"
 
 import firebase from "lib/firebase"
-import { Message } from "lib/types"
+import { Message, TTSLanguage } from "lib/types"
 
 // Creates a slug formatted string from supplied string
 export const slugify = (str: string): string => {
@@ -82,7 +82,7 @@ export const str2ab = (str: string): ArrayBuffer => {
 interface TTSMessage {
   text: string
   gender?: "MALE" | "FEMALE" | "NEUTRAL"
-  language?: string
+  language?: TTSLanguage
   onEnd?: () => void
   playImmediately?: boolean
 }

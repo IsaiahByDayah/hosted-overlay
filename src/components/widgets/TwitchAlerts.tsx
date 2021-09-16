@@ -25,9 +25,13 @@ const TwitchAlerts = () => {
       message,
       self
     ) => {
+      message = message.trim()
+
       console.log("Twitch Alert || Message: ", channel, tags, message, self)
 
-      if (message.trim() === "!tts") {
+      const isChannelOwner = `#${tags.username}` === channel
+
+      if (message === "!tts" && isChannelOwner) {
         const tts = await textToSpeech({ text: "Text to speech test" })
         if (tts) {
           enqueueAlert({
@@ -41,7 +45,7 @@ const TwitchAlerts = () => {
         }
       }
 
-      if (message.trim() === "!tts-now") {
+      if (message === "!tts-now" && isChannelOwner) {
         textToSpeech({
           text: "Immediate text to speech test",
           playImmediately: true,
@@ -51,6 +55,22 @@ const TwitchAlerts = () => {
       if (tags["msg-id"] === "highlighted-message") {
         console.log("Trying to tts: ", message)
         const tts = await textToSpeech({ text: message })
+        if (tts) {
+          enqueueAlert({
+            id: tags.id ?? Date.now().toString(),
+            hidden: true,
+            duration: tts.buffer?.duration,
+            onStart: () => {
+              tts.start(0)
+            },
+          })
+        }
+      }
+
+      // French test
+      if (tags["custom-reward-id"] === "1a21c4cf-6fbb-4837-a17d-e1704833544b") {
+        console.log("Trying to tts: ", message)
+        const tts = await textToSpeech({ text: message, language: "french" })
         if (tts) {
           enqueueAlert({
             id: tags.id ?? Date.now().toString(),
