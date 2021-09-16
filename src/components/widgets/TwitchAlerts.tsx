@@ -77,6 +77,11 @@ const TwitchAlerts = () => {
           (r) => r.customRewardId === customRewardId
         )
 
+        console.log(
+          `Redemption found for custom reward id (${customRewardId}): `,
+          foundRedemption
+        )
+
         if (foundRedemption) {
           const tts = await textToSpeech({
             text: message,
