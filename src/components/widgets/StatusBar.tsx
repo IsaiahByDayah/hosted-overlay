@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { makeStyles, Typography } from "@material-ui/core"
+import { Typography } from "@mui/material"
+import makeStyles from "@mui/styles/makeStyles"
 import cx from "clsx"
 
 import { useOverlayContext } from "components/scaffold/OverlayProvider"
@@ -9,8 +10,9 @@ import SocialProfile from "components/common/SocialProfile"
 const useStyles = makeStyles(({ spacing, palette, shape, transitions }) => ({
   root: {
     padding: spacing(1, 0),
-    backgroundColor: palette.augmentColor({ main: palette.background.default })
-      .dark,
+    backgroundColor: palette.augmentColor({
+      color: { main: palette.background.default },
+    }).dark,
     borderRadius: shape.borderRadius,
     overflow: "hidden",
   },

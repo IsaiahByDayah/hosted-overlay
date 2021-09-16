@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import {
-  makeStyles,
   Box,
   InputLabel,
   Select,
@@ -11,7 +10,8 @@ import {
   FormControl,
   Typography,
   Container,
-} from "@material-ui/core"
+} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"

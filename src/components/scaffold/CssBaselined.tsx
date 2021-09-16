@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { CssBaseline } from "@material-ui/core"
+import { CssBaseline } from "@mui/material"
 
 interface CssBaseinedProps {
   children?: ReactNode

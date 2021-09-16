@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react"
-import { makeStyles } from "@material-ui/core"
-import { alpha } from "@material-ui/core/styles"
+import makeStyles from "@mui/styles/makeStyles"
+import { alpha } from "@mui/material/styles"
 import cx from "clsx"
 
 import { Message } from "lib/types"
@@ -29,7 +29,8 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
     left: 0,
     background: `linear-gradient(0deg, transparent 84%, ${alpha(
       // palette.background.default,
-      palette.augmentColor({ main: palette.background.default }).dark,
+      palette.augmentColor({ color: { main: palette.background.default } })
+        .dark,
       1
     )} 90%)`,
   },

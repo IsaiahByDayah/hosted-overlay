@@ -1,12 +1,6 @@
 import { useState } from "react"
-import {
-  makeStyles,
-  TextField,
-  Button,
-  Box,
-  Container,
-  Typography,
-} from "@material-ui/core"
+import { TextField, Button, Box, Container, Typography } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { signInWithEmailAndPassword } from "firebase/auth"
 
 import firebase from "lib/firebase"

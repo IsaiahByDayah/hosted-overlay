@@ -1,4 +1,6 @@
-import { makeStyles, Typography, Paper } from "@material-ui/core"
+import { Typography, Paper } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { useOverlayContext } from "components/scaffold/OverlayProvider"
 

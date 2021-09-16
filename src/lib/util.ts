@@ -13,7 +13,7 @@ export const slugify = (str: string): string => {
     .replace(/-{2,}/g, "-")
     .replace(/(-*)$/, "")
     .toLowerCase()
-    .trim()
+    .trim();
 }
 
 export const asString = (val: unknown): string | undefined =>

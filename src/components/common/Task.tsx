@@ -1,4 +1,5 @@
-import { makeStyles, Typography, Paper } from "@material-ui/core"
+import { Typography, Paper } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import cx from "clsx"
 
 const useStyles = makeStyles(({ spacing }) => ({

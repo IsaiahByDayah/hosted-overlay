@@ -1,5 +1,5 @@
 import { ReactNode, useContext } from "react"
-import { Hidden, HiddenProps } from "@material-ui/core"
+import { Hidden, HiddenProps } from "@mui/material"
 
 import { AuthContext } from "components/scaffold/AuthProvider"
 

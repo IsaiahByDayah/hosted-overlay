@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core"
+import makeStyles from '@mui/styles/makeStyles';
 import cx from "clsx"
 
 // import { getFollowerCount, getSubscriberCount } from "lib/twitch"

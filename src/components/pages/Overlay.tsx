@@ -1,4 +1,5 @@
-import { makeStyles, Grid } from "@material-ui/core"
+import { Grid } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { useParams } from "react-router-dom"
 
 import useOverlay from "hooks/useOverlay"

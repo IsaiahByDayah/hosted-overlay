@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 import { StoryContext, Story } from "@storybook/react/types-6-0"
-import { StylesProvider } from "@material-ui/core"
+import StylesProvider from '@mui/styles/StylesProvider';
 import { GenerateId } from "jss"
 
 import { slugify } from "lib/util"

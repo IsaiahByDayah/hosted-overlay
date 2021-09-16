@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Box, Typography, Button } from "@material-ui/core"
+import { AppBar, Toolbar, Box, Typography, Button } from "@mui/material"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
 

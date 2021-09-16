@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core"
+import makeStyles from "@mui/styles/makeStyles"
 import cx from "clsx"
 
 import { getFakeChat } from "lib/util"
@@ -18,8 +18,11 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
     display: "flex",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: palette.augmentColor({ main: palette.background.default })
-      .dark,
+    backgroundColor: palette.augmentColor({
+      color: {
+        main: palette.background.default,
+      },
+    }).dark,
   },
   currentTopic: {
     flexShrink: 0,

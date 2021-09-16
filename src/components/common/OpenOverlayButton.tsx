@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core"
+import { Button } from "@mui/material"
 import { HiOutlineExternalLink } from "react-icons/hi"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"

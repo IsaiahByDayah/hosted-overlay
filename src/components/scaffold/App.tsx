@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core"
+import makeStyles from '@mui/styles/makeStyles';
 import { Switch, Route, Redirect } from "react-router-dom"
 
 import Root from "components/scaffold/Root"

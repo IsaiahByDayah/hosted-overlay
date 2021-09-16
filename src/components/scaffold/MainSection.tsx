@@ -1,5 +1,6 @@
 import { useEffect } from "react"
-import { makeStyles, Grid } from "@material-ui/core"
+import { Grid } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import cx from "clsx"
 
 import Goals from "components/widgets/Goals"
