@@ -1,8 +1,11 @@
 import { makeStyles } from "@material-ui/core"
 import cx from "clsx"
 
-import useChat from "hooks/useChat"
-import useFakeChat from "hooks/useFakeChat"
+import { getFakeChat } from "lib/util"
+
+import useOverlayChat from "hooks/useOverlayChat"
+
+import { useOverlayContext } from "components/scaffold/OverlayProvider"
 
 import CurrentTopic from "components/widgets/CurrentTopic"
 import Chat from "components/widgets/twitch-chat/Chat"
@@ -34,28 +37,24 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
   },
 }))
 
-const useLiveData = () =>
-  useChat({ channel: process.env.REACT_APP_USERNAME ?? "" })
-
-const useFakeData = () => useFakeChat({ seed: 123 })
-
-const useData =
-  process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test"
-    ? useFakeData
-    : useLiveData
-
 export interface SidebarProps {
   className?: string
 }
 
 const Sidebar = ({ className }: SidebarProps) => {
   const classes = useStyles()
+  const { overlay } = useOverlayContext()
+  let messages = useOverlayChat({ channel: overlay?.channel })
+
+  if (process.env.NODE_ENV === "test") {
+    messages = getFakeChat({ seed: 123 })
+  }
 
   return (
     <div className={cx(classes.root, className)}>
       <CurrentTopic className={classes.currentTopic} />
 
-      <Chat className={classes.chat} useData={useData} />
+      <Chat className={classes.chat} messages={messages} />
 
       <GreenScreen className={classes.webcam} aspectRatio="4:3" />
     </div>

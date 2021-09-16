@@ -1,8 +1,9 @@
 import { createElement } from "react"
 import { Meta, Story } from "@storybook/react"
 
-import useChat from "hooks/useChat"
-import useFakeChat from "hooks/useFakeChat"
+import { getFakeChat } from "lib/util"
+
+import useChat from "hooks/useOverlayChat"
 
 import Chat, { ChatProps } from "components/widgets/twitch-chat/Chat"
 
@@ -22,8 +23,8 @@ export const Basic: Story<BasicStoryArgs> = ({
   ...args
 }: BasicStoryArgs) =>
   createElement(() => {
-    const useData = () => useFakeChat({ count: numMessages, seed: 123 })
-    return <Chat {...args} useData={useData} />
+    const messages = getFakeChat({ count: numMessages, seed: 123 })
+    return <Chat {...args} messages={messages} />
   })
 Basic.args = {
   numMessages: 3,
@@ -37,14 +38,13 @@ Basic.argTypes = {
 }
 
 type LiveChatStoryArgs = ChatProps & { channel: string }
-export const LiveChat: Story<LiveChatStoryArgs> = ({
-  channel,
-  ...args
-}: LiveChatStoryArgs) =>
-  createElement(() => {
-    const useData = () => useChat({ channel })
-    return <Chat {...args} useData={useData} />
-  })
+export const LiveChat: Story<LiveChatStoryArgs> = (args: LiveChatStoryArgs) => (
+  <LiveChatStoryWrapper {...args} />
+)
+const LiveChatStoryWrapper = ({ channel, ...args }: LiveChatStoryArgs) => {
+  const messages = useChat({ channel })
+  return <Chat {...args} messages={messages} />
+}
 LiveChat.args = {
   channel: "isaiahbydayah",
 }

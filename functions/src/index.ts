@@ -7,6 +7,9 @@ import express from "express"
 // import fs from "fs"
 // import path from "path"
 
+import { TTSLanguage } from "./lib/types"
+import { LANGUAGE_MAPS } from "./lib/util"
+
 import cors from "./middleware/cors"
 
 // // Start writing Firebase Functions
@@ -30,9 +33,10 @@ export const echo = functions.https.onRequest(async (request, response) => {
 interface TTSMessage {
   text: string
   gender?: "MALE" | "FEMALE" | "NEUTRAL"
-  language?: string
+  language?: TTSLanguage
 }
 
+const DEFAULT_TTS_LANGUAGE: TTSLanguage = "american-english"
 export const tts = functions.https.onCall(async (msg: TTSMessage, _context) => {
   if (!msg.text) return
 
@@ -42,7 +46,7 @@ export const tts = functions.https.onCall(async (msg: TTSMessage, _context) => {
     input: { text: msg.text },
     voice: {
       ssmlGender: msg.gender ?? "NEUTRAL",
-      languageCode: msg.language ?? "en-US",
+      languageCode: LANGUAGE_MAPS[msg.language ?? DEFAULT_TTS_LANGUAGE],
     },
     audioConfig: { audioEncoding: "MP3" },
   })

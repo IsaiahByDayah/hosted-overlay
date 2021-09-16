@@ -40,6 +40,7 @@ const useStyles = makeStyles(({ spacing, palette, shape, transitions }) => ({
     maxWidth: "100%",
   },
   message: {
+    whiteSpace: "nowrap",
     animation: "$marquee 30s linear 2s infinite",
     transform: "translate(100%, 0)",
   },
@@ -72,18 +73,40 @@ const getWaitTimeSeconds = (index: number) => {
     default:
       return 60
   }
+  // switch (index) {
+  //   case 0:
+  //     return 5
+  //   case 1:
+  //     return 10
+  //   default:
+  //     return 10
+  // }
 }
 
 const StatusBar = ({ className }: StatusBarProps) => {
   const classes = useStyles()
   const [index, setIndex] = useState(0)
   const { overlay } = useOverlayContext()
+  const [message, setMessage] = useState<string | undefined>(undefined)
+
+  const messagesHash = overlay?.messages?.join() ?? ""
 
   useEffect(() => {
     const seconds = getWaitTimeSeconds(index)
 
     const timeout = window.setTimeout(() => {
-      var newIndex = index + 1
+      let newIndex = index + 1
+
+      // Messages check and assignment
+      if (newIndex === 1) {
+        let randomMessage =
+          overlay?.messages?.[
+            Math.floor(Math.random() * overlay?.messages?.length)
+          ]
+        setMessage(randomMessage)
+        if (!randomMessage) newIndex += 1
+      }
+
       if (newIndex > MAX_INDEX) newIndex = 0
       setIndex(newIndex)
     }, seconds * 1000)
@@ -91,13 +114,18 @@ const StatusBar = ({ className }: StatusBarProps) => {
     return () => {
       window.clearTimeout(timeout)
     }
-  }, [index])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, messagesHash])
+
+  if (!overlay || !overlay.socials?.length || !overlay.messages?.length)
+    return null
 
   return (
     <div className={cx(classes.root, className)}>
       <div className={cx(classes.socials, { [classes.hidden]: index !== 0 })}>
         {overlay?.socials?.map((social) => (
           <SocialProfile
+            key={`${social.platform}-${social.handle}`}
             className={classes.social}
             platform={social.platform}
             label={social.handle}
@@ -114,10 +142,11 @@ const StatusBar = ({ className }: StatusBarProps) => {
           Highlighted messages are now spoken on stream! Redeem those channel
           points!
         </Typography> */}
-        <Typography className={classes.message}>
+        {/* <Typography className={classes.message}>
           Follow me on Twitter or Patreon for game dev updates and sneak peak at
           new features! Patreon.com/IsaiahByDayah
-        </Typography>
+        </Typography> */}
+        <Typography className={classes.message}>{message}</Typography>
       </div>
     </div>
   )

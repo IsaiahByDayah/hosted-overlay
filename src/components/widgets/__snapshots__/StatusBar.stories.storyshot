@@ -1,20 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Widgets/StatusBar Basic 1`] = `
-<div
-  className="widgetsstatusbar-basic-makestyles-root-1"
->
-  <div
-    className="widgetsstatusbar-basic-makestyles-socials-1"
-  />
-  <div
-    className="widgetsstatusbar-basic-makestyles-messagecontainer-1 widgetsstatusbar-basic-makestyles-hidden-1"
-  >
-    <p
-      className="widgetsstatusbar-basic-muitypography-root-1 widgetsstatusbar-basic-makestyles-message-1 widgetsstatusbar-basic-muitypography-body1-1"
-    >
-      Follow me on Twitter or Patreon for game dev updates and sneak peak at new features! Patreon.com/IsaiahByDayah
-    </p>
-  </div>
-</div>
-`;
+exports[`Storyshots Widgets/StatusBar Basic 1`] = `null`;

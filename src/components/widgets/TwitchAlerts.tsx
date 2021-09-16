@@ -1,29 +1,43 @@
-import { ReactNode, useEffect } from "react"
+import { useEffect } from "react"
 import tmi from "tmi.js"
 
 import { textToSpeech } from "lib/util"
-import { chatClient } from "lib/twitch"
+import { getChatClient } from "lib/twitch"
 
 import { useAlerts } from "components/scaffold/AlertsProvider"
+import { useOverlayContext } from "components/scaffold/OverlayProvider"
 
-interface TwitchAlertsProps {
-  children?: ReactNode
-}
+const CHARACTER_LIMIT = 120
 
-const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
+const TwitchAlerts = () => {
   const { enqueueAlert } = useAlerts()
+  const { overlay } = useOverlayContext()
+
+  const channel = overlay?.channel
+  const overlayTTSRedemptionsHash =
+    overlay?.ttsRedemptions?.map((r) => r.customRewardId).join() ?? ""
 
   useEffect(() => {
+    if (!channel) return
+
+    // Create chat client
+    const chatClient = getChatClient(channel)
+
     const onMessage: tmi.Events["message"] = async (
       channel,
       tags,
       message,
       self
     ) => {
-      console.log("Twitch Alert - Message: ", channel, tags, message, self)
+      console.log("Twitch Alert || Message: ", channel, tags, message, self)
 
-      if (tags["msg-id"] === "highlighted-message") {
-        const tts = await textToSpeech({ text: message })
+      const formattedMessage = message.trim().substr(0, CHARACTER_LIMIT)
+      console.log("Twitch Alert || Formatted Message: ", formattedMessage)
+
+      const isChannelOwner = `#${tags.username}` === channel
+
+      if (message === "!tts" && isChannelOwner) {
+        const tts = await textToSpeech({ text: "Text to speech test" })
         if (tts) {
           enqueueAlert({
             id: tags.id ?? Date.now().toString(),
@@ -33,6 +47,59 @@ const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
               tts.start(0)
             },
           })
+        }
+      }
+
+      if (message === "!tts-now" && isChannelOwner) {
+        textToSpeech({
+          text: "Immediate text to speech test",
+          playImmediately: true,
+        })
+      }
+
+      if (tags["msg-id"] === "highlighted-message") {
+        console.log("Trying to tts: ", formattedMessage)
+        const tts = await textToSpeech({ text: formattedMessage })
+        if (tts) {
+          enqueueAlert({
+            id: tags.id ?? Date.now().toString(),
+            hidden: true,
+            duration: tts.buffer?.duration,
+            onStart: () => {
+              tts.start(0)
+            },
+          })
+        }
+      }
+
+      // Check TTS Redemptions
+      if (tags["custom-reward-id"]) {
+        const customRewardId = tags["custom-reward-id"]
+
+        const foundRedemption = overlay?.ttsRedemptions?.find(
+          (r) => r.customRewardId === customRewardId
+        )
+
+        console.log(
+          `Redemption found for custom reward id (${customRewardId}): `,
+          foundRedemption
+        )
+
+        if (foundRedemption) {
+          const tts = await textToSpeech({
+            text: formattedMessage,
+            language: foundRedemption.langauge,
+          })
+          if (tts) {
+            enqueueAlert({
+              id: tags.id ?? Date.now().toString(),
+              hidden: true,
+              duration: tts.buffer?.duration,
+              onStart: () => {
+                tts.start(0)
+              },
+            })
+          }
         }
       }
     }
@@ -82,6 +149,25 @@ const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
       )
     }
 
+    const onResub: tmi.Events["resub"] = (
+      channel,
+      username,
+      months,
+      message,
+      tags,
+      methods
+    ) => {
+      console.log(
+        "Twitch Alert - Subscription: ",
+        channel,
+        username,
+        months,
+        message,
+        tags,
+        methods
+      )
+    }
+
     const onRaided: tmi.Events["raided"] = (
       channel: string,
       username: string,
@@ -90,10 +176,12 @@ const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
       console.log("Twitch Alert - Raided: ", channel, username, viewers)
     }
 
+    chatClient.connect()
     chatClient.addListener("message", onMessage)
     chatClient.addListener("cheer", onCheer)
     chatClient.addListener("redeem", onRedeem)
     chatClient.addListener("subscription", onSubscription)
+    chatClient.addListener("resub", onResub)
     chatClient.addListener("raided", onRaided)
 
     return () => {
@@ -101,13 +189,15 @@ const TwitchAlerts = ({ children }: TwitchAlertsProps) => {
       chatClient.removeListener("cheer", onCheer)
       chatClient.removeListener("redeem", onRedeem)
       chatClient.removeListener("subscription", onSubscription)
+      chatClient.removeListener("resub", onResub)
       chatClient.removeListener("raided", onRaided)
+      chatClient.disconnect()
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [channel, overlayTTSRedemptionsHash])
 
-  return <>{children}</>
+  return null
 }
 
 export default TwitchAlerts
