@@ -42,7 +42,7 @@ export interface Overlay {
 export const TTS_LANGUAGES = [
   "american-english",
   "british-english",
-  "austrailian-english",
+  "australian-english",
   "spanish",
   "french",
   "italian",

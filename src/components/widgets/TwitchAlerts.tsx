@@ -7,6 +7,8 @@ import { getChatClient } from "lib/twitch"
 import { useAlerts } from "components/scaffold/AlertsProvider"
 import { useOverlayContext } from "components/scaffold/OverlayProvider"
 
+const CHARACTER_LIMIT = 120
+
 const TwitchAlerts = () => {
   const { enqueueAlert } = useAlerts()
   const { overlay } = useOverlayContext()
@@ -84,7 +86,7 @@ const TwitchAlerts = () => {
 
         if (foundRedemption) {
           const tts = await textToSpeech({
-            text: message,
+            text: message.substr(0, CHARACTER_LIMIT),
             language: foundRedemption.langauge,
           })
           if (tts) {
