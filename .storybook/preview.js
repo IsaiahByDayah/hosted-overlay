@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom"
 
 import decorator from "lib/decorator"
 
-import ThemeProvider from "components/scaffold/ThemeProvider"
+import HostedOverlayThemeProvider from "components/scaffold/HostedOverlayThemeProvider"
 import CssBaselined from "components/scaffold/CssBaselined"
 import SnapshotStylesDecorator from "components/scaffold/SnapshotStylesDecorator"
 
@@ -34,5 +34,5 @@ export const decorators = [
   decorator(MemoryRouter),
   SnapshotStylesDecorator,
   decorator(CssBaselined),
-  decorator(ThemeProvider),
+  decorator(HostedOverlayThemeProvider),
 ]
