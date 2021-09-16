@@ -29,10 +29,9 @@ const TwitchAlerts = () => {
       message,
       self
     ) => {
-      message = message.trim()
-
       console.log("Twitch Alert || Message: ", channel, tags, message, self)
 
+      const formattedMessage = message.trim().substr(0, CHARACTER_LIMIT)
       const isChannelOwner = `#${tags.username}` === channel
 
       if (message === "!tts" && isChannelOwner) {
@@ -57,8 +56,8 @@ const TwitchAlerts = () => {
       }
 
       if (tags["msg-id"] === "highlighted-message") {
-        console.log("Trying to tts: ", message)
-        const tts = await textToSpeech({ text: message })
+        console.log("Trying to tts: ", formattedMessage)
+        const tts = await textToSpeech({ text: formattedMessage })
         if (tts) {
           enqueueAlert({
             id: tags.id ?? Date.now().toString(),
@@ -86,7 +85,7 @@ const TwitchAlerts = () => {
 
         if (foundRedemption) {
           const tts = await textToSpeech({
-            text: message.substr(0, CHARACTER_LIMIT),
+            text: formattedMessage,
             language: foundRedemption.langauge,
           })
           if (tts) {
