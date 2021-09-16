@@ -10,10 +10,7 @@ import {
   Chip,
   FormControl,
   Typography,
-  Toolbar,
-  AppBar,
   Container,
-  OutlinedInput,
 } from "@material-ui/core"
 import { doc, updateDoc } from "firebase/firestore"
 
@@ -28,6 +25,8 @@ import {
 import useOverlay from "hooks/useOverlay"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
+
+import Header from "components/common/Header"
 
 const useStyles = makeStyles(({ spacing }) => ({
   content: {
@@ -68,7 +67,9 @@ const Admin = () => {
 
   const [currentTopic, setCurrentTopic] = useState(overlay?.currentTopic)
   const [newCurrentTopic, setNewCurrentTopic] = useState("")
-  var overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+
+  const [channel, setChannel] = useState("")
 
   const [socialPlatform, setSocialPlatform] = useState<SocialPlatform>("twitch")
   const [socialHandle, setSocialHandle] = useState("")
@@ -84,12 +85,20 @@ const Admin = () => {
       setCurrentTopic(overlay?.currentTopic ?? "")
       if (newCurrentTopic === "")
         setNewCurrentTopic(overlay?.currentTopic ?? "")
+      if (channel === "") setChannel(overlay?.channel ?? "")
     }
-  }, [newCurrentTopic, overlay])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [overlay])
 
   const updateCurrentTopic = async () => {
     if (newCurrentTopic.trim() === currentTopic?.trim()) return
     await updateDoc(overlayDocRef, { currentTopic: newCurrentTopic })
+    console.log("Current Topic Updated!")
+  }
+
+  const updateChannel = async () => {
+    if (!channel.trim()) return
+    await updateDoc(overlayDocRef, { channel: channel.trim() })
     console.log("Current Topic Updated!")
   }
 
@@ -150,67 +159,50 @@ const Admin = () => {
 
   return (
     <div>
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography>Hosted Overlay</Typography>
-        </Toolbar>
-      </AppBar>
+      <Header />
       <Container className={classes.content} component={Box} mt={2}>
         <Typography className={classes.pageTitle} variant="h5">
           Admin Panel
         </Typography>
 
-        {user && (
-          <Button
-            variant="contained"
-            href={`/${user.uid}/overlay`}
-            target="_blank"
-          >
-            Open Overlay
-          </Button>
-        )}
-
         {/* Sidebar Section */}
         <div className={classes.section}>
           <Typography className={classes.sectionTitle}>Sidebar Data</Typography>
 
-          <Box className={classes.row} display="flex" alignItems="center">
-            <FormControl variant="outlined" fullWidth>
-              <InputLabel id="current-topic-select-label">
-                Current Topic
-              </InputLabel>
-              <OutlinedInput
-                // labelId="current-topic-select-label"
-                label="Current Topic"
-                value={newCurrentTopic}
-                onChange={(e) => {
-                  setNewCurrentTopic(e.currentTarget.value)
-                }}
-                // InputLabelProps={{ shrink: true }}
-              />
-            </FormControl>
+          <Box className={classes.row} display="flex" alignItems="start">
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Current Topic"
+              value={newCurrentTopic}
+              onChange={(e) => {
+                setNewCurrentTopic(e.currentTarget.value)
+              }}
+              InputLabelProps={{ shrink: true }}
+            />
             <Button variant="contained" onClick={() => updateCurrentTopic()}>
               Update
             </Button>
           </Box>
 
-          <Box className={classes.row} display="flex" alignItems="center">
-            <FormControl variant="outlined" fullWidth>
-              <InputLabel id="channel-select-label">Channel</InputLabel>
-              <OutlinedInput
-                label="Channel"
-                value={newCurrentTopic}
-                onChange={(e) => {
-                  setNewCurrentTopic(e.currentTarget.value)
-                }}
-              />
-            </FormControl>
-            <Button variant="contained" onClick={() => updateCurrentTopic()}>
+          <Box className={classes.row} display="flex" alignItems="start">
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Channel"
+              value={channel}
+              onChange={(e) => {
+                setChannel(e.currentTarget.value)
+              }}
+              InputLabelProps={{ shrink: true }}
+              helperText="Used for chat, stream alerts, commands, channel point redemptions, etc."
+            />
+            <Button variant="contained" onClick={() => updateChannel()}>
               Update
             </Button>
           </Box>
 
-          <Box className={classes.row} display="flex" alignItems="center">
+          <Box className={classes.row} display="flex" alignItems="start">
             <TextField
               fullWidth
               variant="outlined"
@@ -265,7 +257,7 @@ const Admin = () => {
             Status Bar Data
           </Typography>
 
-          <Box className={classes.row} display="flex" alignItems="center">
+          <Box className={classes.row} display="flex" alignItems="start">
             <FormControl className={classes.noShrink} variant="outlined">
               <InputLabel id="social-platform-select-label">
                 Platform
@@ -315,7 +307,7 @@ const Admin = () => {
             ))}
           </Box>
 
-          <Box className={classes.row} display="flex" alignItems="center">
+          <Box className={classes.row} display="flex" alignItems="start">
             <TextField
               fullWidth
               variant="outlined"
