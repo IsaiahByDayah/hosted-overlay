@@ -45,7 +45,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "tmi.js": "^1.8.3",
     "twitch-js": "^2.0.0-beta.42",
     "typeface-nunito": "^1.1.13",
@@ -65,15 +65,15 @@
     "@types/faker": "^5.5.7",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/react": "^17.0.21",
+    "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.8",
     "@types/tmi.js": "^1.7.2",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "firebase-tools": "^9.18.0",
     "prettier": "^2.3.2",
-    "typescript": "^4.1.2"
+    "typescript": "^4.4.3"
   },
   "eslintConfig": {
     "extends": [
