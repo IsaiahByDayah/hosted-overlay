@@ -66,7 +66,7 @@ const Goal = ({
       </Typography>
       <ProgressBar percent={_value / total} />
       <Typography
-        sx={{ marginTop: (theme) => theme.spacing(0.5), fontWeight: 900 }}
+        sx={{ marginTop: ({ spacing }) => spacing(0.5), fontWeight: 900 }}
       >
         {label}
       </Typography>

@@ -1,38 +1,28 @@
-import { Theme } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
-import cx from "clsx"
+import { Box } from "@mui/material"
 
+import { AspectRatio } from "lib/types"
 import { calculateAspectRatioVerticalPadding } from "lib/util"
 
-type AspectRatio = string | number | (() => string | number)
-
-interface StyleProps {
-  aspectRatio: AspectRatio
-}
-
-const useStyles = makeStyles<Theme, StyleProps>(({ shape, shadows }) => ({
-  root: ({ aspectRatio }) => ({
-    backgroundColor: "#00ff00",
-    borderRadius: shape.borderRadius,
-    boxShadow: shadows[4],
-    overflow: "hidden",
-
-    width: "100%",
-    minWidth: 100,
-    height: 0,
-    paddingBottom: calculateAspectRatioVerticalPadding(aspectRatio),
-  }),
-}))
-
 export interface GreenScreenProps {
-  className?: string
   aspectRatio?: AspectRatio
 }
 
-const GreenScreen = ({ className, aspectRatio = "16:9" }: GreenScreenProps) => {
-  const classes = useStyles({ aspectRatio })
+const GreenScreen = ({ aspectRatio = "16:9" }: GreenScreenProps) => {
+  return (
+    <Box
+      sx={{
+        backgroundColor: "#00ff00",
+        borderRadius: ({ shape }) => shape.borderRadius,
+        boxShadow: ({ shadows }) => shadows[4],
+        overflow: "hidden",
 
-  return <div className={cx(classes.root, className)} />
+        width: "100%",
+        minWidth: 100,
+        height: 0,
+        paddingBottom: calculateAspectRatioVerticalPadding(aspectRatio),
+      }}
+    />
+  )
 }
 
 export default GreenScreen
