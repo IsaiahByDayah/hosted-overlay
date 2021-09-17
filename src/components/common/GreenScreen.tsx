@@ -5,18 +5,18 @@ import { calculateAspectRatioVerticalPadding } from "lib/util"
 
 export interface GreenScreenProps {
   aspectRatio?: AspectRatio
+  color?: string
 }
 
-const GreenScreen = ({ aspectRatio = "16:9" }: GreenScreenProps) => {
+const GreenScreen = ({ aspectRatio = "16:9", color }: GreenScreenProps) => {
   return (
     <Box
       sx={{
-        backgroundColor: "#00ff00",
-        borderRadius: ({ shape }) => shape.borderRadius,
-        boxShadow: ({ shadows }) => shadows[4],
+        backgroundColor: color ?? "#00ff00",
+        borderRadius: 1,
+        boxShadow: 4,
         overflow: "hidden",
-
-        width: "100%",
+        width: 1,
         minWidth: 100,
         height: 0,
         paddingBottom: calculateAspectRatioVerticalPadding(aspectRatio),

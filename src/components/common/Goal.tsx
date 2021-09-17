@@ -1,23 +1,16 @@
 import { useEffect, useState } from "react"
-import { Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 import ProgressBar from "components/common/ProgressBar"
 
 export interface GoalProps {
-  className?: string
   value: number | (() => Promise<number>)
   total: number
   label: string
   intervalTime?: number
 }
 
-const Goal = ({
-  className,
-  value,
-  total,
-  label,
-  intervalTime = 1000 * 15,
-}: GoalProps) => {
+const Goal = ({ value, total, label, intervalTime = 1000 * 15 }: GoalProps) => {
   const [_value, setValue] = useState<number | undefined>(
     typeof value === "number" ? value : undefined
   )
@@ -60,17 +53,20 @@ const Goal = ({
   if (_value === null || _value === undefined) return null
 
   return (
-    <div className={`${className} goal-root`}>
-      <Typography sx={{ fontWeight: 900 }} variant="caption">
+    <Box>
+      <Typography
+        sx={{
+          fontWeight: "bold",
+        }}
+        variant="caption"
+      >
         {_value} / {total}
       </Typography>
       <ProgressBar percent={_value / total} />
-      <Typography
-        sx={{ marginTop: ({ spacing }) => spacing(0.5), fontWeight: 900 }}
-      >
+      <Typography sx={{ marginTop: 0.5, fontWeight: "bold" }}>
         {label}
       </Typography>
-    </div>
+    </Box>
   )
 }
 
