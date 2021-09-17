@@ -1,19 +1,7 @@
 import { useEffect, useState } from "react"
-import { Typography } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Typography } from "@mui/material"
 
 import ProgressBar from "components/common/ProgressBar"
-
-const useStyles = makeStyles(({ spacing }) => ({
-  progressText: {
-    fontWeight: 900,
-  },
-  label: {
-    marginTop: spacing(0.5),
-    fontWeight: 900,
-  },
-}))
 
 export interface GoalProps {
   className?: string
@@ -30,8 +18,6 @@ const Goal = ({
   label,
   intervalTime = 1000 * 15,
 }: GoalProps) => {
-  const classes = useStyles()
-
   const [_value, setValue] = useState<number | undefined>(
     typeof value === "number" ? value : undefined
   )
@@ -75,11 +61,15 @@ const Goal = ({
 
   return (
     <div className={`${className} goal-root`}>
-      <Typography className={classes.progressText} variant="caption">
+      <Typography sx={{ fontWeight: 900 }} variant="caption">
         {_value} / {total}
       </Typography>
-      <ProgressBar className="goal-progress-bar" percent={_value / total} />
-      <Typography className={classes.label}>{label}</Typography>
+      <ProgressBar percent={_value / total} />
+      <Typography
+        sx={{ marginTop: (theme) => theme.spacing(0.5), fontWeight: 900 }}
+      >
+        {label}
+      </Typography>
     </div>
   )
 }
