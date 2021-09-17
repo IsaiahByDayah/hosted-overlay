@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react"
 
-import MainSection, { MainSectionProps } from "components/scaffold/MainSection"
+import MainSection from "components/scaffold/MainSection"
 
 export default {
   title: "Scaffold/MainSection",
@@ -10,9 +10,9 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<MainSectionProps> = (args) => (
+export const Basic: Story = () => (
   <div style={{ height: "100vh", width: "100vw" }}>
-    <MainSection {...args} />
+    <MainSection />
   </div>
 )
 Basic.parameters = {

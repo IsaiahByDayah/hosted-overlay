@@ -1,4 +1,3 @@
-import makeStyles from '@mui/styles/makeStyles';
 import { Switch, Route, Redirect } from "react-router-dom"
 
 import Root from "components/scaffold/Root"
@@ -11,18 +10,9 @@ import AdminRedirect from "components/common/AdminRedirect"
 import SignedIn from "components/common/SignedIn"
 import SignedOut from "components/common/SignedOut"
 
-const useStyles = makeStyles(() => ({
-  root: {
-    maxHeight: "100vh",
-    maxWidth: "100vw",
-  },
-}))
-
 const App = () => {
-  const classes = useStyles()
-
   return (
-    <Root className={classes.root}>
+    <Root sx={{ maxHeight: "100vh", maxWidth: "100vw" }}>
       <Switch>
         <Route exact path="/:userId/overlay">
           <Overlay />
