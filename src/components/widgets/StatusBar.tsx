@@ -128,7 +128,7 @@ const StatusBar = ({ className }: StatusBarProps) => {
         {overlay?.socials?.map((social) => (
           <SocialProfile
             key={`${social.platform}-${social.handle}`}
-            className={classes.social}
+            // className={classes.social}
             platform={social.platform}
             label={social.handle}
           />
