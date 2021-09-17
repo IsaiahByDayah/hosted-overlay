@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles"
 import cx from "clsx"
 
 import { Task as ITask } from "lib/types"
@@ -36,7 +36,7 @@ const Tasks = ({ className, tasks }: TasksProps) => {
       {incompleteTasks?.map((task) => (
         <Task
           key={task.id}
-          className={classes.task}
+          // className={classes.task}
           label={task.label}
           description={task.description}
           completed={task.completed}
@@ -45,7 +45,7 @@ const Tasks = ({ className, tasks }: TasksProps) => {
       {completeTasks?.map((task) => (
         <Task
           key={task.id}
-          className={classes.task}
+          // className={classes.task}
           label={task.label}
           description={task.description}
           completed={task.completed}

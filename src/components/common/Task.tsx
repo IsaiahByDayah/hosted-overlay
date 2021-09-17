@@ -1,52 +1,35 @@
-import { Typography, Paper } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
-import cx from "clsx"
-
-const useStyles = makeStyles(({ spacing }) => ({
-  root: {
-    padding: spacing(1, 2),
-  },
-  label: {
-    fontWeight: 900,
-  },
-  description: {
-    fontWeight: 600,
-  },
-  completedLabel: {
-    opacity: 0.54,
-    textDecoration: "line-through",
-  },
-  completedDescription: {
-    opacity: 0.54,
-  },
-}))
+import { Typography, Paper } from "@mui/material"
 
 export interface TaskProps {
-  className?: string
   label: string
   description?: string
   completed?: boolean
 }
 
-const Task = ({ className, label, description, completed }: TaskProps) => {
-  const classes = useStyles()
-
+const Task = ({ label, description, completed }: TaskProps) => {
   return (
     <Paper
-      className={cx(classes.root, className)}
       elevation={completed ? 0 : 3}
+      sx={{
+        py: 1,
+        px: 2,
+      }}
     >
       <Typography
-        className={cx(classes.label, { [classes.completedLabel]: completed })}
+        sx={{
+          fontWeight: "bold",
+          opacity: completed ? 0.54 : undefined,
+          textDecoration: completed ? "line-through" : undefined,
+        }}
       >
         {label}
       </Typography>
       {description && (
         <Typography
-          className={cx(classes.description, {
-            [classes.completedDescription]: completed,
-          })}
           variant="body2"
+          sx={{
+            opacity: completed ? 0.54 : undefined,
+          }}
         >
           {description}
         </Typography>
