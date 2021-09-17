@@ -1,5 +1,4 @@
-import makeStyles from "@mui/styles/makeStyles"
-import cx from "clsx"
+import { Stack } from "@mui/material"
 
 import { getFakeChat } from "lib/util"
 
@@ -12,40 +11,35 @@ import Chat from "components/widgets/twitch-chat/Chat"
 
 import GreenScreen from "components/common/GreenScreen"
 
-const useStyles = makeStyles(({ spacing, palette }) => ({
-  root: {
-    padding: spacing(3),
-    display: "flex",
-    flexDirection: "column",
-    height: "100%",
-    backgroundColor: palette.augmentColor({
-      color: {
-        main: palette.background.default,
-      },
-    }).dark,
-  },
-  currentTopic: {
-    flexShrink: 0,
-    flexGrow: 0,
-  },
-  chat: {
-    flexGrow: 1,
-    margin: spacing(3, 0),
-    padding: spacing(),
-    overflow: "hidden",
-  },
-  webcam: {
-    flexShrink: 0,
-    flexGrow: 0,
-  },
-}))
+// const useStyles = makeStyles(({ spacing, palette }) => ({
+//   root: {
+//     padding: spacing(3),
+//     display: "flex",
+//     flexDirection: "column",
+//     height: "100%",
+//     backgroundColor: palette.augmentColor({
+//       color: {
+//         main: palette.background.default,
+//       },
+//     }).dark,
+//   },
+//   currentTopic: {
+//     flexShrink: 0,
+//     flexGrow: 0,
+//   },
+//   chat: {
+//     flexGrow: 1,
+//     margin: spacing(3, 0),
+//     padding: spacing(),
+//     overflow: "hidden",
+//   },
+//   webcam: {
+//     flexShrink: 0,
+//     flexGrow: 0,
+//   },
+// }))
 
-export interface SidebarProps {
-  className?: string
-}
-
-const Sidebar = ({ className }: SidebarProps) => {
-  const classes = useStyles()
+const Sidebar = () => {
   const { overlay } = useOverlayContext()
   let messages = useOverlayChat({ channel: overlay?.channel })
 
@@ -54,13 +48,31 @@ const Sidebar = ({ className }: SidebarProps) => {
   }
 
   return (
-    <div className={cx(classes.root, className)}>
-      <CurrentTopic className={classes.currentTopic} />
+    <Stack
+      sx={{
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        height: 1,
+        backgroundColor: ({ palette }) =>
+          palette.augmentColor({
+            color: {
+              main: palette.background.default,
+            },
+          }).dark,
+      }}
+    >
+      <CurrentTopic
+      // className={classes.currentTopic}
+      />
 
-      <Chat className={classes.chat} messages={messages} />
+      <Chat
+        // className={classes.chat}
+        messages={messages}
+      />
 
-      {/* <GreenScreen className={classes.webcam} aspectRatio="4:3" /> */}
-    </div>
+      <GreenScreen aspectRatio="4:3" />
+    </Stack>
   )
 }
 
