@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import {
   Stack,
-  Box,
   InputLabel,
   Select,
   MenuItem,
@@ -14,7 +13,6 @@ import {
   Grid,
   chipClasses,
 } from "@mui/material"
-import makeStyles from "@mui/styles/makeStyles"
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"
@@ -30,38 +28,6 @@ import useOverlay from "hooks/useOverlay"
 import { useAuthContext } from "components/scaffold/AuthProvider"
 
 import Header from "components/common/Header"
-
-const useStyles = makeStyles(({ spacing }) => ({
-  content: {
-    // display: "flex",
-    // flexDirection: "column",
-    // gap: spacing(4),
-  },
-  pageTitle: {
-    // fontWeight: "bold",
-  },
-  section: {
-    display: "flex",
-    flexDirection: "column",
-    gap: spacing(2),
-  },
-  sectionTitle: {
-    fontWeight: "bold",
-  },
-  row: {
-    gap: spacing(2),
-  },
-  noShrink: {
-    flexShrink: 0,
-  },
-  bigChip: {
-    height: "auto",
-    padding: spacing(),
-  },
-  bigChipLabel: {
-    whiteSpace: "normal",
-  },
-}))
 
 const Admin = () => {
   const { user } = useAuthContext()
