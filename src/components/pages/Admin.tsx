@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import {
+  Stack,
   Box,
   InputLabel,
   Select,
@@ -10,8 +11,10 @@ import {
   FormControl,
   Typography,
   Container,
-} from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+  Grid,
+  chipClasses,
+} from "@mui/material"
+import makeStyles from "@mui/styles/makeStyles"
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"
@@ -30,12 +33,12 @@ import Header from "components/common/Header"
 
 const useStyles = makeStyles(({ spacing }) => ({
   content: {
-    display: "flex",
-    flexDirection: "column",
-    gap: spacing(4),
+    // display: "flex",
+    // flexDirection: "column",
+    // gap: spacing(4),
   },
   pageTitle: {
-    fontWeight: "bold",
+    // fontWeight: "bold",
   },
   section: {
     display: "flex",
@@ -61,7 +64,6 @@ const useStyles = makeStyles(({ spacing }) => ({
 }))
 
 const Admin = () => {
-  const classes = useStyles()
   const { user } = useAuthContext()
   const overlay = useOverlay(user?.uid)
 
@@ -160,16 +162,16 @@ const Admin = () => {
   return (
     <div>
       <Header />
-      <Container className={classes.content} component={Box} mt={2}>
-        <Typography className={classes.pageTitle} variant="h5">
+      <Container component={Stack} spacing={5} sx={{ py: 2 }}>
+        <Typography fontWeight="bold" variant="h5">
           Admin Panel
         </Typography>
 
         {/* Sidebar Section */}
-        <div className={classes.section}>
-          <Typography className={classes.sectionTitle}>Sidebar Data</Typography>
+        <Stack spacing={2}>
+          <Typography fontWeight="bold">Sidebar Data</Typography>
 
-          <Box className={classes.row} display="flex" alignItems="start">
+          <Stack direction="row" alignItems="baseline" spacing={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -183,9 +185,9 @@ const Admin = () => {
             <Button variant="contained" onClick={() => updateCurrentTopic()}>
               Update
             </Button>
-          </Box>
+          </Stack>
 
-          <Box className={classes.row} display="flex" alignItems="start">
+          <Stack direction="row" alignItems="baseline" spacing={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -200,9 +202,9 @@ const Admin = () => {
             <Button variant="contained" onClick={() => updateChannel()}>
               Update
             </Button>
-          </Box>
+          </Stack>
 
-          <Box className={classes.row} display="flex" alignItems="start">
+          <Stack direction="row" alignItems="baseline" spacing={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -213,7 +215,7 @@ const Admin = () => {
               }}
               InputLabelProps={{ shrink: true }}
             />
-            <FormControl className={classes.noShrink} variant="outlined">
+            <FormControl sx={{ flexShrink: 0 }} variant="outlined">
               <InputLabel id="tts-language-select-label">Language</InputLabel>
               <Select
                 labelId="tts-langauge-select-label"
@@ -233,32 +235,28 @@ const Admin = () => {
             <Button variant="contained" onClick={() => addTTSRedemption()}>
               Add
             </Button>
-          </Box>
+          </Stack>
 
-          <Box
-            className={classes.row}
-            display="flex"
-            alignItems="center"
-            flexWrap="wrap"
-          >
+          <Grid container columnSpacing={2} rowSpacing={1}>
             {overlay?.ttsRedemptions?.map((redemption) => (
-              <Chip
-                key={redemption.customRewardId}
-                label={`${redemption.customRewardId} - ${redemption.langauge}`}
-                onDelete={() => removeTTSRedemption(redemption.customRewardId)}
-              />
+              <Grid key={redemption.customRewardId} item xs="auto">
+                <Chip
+                  label={`${redemption.customRewardId} - ${redemption.langauge}`}
+                  onDelete={() =>
+                    removeTTSRedemption(redemption.customRewardId)
+                  }
+                />
+              </Grid>
             ))}
-          </Box>
-        </div>
+          </Grid>
+        </Stack>
 
         {/* Status Bar Section */}
-        <div className={classes.section}>
-          <Typography className={classes.sectionTitle}>
-            Status Bar Data
-          </Typography>
+        <Stack spacing={2}>
+          <Typography fontWeight="bold">Status Bar Data</Typography>
 
-          <Box className={classes.row} display="flex" alignItems="start">
-            <FormControl className={classes.noShrink} variant="outlined">
+          <Stack direction="row" alignItems="baseline" spacing={2}>
+            <FormControl sx={{ flexShrink: 0 }} variant="outlined">
               <InputLabel id="social-platform-select-label">
                 Platform
               </InputLabel>
@@ -290,24 +288,20 @@ const Admin = () => {
             <Button variant="contained" onClick={() => addSocial()}>
               Add
             </Button>
-          </Box>
+          </Stack>
 
-          <Box
-            className={classes.row}
-            display="flex"
-            alignItems="center"
-            flexWrap="wrap"
-          >
+          <Grid container columnSpacing={2} rowSpacing={1}>
             {overlay?.socials?.map((social) => (
-              <Chip
-                key={`${social.platform}-${social.handle}`}
-                label={`${social.platform} - ${social.handle}`}
-                onDelete={() => removeSocial(social.platform, social.handle)}
-              />
+              <Grid key={`${social.platform}-${social.handle}`} item xs="auto">
+                <Chip
+                  label={`${social.platform} - ${social.handle}`}
+                  onDelete={() => removeSocial(social.platform, social.handle)}
+                />
+              </Grid>
             ))}
-          </Box>
+          </Grid>
 
-          <Box className={classes.row} display="flex" alignItems="start">
+          <Stack direction="row" alignItems="baseline" spacing={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -321,25 +315,26 @@ const Admin = () => {
             <Button variant="contained" onClick={() => addMessage()}>
               Add
             </Button>
-          </Box>
+          </Stack>
 
-          <Box
-            className={classes.row}
-            display="flex"
-            alignItems="center"
-            flexWrap="wrap"
-          >
+          <Stack spacing={1}>
             {overlay?.messages?.map((m) => (
               <Chip
                 key={m}
-                className={classes.bigChip}
                 label={m}
                 onDelete={() => removeMessage(m)}
-                classes={{ label: classes.bigChipLabel }}
+                sx={{
+                  height: "auto",
+                  padding: 1,
+                  justifyContent: "space-between",
+                  [`& .${chipClasses.label}`]: {
+                    whiteSpace: "normal",
+                  },
+                }}
               />
             ))}
-          </Box>
-        </div>
+          </Stack>
+        </Stack>
       </Container>
     </div>
   )
