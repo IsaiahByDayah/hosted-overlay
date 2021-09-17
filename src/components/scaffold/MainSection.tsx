@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import { Grid } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import { Grid } from "@mui/material"
+import makeStyles from "@mui/styles/makeStyles"
 import cx from "clsx"
 
 import Goals from "components/widgets/Goals"
@@ -42,7 +42,7 @@ const MainSection = ({ className }: MainSectionProps) => {
 
   return (
     <div className={cx(classes.root, className)}>
-      <GreenScreen className={classes.screen} aspectRatio="16:9" />
+      {/* <GreenScreen className={classes.screen} aspectRatio="16:9" /> */}
 
       <Grid className={classes.container} container spacing={5}>
         <Grid item xs={9}>

@@ -11,14 +11,14 @@ const Header = () => {
   return (
     <AppBar position="relative">
       <Toolbar>
-        <Box flexGrow={1}>
+        <Box sx={{ flexGrow: 1 }}>
           <Typography>Hosted Overlay</Typography>
         </Box>
         <SignedIn>
           <Button variant="outlined" onClick={() => signOut()}>
             Sign Out
           </Button>
-          <Box marginLeft={2}>
+          <Box sx={{ ml: 2 }}>
             <OpenOverlayButton />
           </Box>
         </SignedIn>

@@ -59,7 +59,7 @@ const Sidebar = ({ className }: SidebarProps) => {
 
       <Chat className={classes.chat} messages={messages} />
 
-      <GreenScreen className={classes.webcam} aspectRatio="4:3" />
+      {/* <GreenScreen className={classes.webcam} aspectRatio="4:3" /> */}
     </div>
   )
 }
