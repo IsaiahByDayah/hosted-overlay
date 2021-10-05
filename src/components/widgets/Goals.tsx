@@ -1,31 +1,28 @@
-import { makeStyles } from "@material-ui/core"
-import cx from "clsx"
+import { Box } from "@mui/material"
+import { SxProps, Theme } from "@mui/system"
 
 // import { getFollowerCount, getSubscriberCount } from "lib/twitch"
 
 import Goal from "components/common/Goal"
 
-const useStyles = makeStyles(({ spacing }) => ({
-  root: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  },
-}))
-
 export interface GoalsProps {
-  className?: string
+  sx?: SxProps<Theme> | undefined
 }
 
-const Goals = ({ className }: GoalsProps) => {
-  const classes = useStyles()
-
+const Goals = ({ sx }: GoalsProps) => {
   const nameCount = 124
   const numNamesWrong = 0
 
   return (
-    <div className={cx(classes.root, className)}>
+    <Box
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        ...sx,
+      }}
+    >
       <Goal
         label="Correct Pronounciations"
         total={nameCount}
@@ -33,7 +30,7 @@ const Goals = ({ className }: GoalsProps) => {
       />
       {/* <Goal label="Follower Goal" total={625} value={getFollowerCount} />
       <Goal label="Subscriber Goal" total={85} value={getSubscriberCount} /> */}
-    </div>
+    </Box>
   )
 }
 

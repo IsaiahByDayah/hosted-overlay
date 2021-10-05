@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Box, Typography, Button } from "@material-ui/core"
+import { AppBar, Toolbar, Typography, Button, Stack } from "@mui/material"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
 
@@ -10,17 +10,15 @@ const Header = () => {
 
   return (
     <AppBar position="relative">
-      <Toolbar>
-        <Box flexGrow={1}>
-          <Typography>Hosted Overlay</Typography>
-        </Box>
+      <Toolbar component={Stack} spacing={2} direction="row">
+        <Typography sx={{ flexGrow: 1 }}>Hosted Overlay</Typography>
         <SignedIn>
-          <Button variant="outlined" onClick={() => signOut()}>
-            Sign Out
-          </Button>
-          <Box marginLeft={2}>
+          <Stack spacing={2} direction="row">
+            <Button variant="outlined" onClick={() => signOut()}>
+              Sign Out
+            </Button>
             <OpenOverlayButton />
-          </Box>
+          </Stack>
         </SignedIn>
       </Toolbar>
     </AppBar>

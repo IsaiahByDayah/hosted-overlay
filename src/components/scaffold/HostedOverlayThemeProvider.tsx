@@ -1,21 +1,24 @@
 import { ReactNode } from "react"
 import {
-  ThemeProvider as MuiThemeProvider,
+  ThemeProvider,
+  StyledEngineProvider,
   responsiveFontSizes,
-} from "@material-ui/core"
-import { createTheme } from "@material-ui/core/styles"
+  createTheme,
+} from "@mui/material"
 
-interface ThemeProviderProps {
+interface HostedOverlayThemeProviderProps {
   children?: ReactNode
 }
-const ThemeProvider = ({ children }: ThemeProviderProps) => {
+const HostedOverlayThemeProvider = ({
+  children,
+}: HostedOverlayThemeProviderProps) => {
   const theme = responsiveFontSizes(
     createTheme({
       typography: {
         fontFamily: ["Nunito", "sans-serif"].join(","),
       },
       palette: {
-        type: "dark",
+        mode: "dark",
         primary: {
           main: "#006d77",
           // main: "#1B335C",
@@ -29,16 +32,18 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
           // default: "#edf6f9",
         },
       },
-      overrides: {
+      components: {
         MuiButton: {
-          label: {
-            textTransform: "none",
-            fontWeight: "bold",
-            letterSpacing: "1px",
+          styleOverrides: {
+            root: {
+              textTransform: "none",
+              fontWeight: "bold",
+              letterSpacing: "1px",
+            },
           },
         },
         MuiCssBaseline: {
-          "@global": {
+          styleOverrides: {
             ".firebase-emulator-warning": {
               display: "none",
             },
@@ -48,7 +53,11 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     })
   )
 
-  return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+  return (
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </StyledEngineProvider>
+  )
 }
 
-export default ThemeProvider
+export default HostedOverlayThemeProvider

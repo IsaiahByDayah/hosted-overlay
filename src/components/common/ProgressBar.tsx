@@ -1,42 +1,33 @@
-import { makeStyles, Theme } from "@material-ui/core"
-import cx from "clsx"
+import { Box } from "@mui/material"
 
-interface StyleProps {
-  percent: number
-}
-
-const useStyles = makeStyles<Theme, StyleProps>(
-  ({ palette, shape, shadows, spacing }) => ({
-    root: {
-      borderRadius: shape.borderRadius,
-      boxShadow: shadows["4"],
-      backgroundColor: palette.primary.contrastText,
-      height: spacing(2),
-      minWidth: 200,
-      overflow: "hidden",
-      padding: 0,
-    },
-    fill: ({ percent }) => ({
-      backgroundColor: palette.primary.main,
-      transition: "width 0.5s",
-      height: "100%",
-      width: `${Math.max(0, Math.min(100, percent * 100))}%`,
-    }),
-  })
-)
+import { clamp } from "lib/util"
 
 export interface ProgressBarProps {
-  className?: string
   percent: number
 }
 
-const ProgressBar = ({ className, percent = 0 }: ProgressBarProps) => {
-  const classes = useStyles({ percent })
-
+const ProgressBar = ({ percent = 0 }: ProgressBarProps) => {
   return (
-    <div className={cx(classes.root, className)}>
-      <div className={classes.fill} />
-    </div>
+    <Box
+      sx={{
+        borderRadius: 1,
+        boxShadow: 4,
+        backgroundColor: "primary.contrastText",
+        height: ({ spacing }) => spacing(2),
+        minWidth: 200,
+        overflow: "hidden",
+        padding: 0,
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: "primary.main",
+          transition: "width 0.5s",
+          height: 1,
+          width: clamp(0, percent, 1),
+        }}
+      />
+    </Box>
   )
 }
 

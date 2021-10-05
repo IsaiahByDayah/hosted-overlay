@@ -2,10 +2,11 @@
 
 exports[`Storyshots Experiments/TTS Basic 1`] = `
 <button
-  className="experimentstts-basic-muibuttonbase-root-1 experimentstts-basic-muibutton-root-1 experimentstts-basic-muibutton-text-1"
+  className="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root css-15r6af-MuiButtonBase-root-MuiButton-root"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -19,10 +20,6 @@ exports[`Storyshots Experiments/TTS Basic 1`] = `
   tabIndex={0}
   type="button"
 >
-  <span
-    className="experimentstts-basic-muibutton-label-1"
-  >
-    Try TTS
-  </span>
+  Try TTS
 </button>
 `;

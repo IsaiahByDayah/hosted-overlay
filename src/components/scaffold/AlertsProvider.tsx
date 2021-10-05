@@ -5,7 +5,7 @@ import {
   useEffect,
   ReactNode,
 } from "react"
-import { Modal, Typography, Box } from "@material-ui/core"
+import { Modal, Typography, Box } from "@mui/material"
 
 import TwitchAlerts from "components/widgets/TwitchAlerts"
 

@@ -1,13 +1,13 @@
 import { FC } from "react"
 import { BrowserRouter } from "react-router-dom"
-import { Box, BoxProps } from "@material-ui/core"
+import { Box, BoxProps } from "@mui/material"
 
 import CssBaselined from "components/scaffold/CssBaselined"
-import ThemeProvider from "components/scaffold/ThemeProvider"
+import HostedOverlayThemeProvider from "components/scaffold/HostedOverlayThemeProvider"
 import AuthProvider from "components/scaffold/AuthProvider"
 
 const Root: FC<BoxProps> = (props) => (
-  <ThemeProvider>
+  <HostedOverlayThemeProvider>
     <CssBaselined>
       <BrowserRouter>
         <AuthProvider>
@@ -15,7 +15,7 @@ const Root: FC<BoxProps> = (props) => (
         </AuthProvider>
       </BrowserRouter>
     </CssBaselined>
-  </ThemeProvider>
+  </HostedOverlayThemeProvider>
 )
 
 export default Root

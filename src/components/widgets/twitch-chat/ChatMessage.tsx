@@ -1,45 +1,37 @@
-import { makeStyles, Theme, Typography } from "@material-ui/core"
-import cx from "clsx"
+import { Typography } from "@mui/material"
+import { SxProps, Theme } from "@mui/system"
 
 import { Message } from "lib/types"
 
-interface StyleProps {
-  color?: string
-}
-
-const useStyles = makeStyles<Theme, StyleProps>(
-  ({ spacing, palette, shape, shadows }) => ({
-    root: {
-      padding: spacing(),
-      display: "inline-block",
-      background: palette.background.paper,
-      borderRadius: shape.borderRadius,
-      boxShadow: shadows[2],
-    },
-    username: ({ color }) => ({
-      fontWeight: 700,
-      color: color,
-    }),
-    message: {
-      marginLeft: spacing(),
-    },
-  })
-)
-
 export interface ChatMessageProps {
-  className?: string
+  sx?: SxProps<Theme> | undefined
   message: Message
 }
 
-const ChatMessage = ({ className, message }: ChatMessageProps) => {
-  const classes = useStyles({ color: message.color })
-
-  return (
-    <Typography className={cx(classes.root, className)}>
-      <span className={classes.username}>{message.username}: </span>
-      <span className={classes.message}>{message.message}</span>
+const ChatMessage = ({ sx, message }: ChatMessageProps) => (
+  <Typography
+    sx={{
+      padding: 1,
+      display: "inline-block",
+      background: ({ palette }) => palette.background.paper,
+      borderRadius: ({ shape }) => shape.borderRadius,
+      boxShadow: ({ shadows }) => shadows[2],
+      ...sx,
+    }}
+  >
+    <Typography
+      component="span"
+      fontWeight={700}
+      sx={{
+        color: message.color,
+      }}
+    >
+      {message.username}:
     </Typography>
-  )
-}
+    <Typography component="span" ml={1}>
+      {message.message}
+    </Typography>
+  </Typography>
+)
 
 export default ChatMessage

@@ -1,64 +1,18 @@
 import { useLayoutEffect, useRef } from "react"
-import { makeStyles } from "@material-ui/core"
-import { alpha } from "@material-ui/core/styles"
-import cx from "clsx"
+import { Stack, Box } from "@mui/material"
+import { alpha } from "@mui/material/styles"
+import { SxProps, Theme } from "@mui/system"
 
 import { Message } from "lib/types"
 
 import ChatMessage from "components/widgets/twitch-chat/ChatMessage"
 
-const useStyles = makeStyles(({ spacing, palette }) => ({
-  root: {
-    flexGrow: 1,
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    scrollbarWidth: "none",
-    msOverflowStyle: "none",
-    scrollbarGutter: "unset",
-    alignItems: "flex-start",
-    justifyContent: "flex-end",
-    position: "relative",
-  },
-
-  fade: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    background: `linear-gradient(0deg, transparent 84%, ${alpha(
-      // palette.background.default,
-      palette.augmentColor({ main: palette.background.default }).dark,
-      1
-    )} 90%)`,
-  },
-
-  message: {
-    width: "80%",
-
-    margin: spacing(1, 0),
-    "&:first-child": {
-      marginTop: 0,
-    },
-
-    "&:last-child": {
-      marginBottom: 0,
-    },
-  },
-
-  sent: {
-    alignSelf: "flex-end",
-  },
-}))
-
 export interface ChatProps {
-  className?: string
+  sx?: SxProps<Theme> | undefined
   messages: Message[]
 }
 
-const Chat = ({ className, messages }: ChatProps) => {
-  const classes = useStyles()
+const Chat = ({ sx, messages }: ChatProps) => {
   const chatContainerRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
@@ -68,20 +22,50 @@ const Chat = ({ className, messages }: ChatProps) => {
   })
 
   return (
-    <div className={cx(classes.root, className)} ref={chatContainerRef}>
+    <Stack
+      ref={chatContainerRef}
+      spacing={1}
+      alignItems="flex-start"
+      justifyContent="flex-end"
+      sx={{
+        overflow: "hidden",
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+        scrollbarGutter: "unset",
+        position: "relative",
+        ...sx,
+      }}
+    >
       {messages.map((message, index) => {
         return (
           <ChatMessage
             key={index}
-            className={cx(classes.message, {
-              [classes.sent]: message.sent,
-            })}
+            sx={{
+              width: "80%",
+              alignSelf: message.sent ? "flex-end" : undefined,
+            }}
             message={message}
           />
         )
       })}
-      <div className={classes.fade} />
-    </div>
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          background: ({ palette }) =>
+            `linear-gradient(0deg, transparent 84%, ${alpha(
+              // palette.background.default,
+              palette.augmentColor({
+                color: { main: palette.background.default },
+              }).dark,
+              1
+            )} 90%)`,
+        }}
+      />
+    </Stack>
   )
 }
 

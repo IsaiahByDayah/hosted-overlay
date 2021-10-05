@@ -2,7 +2,7 @@ import faker from "faker"
 import { httpsCallable } from "firebase/functions"
 
 import firebase from "lib/firebase"
-import { Message, TTSLanguage } from "lib/types"
+import { Message, TTSLanguage, AspectRatio } from "lib/types"
 
 // Creates a slug formatted string from supplied string
 export const slugify = (str: string): string => {
@@ -28,8 +28,11 @@ export const asNumber = (val: unknown): number | undefined => {
   return valParsed
 }
 
+export const clamp = (min: number, value: number, max: number) =>
+  Math.max(min, Math.min(value, max))
+
 export const calculateAspectRatio = (
-  aspectRatio: string | number | (() => string | number) | undefined,
+  aspectRatio: AspectRatio | undefined,
   defaultAspectRatio: number = 16 / 9
 ): number => {
   if (aspectRatio === undefined) return defaultAspectRatio
@@ -51,7 +54,7 @@ export const calculateAspectRatio = (
 }
 
 export const calculateAspectRatioVerticalPadding = (
-  aspectRatio: string | number | (() => string | number) | undefined,
+  aspectRatio: AspectRatio | undefined,
   defaultAspectRatio: number = 16 / 9
 ): string => {
   const _aspectRatio = calculateAspectRatio(aspectRatio, defaultAspectRatio)

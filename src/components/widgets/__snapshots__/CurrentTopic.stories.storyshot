@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Widgets/CurrentTopic Basic 1`] = `
-<div>
-  <h5
-    className="widgetscurrenttopic-basic-muitypography-root-1 widgetscurrenttopic-basic-makestyles-label-1 widgetscurrenttopic-basic-muitypography-h5-1 widgetscurrenttopic-basic-muitypography-aligncenter-1"
+<div
+  className="MuiBox-root css-0"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-1ehcm7w-MuiTypography-root"
   >
-    Current Topic
-  </h5>
+    Currently...
+  </p>
   <div
-    className="widgetscurrenttopic-basic-muipaper-root-1 widgetscurrenttopic-basic-makestyles-paper-1 widgetscurrenttopic-basic-muipaper-elevation1-1 widgetscurrenttopic-basic-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-ar4fvi-MuiPaper-root"
   >
     <h6
-      className="widgetscurrenttopic-basic-muitypography-root-1 widgetscurrenttopic-basic-makestyles-topic-1 widgetscurrenttopic-basic-muitypography-h6-1 widgetscurrenttopic-basic-muitypography-aligncenter-1"
+      className="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-145egli-MuiTypography-root"
     >
       Having fun!
     </h6>

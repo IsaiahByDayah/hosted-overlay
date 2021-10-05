@@ -2,55 +2,55 @@
 
 exports[`Storyshots Twitch Chat/Chat Basic 1`] = `
 <div
-  className="twitch-chatchat-basic-makestyles-root-1"
+  className="css-1mmb908-MuiStack-root"
 >
   <p
-    className="twitch-chatchat-basic-muitypography-root-1 twitch-chatchat-basic-makestyles-root-2 twitch-chatchat-basic-makestyles-message-1 twitch-chatchat-basic-makestyles-sent-1 twitch-chatchat-basic-muitypography-body1-1"
+    className="MuiTypography-root MuiTypography-body1 css-1hkv2h8-MuiTypography-root"
   >
     <span
-      className="twitch-chatchat-basic-makestyles-username-1 twitch-chatchat-basic-makestyles-username-2"
+      className="MuiTypography-root MuiTypography-body1 css-gj1xai-MuiTypography-root"
     >
       Maurine42
-      : 
+      :
     </span>
     <span
-      className="twitch-chatchat-basic-makestyles-message-2"
+      className="MuiTypography-root MuiTypography-body1 css-18f1hjb-MuiTypography-root"
     >
       Omnis quisquam quisquam quos nihil dolor voluptatibus velit. Culpa deleniti eos reprehenderit in nisi et qui. Odio et inventore eligendi in.
     </span>
   </p>
   <p
-    className="twitch-chatchat-basic-muitypography-root-1 twitch-chatchat-basic-makestyles-root-2 twitch-chatchat-basic-makestyles-message-1 twitch-chatchat-basic-muitypography-body1-1"
+    className="MuiTypography-root MuiTypography-body1 css-16s2r3v-MuiTypography-root"
   >
     <span
-      className="twitch-chatchat-basic-makestyles-username-1 twitch-chatchat-basic-makestyles-username-3"
+      className="MuiTypography-root MuiTypography-body1 css-gj1xai-MuiTypography-root"
     >
       Myrna44
-      : 
+      :
     </span>
     <span
-      className="twitch-chatchat-basic-makestyles-message-2"
+      className="MuiTypography-root MuiTypography-body1 css-18f1hjb-MuiTypography-root"
     >
       Provident quo provident. Harum ullam pariatur quos est quod.
     </span>
   </p>
   <p
-    className="twitch-chatchat-basic-muitypography-root-1 twitch-chatchat-basic-makestyles-root-2 twitch-chatchat-basic-makestyles-message-1 twitch-chatchat-basic-muitypography-body1-1"
+    className="MuiTypography-root MuiTypography-body1 css-16s2r3v-MuiTypography-root"
   >
     <span
-      className="twitch-chatchat-basic-makestyles-username-1 twitch-chatchat-basic-makestyles-username-4"
+      className="MuiTypography-root MuiTypography-body1 css-68cb-MuiTypography-root"
     >
       Florencio.Reichert
-      : 
+      :
     </span>
     <span
-      className="twitch-chatchat-basic-makestyles-message-2"
+      className="MuiTypography-root MuiTypography-body1 css-18f1hjb-MuiTypography-root"
     >
       Autem tempora ut exercitationem doloribus. Voluptas sunt omnis et accusantium et quia quos. Molestiae beatae enim necessitatibus. Placeat saepe eligendi rerum excepturi et. Fuga similique fugit corporis voluptatem dolores.
     </span>
   </p>
   <div
-    className="twitch-chatchat-basic-makestyles-fade-1"
+    className="MuiBox-root css-n3j6n3"
   />
 </div>
 `;

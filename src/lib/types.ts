@@ -1,3 +1,5 @@
+export type AspectRatio = string | number | (() => string | number)
+
 export interface Message {
   id: string
   username: string

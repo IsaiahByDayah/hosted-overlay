@@ -1,4 +1,4 @@
-import { makeStyles, Grid } from "@material-ui/core"
+import { Grid } from "@mui/material"
 import { useParams } from "react-router-dom"
 
 import useOverlay from "hooks/useOverlay"
@@ -8,14 +8,7 @@ import AlertsProvider from "components/scaffold/AlertsProvider"
 import MainSection from "components/scaffold/MainSection"
 import Sidebar from "components/scaffold/Sidebar"
 
-const useStyles = makeStyles(() => ({
-  fullheight: {
-    height: "100vh",
-  },
-}))
-
 const Overlay = () => {
-  const classes = useStyles()
   const { userId } = useParams<{ userId?: string }>()
   const overlay = useOverlay(userId)
 
@@ -24,11 +17,11 @@ const Overlay = () => {
   return (
     <OverlayProvider overlay={overlay}>
       <AlertsProvider>
-        <Grid className={classes.fullheight} container>
-          <Grid className={classes.fullheight} item xs={9}>
+        <Grid sx={{ height: "100vh" }} container>
+          <Grid sx={{ height: "100vh" }} item xs={9}>
             <MainSection />
           </Grid>
-          <Grid className={classes.fullheight} item xs={3}>
+          <Grid sx={{ height: "100vh" }} item xs={3}>
             <Sidebar />
           </Grid>
         </Grid>

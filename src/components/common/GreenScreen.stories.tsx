@@ -14,7 +14,7 @@ export const Basic: Story<GreenScreenProps> = (args) => (
   <GreenScreen {...args} />
 )
 Basic.args = {
-  aspectRatio: 16 / 9,
+  aspectRatio: "16:9",
 }
 Basic.argTypes = {
   aspectRatio: {

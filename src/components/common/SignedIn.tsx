@@ -1,20 +1,26 @@
 import { ReactNode, useContext } from "react"
-import { Hidden, HiddenProps } from "@material-ui/core"
+import { Box } from "@mui/material"
 
 import { AuthContext } from "components/scaffold/AuthProvider"
 
 export interface SignedInProps {
   children: ReactNode
-  implementation?: HiddenProps["implementation"]
+  nullOnHide?: boolean
 }
 
-const SignedIn = ({ children, ...rest }: SignedInProps) => {
+const SignedIn = ({ children, nullOnHide = true }: SignedInProps) => {
   const { user } = useContext(AuthContext)
 
+  if (nullOnHide && !Boolean(user)) return null
+
   return (
-    <Hidden {...rest} xsUp={!Boolean(user)}>
+    <Box
+      sx={{
+        display: Boolean(user) ? undefined : "none",
+      }}
+    >
       {children}
-    </Hidden>
+    </Box>
   )
 }
 

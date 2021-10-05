@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from "@material-ui/core"
+import { Box, Typography } from "@mui/material"
 import { IconType } from "react-icons"
 import {
   SiTiktok,
@@ -8,19 +8,8 @@ import {
   SiPatreon,
 } from "react-icons/si"
 import { FaRegUser } from "react-icons/fa"
-import cx from "clsx"
 
 import { SocialPlatform } from "lib/types"
-
-const useStyles = makeStyles(({ spacing }) => ({
-  root: {
-    display: "flex",
-    alignItems: "center",
-  },
-  label: {
-    marginLeft: spacing(),
-  },
-}))
 
 const getIcon = (platform: SocialPlatform): IconType => {
   switch (platform) {
@@ -40,21 +29,18 @@ const getIcon = (platform: SocialPlatform): IconType => {
 }
 
 export interface SocialProfileProps {
-  className?: string
   platform: SocialPlatform
   label: string
 }
 
-const SocialProfile = ({ className, platform, label }: SocialProfileProps) => {
-  const classes = useStyles()
-
+const SocialProfile = ({ platform, label }: SocialProfileProps) => {
   const Icon = getIcon(platform)
 
   return (
-    <div className={cx(classes.root, className)}>
+    <Box sx={{ display: "flex", alignItems: "center" }}>
       <Icon />
-      <Typography className={classes.label}>{label}</Typography>
-    </div>
+      <Typography sx={{ ml: 1.5 }}>{label}</Typography>
+    </Box>
   )
 }
 

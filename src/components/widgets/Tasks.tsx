@@ -1,42 +1,24 @@
-import { makeStyles } from "@material-ui/core"
-import cx from "clsx"
+import { Stack } from "@mui/material"
+import { SxProps, Theme } from "@mui/system"
 
 import { Task as ITask } from "lib/types"
 
 import Task from "components/common/Task"
 
-const useStyles = makeStyles(({ spacing }) => ({
-  root: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  task: {
-    "&:not(:last-child)": {
-      marginRight: spacing(2),
-      marginBottom: spacing(2),
-    },
-  },
-}))
-
 export interface TasksProps {
-  className?: string
+  sx?: SxProps<Theme> | undefined
   tasks?: ITask[]
 }
 
-const Tasks = ({ className, tasks }: TasksProps) => {
-  const classes = useStyles()
-
+const Tasks = ({ sx, tasks }: TasksProps) => {
   const incompleteTasks = tasks?.filter((task) => !task.completed)
   const completeTasks = tasks?.filter((task) => task.completed)
 
   return (
-    <div className={cx(classes.root, className)}>
+    <Stack direction="row" spacing={2} sx={sx}>
       {incompleteTasks?.map((task) => (
         <Task
           key={task.id}
-          className={classes.task}
           label={task.label}
           description={task.description}
           completed={task.completed}
@@ -45,13 +27,12 @@ const Tasks = ({ className, tasks }: TasksProps) => {
       {completeTasks?.map((task) => (
         <Task
           key={task.id}
-          className={classes.task}
           label={task.label}
           description={task.description}
           completed={task.completed}
         />
       ))}
-    </div>
+    </Stack>
   )
 }
 

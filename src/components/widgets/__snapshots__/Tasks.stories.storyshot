@@ -2,74 +2,74 @@
 
 exports[`Storyshots Widgets/Tasks All Complete 1`] = `
 <div
-  className="widgetstasks-all-complete-makestyles-root-1"
+  className="css-e53awj-MuiStack-root"
 >
   <div
-    className="widgetstasks-all-complete-muipaper-root-1 widgetstasks-all-complete-makestyles-root-2 widgetstasks-all-complete-makestyles-task-1 widgetstasks-all-complete-muipaper-elevation0-1 widgetstasks-all-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
   >
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-label-1 widgetstasks-all-complete-makestyles-completedlabel-1 widgetstasks-all-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
     >
       consequatur et veritatis
     </p>
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-description-1 widgetstasks-all-complete-makestyles-completeddescription-1 widgetstasks-all-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-x45spb-MuiTypography-root"
     >
       Ratione voluptates eveniet eos autem vel delectus.
     </p>
   </div>
   <div
-    className="widgetstasks-all-complete-muipaper-root-1 widgetstasks-all-complete-makestyles-root-2 widgetstasks-all-complete-makestyles-task-1 widgetstasks-all-complete-muipaper-elevation0-1 widgetstasks-all-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
   >
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-label-1 widgetstasks-all-complete-makestyles-completedlabel-1 widgetstasks-all-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
     >
       est corporis accusamus
     </p>
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-description-1 widgetstasks-all-complete-makestyles-completeddescription-1 widgetstasks-all-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-x45spb-MuiTypography-root"
     >
       Autem suscipit molestias iste omnis.
     </p>
   </div>
   <div
-    className="widgetstasks-all-complete-muipaper-root-1 widgetstasks-all-complete-makestyles-root-2 widgetstasks-all-complete-makestyles-task-1 widgetstasks-all-complete-muipaper-elevation0-1 widgetstasks-all-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
   >
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-label-1 widgetstasks-all-complete-makestyles-completedlabel-1 widgetstasks-all-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
     >
       nesciunt natus mollitia
     </p>
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-description-1 widgetstasks-all-complete-makestyles-completeddescription-1 widgetstasks-all-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-x45spb-MuiTypography-root"
     >
       Est dolor autem perspiciatis dolores aut quo.
     </p>
   </div>
   <div
-    className="widgetstasks-all-complete-muipaper-root-1 widgetstasks-all-complete-makestyles-root-2 widgetstasks-all-complete-makestyles-task-1 widgetstasks-all-complete-muipaper-elevation0-1 widgetstasks-all-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
   >
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-label-1 widgetstasks-all-complete-makestyles-completedlabel-1 widgetstasks-all-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
     >
       doloribus tempore cumque
     </p>
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-description-1 widgetstasks-all-complete-makestyles-completeddescription-1 widgetstasks-all-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-x45spb-MuiTypography-root"
     >
       Et rerum quas officia consequatur ut quae voluptas.
     </p>
   </div>
   <div
-    className="widgetstasks-all-complete-muipaper-root-1 widgetstasks-all-complete-makestyles-root-2 widgetstasks-all-complete-makestyles-task-1 widgetstasks-all-complete-muipaper-elevation0-1 widgetstasks-all-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
   >
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-label-1 widgetstasks-all-complete-makestyles-completedlabel-1 widgetstasks-all-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
     >
       accusantium dolore eum
     </p>
     <p
-      className="widgetstasks-all-complete-muitypography-root-1 widgetstasks-all-complete-makestyles-description-1 widgetstasks-all-complete-makestyles-completeddescription-1 widgetstasks-all-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-x45spb-MuiTypography-root"
     >
       Perspiciatis non consequatur velit impedit quasi.
     </p>
@@ -79,80 +79,80 @@ exports[`Storyshots Widgets/Tasks All Complete 1`] = `
 
 exports[`Storyshots Widgets/Tasks Empty 1`] = `
 <div
-  className="widgetstasks-empty-makestyles-root-1"
+  className="css-e53awj-MuiStack-root"
 />
 `;
 
 exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
 <div
-  className="widgetstasks-half-complete-makestyles-root-1"
+  className="css-e53awj-MuiStack-root"
 >
   <div
-    className="widgetstasks-half-complete-muipaper-root-1 widgetstasks-half-complete-makestyles-root-2 widgetstasks-half-complete-makestyles-task-1 widgetstasks-half-complete-muipaper-elevation3-1 widgetstasks-half-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-label-1 widgetstasks-half-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       nesciunt natus mollitia
     </p>
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-description-1 widgetstasks-half-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Est dolor autem perspiciatis dolores aut quo.
     </p>
   </div>
   <div
-    className="widgetstasks-half-complete-muipaper-root-1 widgetstasks-half-complete-makestyles-root-2 widgetstasks-half-complete-makestyles-task-1 widgetstasks-half-complete-muipaper-elevation3-1 widgetstasks-half-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-label-1 widgetstasks-half-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       doloribus tempore cumque
     </p>
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-description-1 widgetstasks-half-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Et rerum quas officia consequatur ut quae voluptas.
     </p>
   </div>
   <div
-    className="widgetstasks-half-complete-muipaper-root-1 widgetstasks-half-complete-makestyles-root-2 widgetstasks-half-complete-makestyles-task-1 widgetstasks-half-complete-muipaper-elevation3-1 widgetstasks-half-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-label-1 widgetstasks-half-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       accusantium dolore eum
     </p>
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-description-1 widgetstasks-half-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Perspiciatis non consequatur velit impedit quasi.
     </p>
   </div>
   <div
-    className="widgetstasks-half-complete-muipaper-root-1 widgetstasks-half-complete-makestyles-root-2 widgetstasks-half-complete-makestyles-task-1 widgetstasks-half-complete-muipaper-elevation0-1 widgetstasks-half-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
   >
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-label-1 widgetstasks-half-complete-makestyles-completedlabel-1 widgetstasks-half-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
     >
       consequatur et veritatis
     </p>
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-description-1 widgetstasks-half-complete-makestyles-completeddescription-1 widgetstasks-half-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-x45spb-MuiTypography-root"
     >
       Ratione voluptates eveniet eos autem vel delectus.
     </p>
   </div>
   <div
-    className="widgetstasks-half-complete-muipaper-root-1 widgetstasks-half-complete-makestyles-root-2 widgetstasks-half-complete-makestyles-task-1 widgetstasks-half-complete-muipaper-elevation0-1 widgetstasks-half-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
   >
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-label-1 widgetstasks-half-complete-makestyles-completedlabel-1 widgetstasks-half-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
     >
       est corporis accusamus
     </p>
     <p
-      className="widgetstasks-half-complete-muitypography-root-1 widgetstasks-half-complete-makestyles-description-1 widgetstasks-half-complete-makestyles-completeddescription-1 widgetstasks-half-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-x45spb-MuiTypography-root"
     >
       Autem suscipit molestias iste omnis.
     </p>
@@ -162,74 +162,74 @@ exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
 
 exports[`Storyshots Widgets/Tasks None Complete 1`] = `
 <div
-  className="widgetstasks-none-complete-makestyles-root-1"
+  className="css-e53awj-MuiStack-root"
 >
   <div
-    className="widgetstasks-none-complete-muipaper-root-1 widgetstasks-none-complete-makestyles-root-2 widgetstasks-none-complete-makestyles-task-1 widgetstasks-none-complete-muipaper-elevation3-1 widgetstasks-none-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-label-1 widgetstasks-none-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       consequatur et veritatis
     </p>
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-description-1 widgetstasks-none-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Ratione voluptates eveniet eos autem vel delectus.
     </p>
   </div>
   <div
-    className="widgetstasks-none-complete-muipaper-root-1 widgetstasks-none-complete-makestyles-root-2 widgetstasks-none-complete-makestyles-task-1 widgetstasks-none-complete-muipaper-elevation3-1 widgetstasks-none-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-label-1 widgetstasks-none-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       est corporis accusamus
     </p>
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-description-1 widgetstasks-none-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Autem suscipit molestias iste omnis.
     </p>
   </div>
   <div
-    className="widgetstasks-none-complete-muipaper-root-1 widgetstasks-none-complete-makestyles-root-2 widgetstasks-none-complete-makestyles-task-1 widgetstasks-none-complete-muipaper-elevation3-1 widgetstasks-none-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-label-1 widgetstasks-none-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       nesciunt natus mollitia
     </p>
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-description-1 widgetstasks-none-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Est dolor autem perspiciatis dolores aut quo.
     </p>
   </div>
   <div
-    className="widgetstasks-none-complete-muipaper-root-1 widgetstasks-none-complete-makestyles-root-2 widgetstasks-none-complete-makestyles-task-1 widgetstasks-none-complete-muipaper-elevation3-1 widgetstasks-none-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-label-1 widgetstasks-none-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       doloribus tempore cumque
     </p>
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-description-1 widgetstasks-none-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Et rerum quas officia consequatur ut quae voluptas.
     </p>
   </div>
   <div
-    className="widgetstasks-none-complete-muipaper-root-1 widgetstasks-none-complete-makestyles-root-2 widgetstasks-none-complete-makestyles-task-1 widgetstasks-none-complete-muipaper-elevation3-1 widgetstasks-none-complete-muipaper-rounded-1"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
   >
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-label-1 widgetstasks-none-complete-muitypography-body1-1"
+      className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
     >
       accusantium dolore eum
     </p>
     <p
-      className="widgetstasks-none-complete-muitypography-root-1 widgetstasks-none-complete-makestyles-description-1 widgetstasks-none-complete-muitypography-body2-1"
+      className="MuiTypography-root MuiTypography-body2 css-nxlqkn-MuiTypography-root"
     >
       Perspiciatis non consequatur velit impedit quasi.
     </p>

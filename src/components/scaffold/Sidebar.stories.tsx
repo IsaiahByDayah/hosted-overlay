@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react"
 
-import Sidebar, { SidebarProps } from "components/scaffold/Sidebar"
+import Sidebar from "components/scaffold/Sidebar"
 
 export default {
   title: "Scaffold/Sidebar",
@@ -10,9 +10,9 @@ export default {
   },
 } as Meta
 
-export const Basic: Story<SidebarProps> = (args) => (
+export const Basic: Story = () => (
   <div style={{ height: "100vh", width: "100vw" }}>
-    <Sidebar {...args} />
+    <Sidebar />
   </div>
 )
 Basic.parameters = {
