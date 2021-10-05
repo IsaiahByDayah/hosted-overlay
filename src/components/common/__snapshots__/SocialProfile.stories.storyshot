@@ -2,7 +2,7 @@
 
 exports[`Storyshots Common/SocialProfile Basic 1`] = `
 <div
-  className="commonsocialprofile-basic-makestyles-root-1"
+  className="MuiBox-root css-70qvj9"
 >
   <svg
     fill="currentColor"
@@ -23,7 +23,7 @@ exports[`Storyshots Common/SocialProfile Basic 1`] = `
     />
   </svg>
   <p
-    className="commonsocialprofile-basic-muitypography-root-1 commonsocialprofile-basic-makestyles-label-1 commonsocialprofile-basic-muitypography-body1-1"
+    className="MuiTypography-root MuiTypography-body1 css-184pkif-MuiTypography-root"
   >
     IsaiahByDayah
   </p>

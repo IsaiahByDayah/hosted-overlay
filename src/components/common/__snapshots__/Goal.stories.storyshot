@@ -2,24 +2,24 @@
 
 exports[`Storyshots Common/Goal Basic 1`] = `
 <div
-  className="undefined goal-root"
+  className="MuiBox-root css-0"
 >
   <span
-    className="commongoal-basic-muitypography-root-1 commongoal-basic-makestyles-progresstext-1 commongoal-basic-muitypography-caption-1"
+    className="MuiTypography-root MuiTypography-caption css-nd5rhq-MuiTypography-root"
   >
     50
      / 
     100
   </span>
   <div
-    className="commongoal-basic-makestyles-root-1 goal-progress-bar"
+    className="MuiBox-root css-1obfcke"
   >
     <div
-      className="commongoal-basic-makestyles-fill-1 commongoal-basic-makestyles-fill-2"
+      className="MuiBox-root css-15uqbhm"
     />
   </div>
   <p
-    className="commongoal-basic-muitypography-root-1 commongoal-basic-makestyles-label-1 commongoal-basic-muitypography-body1-1"
+    className="MuiTypography-root MuiTypography-body1 css-ou4q14-MuiTypography-root"
   >
     Label
   </p>

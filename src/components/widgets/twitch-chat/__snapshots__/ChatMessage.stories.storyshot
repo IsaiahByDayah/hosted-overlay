@@ -2,16 +2,16 @@
 
 exports[`Storyshots Twitch Chat/Chat Message Basic 1`] = `
 <p
-  className="twitch-chatchat-message-basic-muitypography-root-1 twitch-chatchat-message-basic-makestyles-root-1 twitch-chatchat-message-basic-muitypography-body1-1"
+  className="MuiTypography-root MuiTypography-body1 css-1orvf11-MuiTypography-root"
 >
   <span
-    className="twitch-chatchat-message-basic-makestyles-username-1 twitch-chatchat-message-basic-makestyles-username-2"
+    className="MuiTypography-root MuiTypography-body1 css-nw561a-MuiTypography-root"
   >
     Jordan_Schuppe
-    : 
+    :
   </span>
   <span
-    className="twitch-chatchat-message-basic-makestyles-message-1"
+    className="MuiTypography-root MuiTypography-body1 css-18f1hjb-MuiTypography-root"
   >
     Aliquip et ad sunt nostrud sint enim exercitation tempor fugiat.
   </span>

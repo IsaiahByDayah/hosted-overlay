@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Common/SignedOut Basic 1`] = `null`;
+exports[`Storyshots Common/SignedOut Basic 1`] = `
+<div
+  className="MuiBox-root css-0"
+>
+  Only visible when signed out!
+</div>
+`;

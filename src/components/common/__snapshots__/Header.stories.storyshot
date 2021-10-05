@@ -2,20 +2,16 @@
 
 exports[`Storyshots Common/Header Basic 1`] = `
 <header
-  className="commonheader-basic-muipaper-root-1 commonheader-basic-muiappbar-root-1 commonheader-basic-muiappbar-positionrelative-1 commonheader-basic-muiappbar-colorprimary-1 commonheader-basic-muipaper-elevation4-1"
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionRelative css-14rmu4u-MuiPaper-root-MuiAppBar-root"
 >
   <div
-    className="commonheader-basic-muitoolbar-root-1 commonheader-basic-muitoolbar-regular-1 commonheader-basic-muitoolbar-gutters-1"
+    className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-mgaw5o-MuiStack-root-MuiToolbar-root"
   >
-    <div
-      className="commonheader-basic-muibox-root-1 commonheader-basic-muibox-root-2"
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-1kyhkbh-MuiTypography-root"
     >
-      <p
-        className="commonheader-basic-muitypography-root-1 commonheader-basic-muitypography-body1-1"
-      >
-        Hosted Overlay
-      </p>
-    </div>
+      Hosted Overlay
+    </p>
   </div>
 </header>
 `;

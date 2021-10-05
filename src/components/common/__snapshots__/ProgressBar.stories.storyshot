@@ -2,10 +2,10 @@
 
 exports[`Storyshots Common/ProgressBar Basic 1`] = `
 <div
-  className="commonprogressbar-basic-makestyles-root-1"
+  className="MuiBox-root css-1obfcke"
 >
   <div
-    className="commonprogressbar-basic-makestyles-fill-1 commonprogressbar-basic-makestyles-fill-2"
+    className="MuiBox-root css-15uqbhm"
   />
 </div>
 `;
