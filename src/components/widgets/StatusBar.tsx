@@ -49,7 +49,6 @@ const getWaitTimeSeconds = (index: number) => {
 }
 
 const StatusBar = ({ sx }: StatusBarProps) => {
-  const classes = useStyles()
   const [index, setIndex] = useState(0)
   const { overlay } = useOverlayContext()
   const [message, setMessage] = useState<string | undefined>(undefined)
