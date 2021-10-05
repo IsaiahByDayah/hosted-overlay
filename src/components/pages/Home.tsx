@@ -20,13 +20,13 @@ const Home = () => {
       <Header />
       <Container component={Stack} spacing={5} sx={{ py: 2 }}>
         {/* Signin Section */}
-        <Stack spacing={2}>
+        <Stack component="form" spacing={2} onSubmit={() => submit()}>
           <Typography fontWeight="bold">Sign In / Sign Up</Typography>
           <Stack direction="row" alignItems="baseline" spacing={2}>
             <TextField
               sx={{ flexGrow: 1 }}
               label="Email"
-              // placeholder="hello@streamers.com"
+              placeholder="hello@streamers.com"
               value={email}
               onChange={(e) => {
                 setEmail(e.currentTarget.value)
@@ -36,7 +36,7 @@ const Home = () => {
             <TextField
               sx={{ flexGrow: 1 }}
               label="Password"
-              // placeholder="********"
+              placeholder="********"
               type="password"
               value={password}
               onChange={(e) => {
@@ -44,7 +44,7 @@ const Home = () => {
               }}
               InputLabelProps={{ shrink: true }}
             />
-            <Button sx={{ flexShrink: 0 }} onClick={() => submit()}>
+            <Button sx={{ flexShrink: 0 }} type="submit">
               Sign In
             </Button>
           </Stack>
