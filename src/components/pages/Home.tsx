@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, FormEvent } from "react"
 import { TextField, Button, Container, Typography, Stack } from "@mui/material"
 
 import { signInWithEmailAndPassword } from "firebase/auth"
@@ -11,7 +11,8 @@ const Home = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const submit = () => {
+  const submit = (event: FormEvent) => {
+    event.preventDefault()
     signInWithEmailAndPassword(firebase.auth, email, password)
   }
 
@@ -20,7 +21,7 @@ const Home = () => {
       <Header />
       <Container component={Stack} spacing={5} sx={{ py: 2 }}>
         {/* Signin Section */}
-        <Stack component="form" spacing={2} onSubmit={() => submit()}>
+        <Stack component="form" spacing={2} onSubmit={submit}>
           <Typography fontWeight="bold">Sign In / Sign Up</Typography>
           <Stack direction="row" alignItems="baseline" spacing={2}>
             <TextField
