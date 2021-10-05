@@ -1,16 +1,10 @@
 import { ReactNode } from "react"
 import {
   ThemeProvider,
-  Theme,
   StyledEngineProvider,
   responsiveFontSizes,
   createTheme,
 } from "@mui/material"
-
-declare module "@mui/styles/defaultTheme" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
 
 interface HostedOverlayThemeProviderProps {
   children?: ReactNode
