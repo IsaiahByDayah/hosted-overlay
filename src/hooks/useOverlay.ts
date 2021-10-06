@@ -4,6 +4,8 @@ import { doc, onSnapshot } from "firebase/firestore"
 import { Overlay } from "lib/types"
 import firebase from "lib/firebase"
 
+import { useAuthContext } from "components/scaffold/AuthProvider"
+
 const useOverlay = (userId?: string): Overlay | undefined | null => {
   const [overlay, setOverlay] = useState<Overlay | undefined | null>(undefined)
 
@@ -41,6 +43,11 @@ const useOverlay = (userId?: string): Overlay | undefined | null => {
   }, [userId])
 
   return overlay
+}
+
+export const useCurrentUserOverlay = () => {
+  const { user } = useAuthContext()
+  return useOverlay(user?.uid)
 }
 
 export default useOverlay

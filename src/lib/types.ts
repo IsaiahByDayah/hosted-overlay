@@ -30,13 +30,13 @@ interface TTSRedemption {
 }
 
 export interface Overlay {
+  // Overlay Data
+  currentTopic?: string // Displayed on the overlay
+  socials?: { platform: SocialPlatform; handle: string }[] // Displayed in the status bar
+
   channel?: string // Used for what chat to connect to for messages / commands / etc.
 
   ttsRedemptions?: TTSRedemption[]
-
-  currentTopic?: string // Displayed on the overlay
-
-  socials?: { platform: SocialPlatform; handle: string }[] // Displayed in the status bar
 
   messages?: string[] // Messages to randomly cycle through the status bar
 }
