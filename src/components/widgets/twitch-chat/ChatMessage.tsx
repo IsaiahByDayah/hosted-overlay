@@ -16,6 +16,7 @@ const ChatMessage = ({ sx, message }: ChatMessageProps) => (
       background: ({ overlay }) => overlay.card,
       borderRadius: 1,
       boxShadow: ({ shadows }) => shadows[2],
+      color: "text.primary",
       ...sx,
     }}
   >
