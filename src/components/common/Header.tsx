@@ -13,7 +13,11 @@ const Header = () => {
         <Typography sx={{ flexGrow: 1 }}>Hosted Overlay</Typography>
         <SignedIn>
           <Stack spacing={2} direction="row">
-            <Button variant="outlined" onClick={() => signOut()}>
+            <Button
+              color="inherit"
+              variant="outlined"
+              onClick={() => signOut()}
+            >
               Sign Out
             </Button>
           </Stack>
