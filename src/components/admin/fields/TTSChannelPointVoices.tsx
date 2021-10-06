@@ -6,25 +6,25 @@ import {
   MenuItem,
   TextField,
   Button,
-  Chip,
+  // Chip,
   FormControl,
-  Grid,
+  // Grid,
 } from "@mui/material"
-import { doc, updateDoc } from "firebase/firestore"
+// import { doc, updateDoc } from "firebase/firestore"
 
-import firebase from "lib/firebase"
+// import firebase from "lib/firebase"
 import { TTS_LANGUAGES, TTSLanguage } from "lib/types"
 
-import useOverlay from "hooks/useOverlay"
+// import useOverlay from "hooks/useOverlay"
 
-import { useAuthContext } from "components/scaffold/AuthProvider"
+// import { useAuthContext } from "components/scaffold/AuthProvider"
 
 import AdminField from "components/admin/AdminField"
 
 const TTSChannelPointVoices = () => {
-  const { user } = useAuthContext()
-  const overlay = useOverlay(user?.uid)
-  const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  // const { user } = useAuthContext()
+  // const overlay = useOverlay(user?.uid)
+  // const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
 
   const [ttsLangauge, setTTSLanguage] =
     useState<TTSLanguage>("american-english")
@@ -43,14 +43,14 @@ const TTSChannelPointVoices = () => {
     // })
     console.log("TTS Redemption Added!")
   }
-  const removeTTSRedemption = async (customId: string) => {
-    // await updateDoc(overlayDocRef, {
-    //   ttsRedemptions: (overlay?.ttsRedemptions ?? []).filter(
-    //     (r) => !(r.customRewardId === customId)
-    //   ),
-    // })
-    console.log("TTS Redemption Removed!")
-  }
+  // const removeTTSRedemption = async (customId: string) => {
+  //   // await updateDoc(overlayDocRef, {
+  //   //   ttsRedemptions: (overlay?.ttsRedemptions ?? []).filter(
+  //   //     (r) => !(r.customRewardId === customId)
+  //   //   ),
+  //   // })
+  //   console.log("TTS Redemption Removed!")
+  // }
 
   return (
     <AdminField

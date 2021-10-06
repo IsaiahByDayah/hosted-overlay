@@ -2,7 +2,7 @@
 
 exports[`Storyshots Widgets/CurrentTopic Basic 1`] = `
 <div
-  className="MuiBox-root css-0"
+  className="MuiBox-root css-1jolfkj"
 >
   <p
     className="MuiTypography-root MuiTypography-body1 css-1ehcm7w-MuiTypography-root"
@@ -10,7 +10,7 @@ exports[`Storyshots Widgets/CurrentTopic Basic 1`] = `
     Currently...
   </p>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-ar4fvi-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-6oas09-MuiPaper-root"
   >
     <h6
       className="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-145egli-MuiTypography-root"

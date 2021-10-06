@@ -2,55 +2,62 @@
 
 exports[`Storyshots Twitch Chat/Chat Basic 1`] = `
 <div
-  className="css-1mmb908-MuiStack-root"
+  className="MuiBox-root css-kyhmuo"
 >
-  <p
-    className="MuiTypography-root MuiTypography-body1 css-1hkv2h8-MuiTypography-root"
-  >
-    <span
-      className="MuiTypography-root MuiTypography-body1 css-gj1xai-MuiTypography-root"
-    >
-      Maurine42
-      :
-    </span>
-    <span
-      className="MuiTypography-root MuiTypography-body1 css-18f1hjb-MuiTypography-root"
-    >
-      Omnis quisquam quisquam quos nihil dolor voluptatibus velit. Culpa deleniti eos reprehenderit in nisi et qui. Odio et inventore eligendi in.
-    </span>
-  </p>
-  <p
-    className="MuiTypography-root MuiTypography-body1 css-16s2r3v-MuiTypography-root"
-  >
-    <span
-      className="MuiTypography-root MuiTypography-body1 css-gj1xai-MuiTypography-root"
-    >
-      Myrna44
-      :
-    </span>
-    <span
-      className="MuiTypography-root MuiTypography-body1 css-18f1hjb-MuiTypography-root"
-    >
-      Provident quo provident. Harum ullam pariatur quos est quod.
-    </span>
-  </p>
-  <p
-    className="MuiTypography-root MuiTypography-body1 css-16s2r3v-MuiTypography-root"
-  >
-    <span
-      className="MuiTypography-root MuiTypography-body1 css-68cb-MuiTypography-root"
-    >
-      Florencio.Reichert
-      :
-    </span>
-    <span
-      className="MuiTypography-root MuiTypography-body1 css-18f1hjb-MuiTypography-root"
-    >
-      Autem tempora ut exercitationem doloribus. Voluptas sunt omnis et accusantium et quia quos. Molestiae beatae enim necessitatibus. Placeat saepe eligendi rerum excepturi et. Fuga similique fugit corporis voluptatem dolores.
-    </span>
-  </p>
   <div
-    className="MuiBox-root css-n3j6n3"
+    className="css-rn4bld-MuiStack-root"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-1elm72m-MuiTypography-root"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-body1 css-1a1yc6g-MuiTypography-root"
+      >
+        Maurine42
+        :
+         
+      </span>
+      <span
+        className="MuiTypography-root MuiTypography-body1 css-17l2ekb-MuiTypography-root"
+      >
+        Omnis quisquam quisquam quos nihil dolor voluptatibus velit. Culpa deleniti eos reprehenderit in nisi et qui. Odio et inventore eligendi in.
+      </span>
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-16oos2a-MuiTypography-root"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-body1 css-1a1yc6g-MuiTypography-root"
+      >
+        Myrna44
+        :
+         
+      </span>
+      <span
+        className="MuiTypography-root MuiTypography-body1 css-17l2ekb-MuiTypography-root"
+      >
+        Provident quo provident. Harum ullam pariatur quos est quod.
+      </span>
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-16oos2a-MuiTypography-root"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-body1 css-30qpae-MuiTypography-root"
+      >
+        Florencio.Reichert
+        :
+         
+      </span>
+      <span
+        className="MuiTypography-root MuiTypography-body1 css-17l2ekb-MuiTypography-root"
+      >
+        Autem tempora ut exercitationem doloribus. Voluptas sunt omnis et accusantium et quia quos. Molestiae beatae enim necessitatibus. Placeat saepe eligendi rerum excepturi et. Fuga similique fugit corporis voluptatem dolores.
+      </span>
+    </p>
+  </div>
+  <div
+    className="MuiBox-root css-1e7p78s"
   />
 </div>
 `;

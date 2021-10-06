@@ -3,7 +3,7 @@
 exports[`Storyshots Common/OpenOverlayButton Basic 1`] = `
 <a
   aria-disabled={true}
-  className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-13t539k-MuiButtonBase-root-MuiButton-root"
+  className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-1brahwc-MuiButtonBase-root-MuiButton-root"
   href="/undefined/overlay"
   onBlur={[Function]}
   onContextMenu={[Function]}

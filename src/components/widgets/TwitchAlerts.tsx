@@ -74,17 +74,14 @@ const TwitchAlerts = () => {
 
       // Check TTS Redemptions
       if (tags["custom-reward-id"]) {
-        const customRewardId = tags["custom-reward-id"]
-
+        // const customRewardId = tags["custom-reward-id"]
         // const foundRedemption = overlay?.ttsRedemptions?.find(
         //   (r) => r.customRewardId === customRewardId
         // )
-
         // console.log(
         //   `Redemption found for custom reward id (${customRewardId}): `,
         //   foundRedemption
         // )
-
         // if (foundRedemption) {
         //   const tts = await textToSpeech({
         //     text: formattedMessage,

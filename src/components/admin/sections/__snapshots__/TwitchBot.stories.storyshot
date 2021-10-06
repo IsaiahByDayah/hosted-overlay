@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Admin/Sections/Twitch Bot Basic 1`] = `
+<div
+  className="css-1p5q5e5-MuiStack-root"
+>
+  <div
+    className="css-q2d8kl-MuiStack-root"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-sjhwcc-MuiTypography-root"
+    >
+      Twitch Bot
+    </p>
+  </div>
+  <div
+    className="MuiBox-root css-0"
+  />
+</div>
+`;
