@@ -5,13 +5,12 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  AccordionActions,
 } from "@mui/material"
 import { ExpandMoreRounded } from "@mui/icons-material"
 
 export interface AdminFieldProps {
-  title: string
-  description?: string
+  title: ReactNode
+  description?: ReactNode
   children?: ReactNode
   expanded?: boolean
 }

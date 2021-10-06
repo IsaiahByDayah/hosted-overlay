@@ -13,8 +13,8 @@ const ChatMessage = ({ sx, message }: ChatMessageProps) => (
     sx={{
       padding: 1,
       display: "inline-block",
-      background: ({ palette }) => palette.background.paper,
-      borderRadius: ({ shape }) => shape.borderRadius,
+      background: ({ overlay }) => overlay.card,
+      borderRadius: 1,
       boxShadow: ({ shadows }) => shadows[2],
       ...sx,
     }}
@@ -24,13 +24,12 @@ const ChatMessage = ({ sx, message }: ChatMessageProps) => (
       fontWeight={700}
       sx={{
         color: message.color,
+        mr: 1,
       }}
     >
-      {message.username}:
+      {message.username}:{" "}
     </Typography>
-    <Typography component="span" ml={1}>
-      {message.message}
-    </Typography>
+    <Typography component="span">{message.message}</Typography>
   </Typography>
 )
 

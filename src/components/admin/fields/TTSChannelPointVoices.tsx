@@ -31,24 +31,24 @@ const TTSChannelPointVoices = () => {
   const [ttsCustomId, setTTSCustomId] = useState("")
 
   const addTTSRedemption = async () => {
-    if (!ttsCustomId.trim()) return
-    await updateDoc(overlayDocRef, {
-      ttsRedemptions: [
-        ...(overlay?.ttsRedemptions ?? []),
-        {
-          customRewardId: ttsCustomId,
-          langauge: ttsLangauge,
-        },
-      ],
-    })
+    // if (!ttsCustomId.trim()) return
+    // await updateDoc(overlayDocRef, {
+    //   ttsRedemptions: [
+    //     ...(overlay?.ttsRedemptions ?? []),
+    //     {
+    //       customRewardId: ttsCustomId,
+    //       langauge: ttsLangauge,
+    //     },
+    //   ],
+    // })
     console.log("TTS Redemption Added!")
   }
   const removeTTSRedemption = async (customId: string) => {
-    await updateDoc(overlayDocRef, {
-      ttsRedemptions: (overlay?.ttsRedemptions ?? []).filter(
-        (r) => !(r.customRewardId === customId)
-      ),
-    })
+    // await updateDoc(overlayDocRef, {
+    //   ttsRedemptions: (overlay?.ttsRedemptions ?? []).filter(
+    //     (r) => !(r.customRewardId === customId)
+    //   ),
+    // })
     console.log("TTS Redemption Removed!")
   }
 
@@ -91,7 +91,7 @@ const TTSChannelPointVoices = () => {
           </Button>
         </Stack>
 
-        {Boolean(overlay?.ttsRedemptions?.length) && (
+        {/* {Boolean(overlay?.ttsRedemptions?.length) && (
           <Grid container columnSpacing={2} rowSpacing={1}>
             {overlay?.ttsRedemptions?.map((redemption) => (
               <Grid key={redemption.customRewardId} item xs="auto">
@@ -104,7 +104,7 @@ const TTSChannelPointVoices = () => {
               </Grid>
             ))}
           </Grid>
-        )}
+        )} */}
       </Stack>
     </AdminField>
   )

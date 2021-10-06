@@ -10,9 +10,11 @@ import ChatMessage from "components/widgets/twitch-chat/ChatMessage"
 export interface ChatProps {
   sx?: SxProps<Theme> | undefined
   messages: Message[]
+  fade?: boolean
+  fadeColor?: string
 }
 
-const Chat = ({ sx, messages }: ChatProps) => {
+const Chat = ({ sx, messages, fade = true, fadeColor }: ChatProps) => {
   const chatContainerRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
@@ -22,11 +24,10 @@ const Chat = ({ sx, messages }: ChatProps) => {
   })
 
   return (
-    <Stack
-      ref={chatContainerRef}
-      spacing={1}
-      alignItems="flex-start"
-      justifyContent="flex-end"
+    <Box
+      py={2}
+      px={1}
+      display="flex"
       sx={{
         overflow: "hidden",
         scrollbarWidth: "none",
@@ -35,37 +36,53 @@ const Chat = ({ sx, messages }: ChatProps) => {
         position: "relative",
         ...sx,
       }}
+      ref={chatContainerRef}
     >
-      {messages.map((message, index) => {
-        return (
-          <ChatMessage
-            key={index}
-            sx={{
-              width: "80%",
-              alignSelf: message.sent ? "flex-end" : undefined,
-            }}
-            message={message}
-          />
-        )
-      })}
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
-          background: ({ palette }) =>
-            `linear-gradient(0deg, transparent 84%, ${alpha(
-              // palette.background.default,
-              palette.augmentColor({
-                color: { main: palette.background.default },
-              }).dark,
-              1
-            )} 90%)`,
-        }}
-      />
-    </Stack>
+      <Stack
+        spacing={1}
+        flexGrow={1}
+        alignItems="flex-start"
+        justifyContent="flex-end"
+        sx={
+          {
+            // overflow: "hidden",
+            // scrollbarWidth: "none",
+            // msOverflowStyle: "none",
+            // scrollbarGutter: "unset",
+            // position: "relative",
+          }
+        }
+      >
+        {messages.map((message, index) => {
+          return (
+            <ChatMessage
+              key={index}
+              sx={{
+                width: "80%",
+                alignSelf: message.sent ? "flex-end" : undefined,
+              }}
+              message={message}
+            />
+          )
+        })}
+      </Stack>
+      {fade && (
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            background: ({ overlay }) =>
+              `linear-gradient(0deg, transparent 84%, ${alpha(
+                fadeColor ?? overlay.sidebar,
+                1
+              )} 95%)`,
+          }}
+        />
+      )}
+    </Box>
   )
 }
 

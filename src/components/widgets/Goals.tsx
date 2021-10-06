@@ -15,6 +15,7 @@ const Goals = ({ sx }: GoalsProps) => {
 
   return (
     <Box
+      color="text.primary"
       sx={{
         height: "100%",
         display: "flex",

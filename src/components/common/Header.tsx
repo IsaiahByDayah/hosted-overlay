@@ -3,7 +3,6 @@ import { AppBar, Toolbar, Typography, Button, Stack } from "@mui/material"
 import { useAuthContext } from "components/scaffold/AuthProvider"
 
 import SignedIn from "components/common/SignedIn"
-import OpenOverlayButton from "components/common/OpenOverlayButton"
 
 const Header = () => {
   const { signOut } = useAuthContext()
@@ -17,7 +16,6 @@ const Header = () => {
             <Button variant="outlined" onClick={() => signOut()}>
               Sign Out
             </Button>
-            <OpenOverlayButton />
           </Stack>
         </SignedIn>
       </Toolbar>
