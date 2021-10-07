@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 
 import useOverlay from "hooks/useOverlay"
 
+import OverlayThemeProvider from "components/scaffold/OverlayThemeProvider"
 import OverlayProvider from "components/scaffold/OverlayProvider"
 import AlertsProvider from "components/scaffold/AlertsProvider"
 import MainSection from "components/scaffold/MainSection"
@@ -16,16 +17,18 @@ const Overlay = () => {
 
   return (
     <OverlayProvider overlay={overlay}>
-      <AlertsProvider>
-        <Grid sx={{ height: "100vh" }} container>
-          <Grid sx={{ height: "100vh" }} item xs={9}>
-            <MainSection />
+      <OverlayThemeProvider>
+        <AlertsProvider>
+          <Grid sx={{ height: "100vh" }} container>
+            <Grid sx={{ height: "100vh" }} item xs={9}>
+              <MainSection />
+            </Grid>
+            <Grid sx={{ height: "100vh" }} item xs={3}>
+              <Sidebar />
+            </Grid>
           </Grid>
-          <Grid sx={{ height: "100vh" }} item xs={3}>
-            <Sidebar />
-          </Grid>
-        </Grid>
-      </AlertsProvider>
+        </AlertsProvider>
+      </OverlayThemeProvider>
     </OverlayProvider>
   )
 }

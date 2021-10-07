@@ -6,9 +6,22 @@ import {
   createTheme,
 } from "@mui/material"
 
+import { OverlayTheme } from "lib/types"
+
+declare module "@mui/material/styles" {
+  interface Theme {
+    overlay: OverlayTheme
+  }
+  // allow configuration using `createTheme`
+  interface ThemeOptions {
+    overlay?: Partial<OverlayTheme>
+  }
+}
+
 interface HostedOverlayThemeProviderProps {
   children?: ReactNode
 }
+
 const HostedOverlayThemeProvider = ({
   children,
 }: HostedOverlayThemeProviderProps) => {
@@ -18,18 +31,17 @@ const HostedOverlayThemeProvider = ({
         fontFamily: ["Nunito", "sans-serif"].join(","),
       },
       palette: {
-        mode: "dark",
         primary: {
-          main: "#006d77",
-          // main: "#1B335C",
-          contrastText: "#FFFFFF",
+          main: "#416788",
+          // contrastText: "#FFFFFF",
         },
         secondary: {
-          main: "#ee6c4d",
+          main: "#81D2C7",
         },
 
         background: {
-          // default: "#edf6f9",
+          default: "#B5BAD0",
+          paper: "#E0E0E2",
         },
       },
       components: {
@@ -49,6 +61,15 @@ const HostedOverlayThemeProvider = ({
             },
           },
         },
+      },
+      overlay: {
+        mode: "light",
+        mainBackground: "#FFFFFF",
+        sidebar: "#C4C4C4",
+        statusBar: "#FFFFFF",
+        card: "#E1E1E1",
+        progressBackground: "#E1E1E1",
+        progressFill: "#3D3D3D",
       },
     })
   )

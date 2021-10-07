@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom"
 
 import Root from "components/scaffold/Root"
+import AuthProvider from "components/scaffold/AuthProvider"
 
 import Home from "components/pages/Home"
 import Admin from "components/pages/Admin"
@@ -17,22 +18,25 @@ const App = () => {
         <Route exact path="/:userId/overlay">
           <Overlay />
         </Route>
-        <Route path="/:userId">
-          <SignedIn>
-            <Admin />
-          </SignedIn>
-          <SignedOut>
-            <Redirect to="/" />
-          </SignedOut>
-        </Route>
-        <Route>
-          <SignedIn>
-            <AdminRedirect />
-          </SignedIn>
-          <SignedOut>
-            <Home />
-          </SignedOut>
-        </Route>
+
+        <AuthProvider>
+          <Route path="/:userId">
+            <SignedIn>
+              <Admin />
+            </SignedIn>
+            <SignedOut>
+              <Redirect to="/" />
+            </SignedOut>
+          </Route>
+          <Route>
+            <SignedIn>
+              <AdminRedirect />
+            </SignedIn>
+            <SignedOut>
+              <Home />
+            </SignedOut>
+          </Route>
+        </AuthProvider>
       </Switch>
     </Root>
   )

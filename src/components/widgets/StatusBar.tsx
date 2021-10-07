@@ -86,14 +86,12 @@ const StatusBar = ({ sx }: StatusBarProps) => {
 
   return (
     <Box
+      color="text.primary"
       sx={{
         py: 1,
-        backgroundColor: ({ palette }) =>
-          palette.augmentColor({
-            color: { main: palette.background.default },
-          }).dark,
-        borderRadius: ({ shape }) => shape.borderRadius,
+        borderRadius: 1,
         overflow: "hidden",
+        backgroundColor: ({ overlay }) => overlay.statusBar,
         ...sx,
       }}
     >

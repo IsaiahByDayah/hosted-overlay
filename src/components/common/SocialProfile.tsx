@@ -37,7 +37,7 @@ const SocialProfile = ({ platform, label }: SocialProfileProps) => {
   const Icon = getIcon(platform)
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center" }}>
+    <Box sx={{ display: "flex", alignItems: "center", color: "text.primary" }}>
       <Icon />
       <Typography sx={{ ml: 1.5 }}>{label}</Typography>
     </Box>

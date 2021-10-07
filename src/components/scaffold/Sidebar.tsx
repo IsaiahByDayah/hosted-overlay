@@ -13,7 +13,7 @@ import GreenScreen from "components/common/GreenScreen"
 
 const Sidebar = () => {
   const { overlay } = useOverlayContext()
-  let messages = useOverlayChat({ channel: overlay?.channel })
+  let messages = useOverlayChat({ channel: overlay?.chat?.channel })
 
   if (process.env.NODE_ENV === "test") {
     messages = getFakeChat({ seed: 123 })
@@ -21,17 +21,13 @@ const Sidebar = () => {
 
   return (
     <Stack
+      spacing={2}
       sx={{
         p: 3,
         display: "flex",
         flexDirection: "column",
         height: 1,
-        backgroundColor: ({ palette }) =>
-          palette.augmentColor({
-            color: {
-              main: palette.background.default,
-            },
-          }).dark,
+        backgroundColor: ({ overlay }) => overlay.sidebar,
       }}
     >
       <CurrentTopic />

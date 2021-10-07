@@ -10,16 +10,17 @@ const CurrentTopic = ({ sx }: CurrentTopicProps) => {
   const { overlay } = useOverlayContext()
 
   return (
-    <Box sx={sx}>
+    <Box sx={sx} color="text.primary">
       <Typography fontWeight={900}>Currently...</Typography>
       <Paper
         sx={{
           py: 1,
           px: 2,
+          backgroundColor: ({ overlay }) => overlay.card,
         }}
       >
         <Typography align="center" variant="h6">
-          {overlay?.currentTopic ?? "Having fun!"}
+          {overlay?.currentTopic || "Having fun!"}
         </Typography>
       </Paper>
     </Box>

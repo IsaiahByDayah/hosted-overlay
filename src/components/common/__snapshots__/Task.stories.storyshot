@@ -2,7 +2,7 @@
 
 exports[`Storyshots Common/Task Basic 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
 >
   <p
     className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"

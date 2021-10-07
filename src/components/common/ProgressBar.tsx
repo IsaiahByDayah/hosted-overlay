@@ -12,16 +12,16 @@ const ProgressBar = ({ percent = 0 }: ProgressBarProps) => {
       sx={{
         borderRadius: 1,
         boxShadow: 4,
-        backgroundColor: "primary.contrastText",
         height: ({ spacing }) => spacing(2),
         minWidth: 200,
         overflow: "hidden",
         padding: 0,
+        backgroundColor: ({ overlay }) => overlay.progressBackground,
       }}
     >
       <Box
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: ({ overlay }) => overlay.progressFill,
           transition: "width 0.5s",
           height: 1,
           width: clamp(0, percent, 1),

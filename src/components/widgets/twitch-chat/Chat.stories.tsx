@@ -11,7 +11,7 @@ export default {
   title: "Twitch Chat/Chat",
   component: Chat,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
 } as Meta
 
@@ -24,7 +24,16 @@ export const Basic: Story<BasicStoryArgs> = ({
 }: BasicStoryArgs) =>
   createElement(() => {
     const messages = getFakeChat({ count: numMessages, seed: 123 })
-    return <Chat {...args} messages={messages} />
+    return (
+      <Chat
+        {...args}
+        messages={messages}
+        sx={{
+          maxHeight: "100%",
+          maxWidth: "100%",
+        }}
+      />
+    )
   })
 Basic.args = {
   numMessages: 3,

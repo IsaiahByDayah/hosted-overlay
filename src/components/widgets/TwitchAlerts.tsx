@@ -13,9 +13,9 @@ const TwitchAlerts = () => {
   const { enqueueAlert } = useAlerts()
   const { overlay } = useOverlayContext()
 
-  const channel = overlay?.channel
-  const overlayTTSRedemptionsHash =
-    overlay?.ttsRedemptions?.map((r) => r.customRewardId).join() ?? ""
+  const channel = overlay?.chat?.channel
+  // const overlayTTSRedemptionsHash = overlay?.ttsRedemptions?.map((r) => r.customRewardId).join() ?? ""
+  const overlayTTSRedemptionsHash = "fake-hash"
 
   useEffect(() => {
     if (!channel) return
@@ -74,33 +74,30 @@ const TwitchAlerts = () => {
 
       // Check TTS Redemptions
       if (tags["custom-reward-id"]) {
-        const customRewardId = tags["custom-reward-id"]
-
-        const foundRedemption = overlay?.ttsRedemptions?.find(
-          (r) => r.customRewardId === customRewardId
-        )
-
-        console.log(
-          `Redemption found for custom reward id (${customRewardId}): `,
-          foundRedemption
-        )
-
-        if (foundRedemption) {
-          const tts = await textToSpeech({
-            text: formattedMessage,
-            language: foundRedemption.langauge,
-          })
-          if (tts) {
-            enqueueAlert({
-              id: tags.id ?? Date.now().toString(),
-              hidden: true,
-              duration: tts.buffer?.duration,
-              onStart: () => {
-                tts.start(0)
-              },
-            })
-          }
-        }
+        // const customRewardId = tags["custom-reward-id"]
+        // const foundRedemption = overlay?.ttsRedemptions?.find(
+        //   (r) => r.customRewardId === customRewardId
+        // )
+        // console.log(
+        //   `Redemption found for custom reward id (${customRewardId}): `,
+        //   foundRedemption
+        // )
+        // if (foundRedemption) {
+        //   const tts = await textToSpeech({
+        //     text: formattedMessage,
+        //     language: foundRedemption.langauge,
+        //   })
+        //   if (tts) {
+        //     enqueueAlert({
+        //       id: tags.id ?? Date.now().toString(),
+        //       hidden: true,
+        //       duration: tts.buffer?.duration,
+        //       onStart: () => {
+        //         tts.start(0)
+        //       },
+        //     })
+        //   }
+        // }
       }
     }
 

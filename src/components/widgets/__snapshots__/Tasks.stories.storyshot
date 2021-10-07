@@ -5,7 +5,7 @@ exports[`Storyshots Widgets/Tasks All Complete 1`] = `
   className="css-e53awj-MuiStack-root"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1dhz7ut-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
@@ -19,7 +19,7 @@ exports[`Storyshots Widgets/Tasks All Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1dhz7ut-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
@@ -33,7 +33,7 @@ exports[`Storyshots Widgets/Tasks All Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1dhz7ut-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
@@ -47,7 +47,7 @@ exports[`Storyshots Widgets/Tasks All Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1dhz7ut-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
@@ -61,7 +61,7 @@ exports[`Storyshots Widgets/Tasks All Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1dhz7ut-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
@@ -88,7 +88,7 @@ exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
   className="css-e53awj-MuiStack-root"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
@@ -102,7 +102,7 @@ exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
@@ -116,7 +116,7 @@ exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
@@ -130,7 +130,7 @@ exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1dhz7ut-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
@@ -144,7 +144,7 @@ exports[`Storyshots Widgets/Tasks Half Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1876ldu-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1dhz7ut-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-bfm9s5-MuiTypography-root"
@@ -165,7 +165,7 @@ exports[`Storyshots Widgets/Tasks None Complete 1`] = `
   className="css-e53awj-MuiStack-root"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
@@ -179,7 +179,7 @@ exports[`Storyshots Widgets/Tasks None Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
@@ -193,7 +193,7 @@ exports[`Storyshots Widgets/Tasks None Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
@@ -207,7 +207,7 @@ exports[`Storyshots Widgets/Tasks None Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
@@ -221,7 +221,7 @@ exports[`Storyshots Widgets/Tasks None Complete 1`] = `
     </p>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-14xd6qy-MuiPaper-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-4m825c-MuiPaper-root"
   >
     <p
       className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
