@@ -9,7 +9,7 @@ import Header from "components/common/Header"
 const Admin = () => (
   <div>
     <Header />
-    <Container component={Stack} spacing={5} sx={{ py: 2 }}>
+    <Container component={Stack} spacing={5} sx={{ py: 5 }}>
       <Typography fontWeight="bold" variant="h5" textAlign="center">
         Admin Panel
       </Typography>

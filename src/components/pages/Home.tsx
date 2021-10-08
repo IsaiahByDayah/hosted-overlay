@@ -19,13 +19,14 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Container component={Stack} spacing={5} sx={{ py: 2 }}>
+      <Container component={Stack} spacing={5} sx={{ py: 5 }}>
         {/* Signin Section */}
         <Stack component="form" spacing={2} onSubmit={submit}>
           <Typography fontWeight="bold">Sign In / Sign Up</Typography>
           <Stack direction="row" alignItems="baseline" spacing={2}>
             <TextField
               sx={{ flexGrow: 1 }}
+              // variant="filled"
               label="Email"
               placeholder="hello@streamers.com"
               value={email}
@@ -34,8 +35,10 @@ const Home = () => {
               }}
               InputLabelProps={{ shrink: true }}
             />
+
             <TextField
               sx={{ flexGrow: 1 }}
+              // variant="filled"
               label="Password"
               placeholder="********"
               type="password"
@@ -45,7 +48,7 @@ const Home = () => {
               }}
               InputLabelProps={{ shrink: true }}
             />
-            <Button sx={{ flexShrink: 0 }} type="submit">
+            <Button sx={{ flexShrink: 0 }} variant="contained" type="submit">
               Sign In
             </Button>
           </Stack>

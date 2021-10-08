@@ -40,7 +40,7 @@ const HostedOverlayThemeProvider = ({
         },
 
         background: {
-          default: "#B5BAD0",
+          default: "#CDD1DF",
           paper: "#E0E0E2",
         },
       },

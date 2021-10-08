@@ -31,6 +31,9 @@ export const asNumber = (val: unknown): number | undefined => {
 export const clamp = (min: number, value: number, max: number) =>
   Math.max(min, Math.min(value, max))
 
+export const copyToClipboard = async (value: string) =>
+  navigator.clipboard.writeText(value)
+
 export const calculateAspectRatio = (
   aspectRatio: AspectRatio | undefined,
   defaultAspectRatio: number = 16 / 9
