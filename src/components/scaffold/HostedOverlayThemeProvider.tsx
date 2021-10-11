@@ -64,12 +64,13 @@ const HostedOverlayThemeProvider = ({
       },
       overlay: {
         mode: "light",
-        mainBackground: "#FFFFFF",
+        mainSection: "#FFFFFF",
         sidebar: "#C4C4C4",
         statusBar: "#FFFFFF",
         card: "#E1E1E1",
         progressBackground: "#E1E1E1",
         progressFill: "#3D3D3D",
+        chromaKey: "#00FF00",
       },
     })
   )

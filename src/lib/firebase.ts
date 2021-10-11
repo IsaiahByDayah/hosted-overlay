@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app"
 import { getAuth, connectAuthEmulator } from "firebase/auth"
-import { getFirestore, connectFirestoreEmulator } from "firebase/firestore"
+import {
+  initializeFirestore,
+  connectFirestoreEmulator,
+} from "firebase/firestore"
 import { getFunctions, connectFunctionsEmulator } from "firebase/functions"
 
 import constatnts from "lib/constants"
@@ -17,7 +20,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
-const firestore = getFirestore(app)
+const firestore = initializeFirestore(app, {
+  ignoreUndefinedProperties: true,
+})
 const functions = getFunctions(app)
 
 if (constatnts.IS_EMULATOR) {
