@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common/Color Select Field Copy Mode 1`] = `
+<div
+  className="css-1yo1jo6-MuiStack-root"
+>
+  <button
+    aria-label="#FF8811"
+    aria-labelledby={null}
+    className="MuiButtonBase-root css-uomts9-MuiButtonBase-root"
+    data-mui-internal-clone-element={true}
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-17l2ekb-MuiTypography-root"
+  >
+    <b>
+      Some Title
+    </b>
+     - Cumque incidunt dolor nemo quia blanditiis accusamus odio
+  </p>
+</div>
+`;
+
+exports[`Storyshots Common/Color Select Field Picker Mode 1`] = `
+<div
+  className="css-1yo1jo6-MuiStack-root"
+>
+  <button
+    className="MuiButtonBase-root css-uomts9-MuiButtonBase-root"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  />
+  <button
+    className="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButtonBase-root css-n43pg1-MuiButtonBase-root-MuiButton-root"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    Clear
+  </button>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-17l2ekb-MuiTypography-root"
+  >
+    <b>
+      Some Title
+    </b>
+     - Cumque incidunt dolor nemo quia blanditiis accusamus odio
+  </p>
+</div>
+`;

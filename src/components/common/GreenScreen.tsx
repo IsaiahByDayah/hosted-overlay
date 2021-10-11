@@ -3,19 +3,16 @@ import { Box } from "@mui/material"
 import { AspectRatio } from "lib/types"
 import { calculateAspectRatioVerticalPadding } from "lib/util"
 
-import { useOverlayContext } from "components/scaffold/OverlayProvider"
-
 export interface GreenScreenProps {
   aspectRatio?: AspectRatio
   color?: string
 }
 
 const GreenScreen = ({ aspectRatio = "16:9", color }: GreenScreenProps) => {
-  const { overlay } = useOverlayContext()
   return (
     <Box
       sx={{
-        backgroundColor: color ?? (overlay?.chromaKeyColor || "#00ff00"),
+        backgroundColor: ({ overlay }) => color ?? overlay.chromaKey,
         borderRadius: 1,
         boxShadow: 4,
         overflow: "hidden",

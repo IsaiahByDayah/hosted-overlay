@@ -1,10 +1,10 @@
 import { Meta, Story } from "@storybook/react"
 
-import CurrentTopic from "components/admin/fields/CurrentTopic"
+import ColorAndTheming from "components/admin/fields/ColorAndTheming"
 
 export default {
-  title: "Admin/Fields/Current Topic",
-  component: CurrentTopic,
+  title: "Admin/Fields/ColorAndTheming",
+  component: ColorAndTheming,
 } as Meta
 
-export const Basic: Story = (args) => <CurrentTopic {...args} />
+export const Basic: Story = (args) => <ColorAndTheming {...args} />

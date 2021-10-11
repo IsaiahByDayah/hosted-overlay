@@ -26,12 +26,13 @@ export type SocialPlatform = typeof SOCIAL_PLATFORMS[number]
 
 export interface OverlayTheme {
   mode: "light" | "dark"
-  mainBackground: string
+  mainSection: string
   sidebar: string
   statusBar: string
   card: string
   progressBackground: string
   progressFill: string
+  chromaKey: string
 }
 
 export interface OverlayCount {
@@ -40,12 +41,11 @@ export interface OverlayCount {
 }
 
 export interface Overlay {
-  chromaKeyColor?: string
   currentTopic?: string // Displayed on the overlay
   socials?: { platform: SocialPlatform; handle: string }[] // Displayed in the status bar
   messages?: string[] // Messages to randomly cycle through the status bar
   chat?: OverlayChat
-  defaultTheme?: OverlayTheme
+  defaultTheme?: Partial<OverlayTheme>
   counts?: OverlayCount[]
 }
 

@@ -20,7 +20,7 @@ const MainSection = () => {
         display: "flex",
         flexDirection: "column",
         height: 1,
-        backgroundColor: ({ overlay }) => overlay.mainBackground,
+        backgroundColor: ({ overlay }) => overlay.mainSection,
       }}
     >
       <GreenScreen aspectRatio="16:9" />
