@@ -11,7 +11,8 @@ service cloud.firestore {
     }
 
     match /channelPointRedemptions/{userId} {
-      allow read, write: if request.auth.uid == userId;
+      allow read: if true;
+      allow write: if request.auth.uid == userId;
     }
 
     match /twitchIntegration/{userId} {
