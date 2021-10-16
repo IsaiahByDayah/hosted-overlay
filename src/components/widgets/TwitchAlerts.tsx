@@ -4,6 +4,8 @@ import tmi from "tmi.js"
 import { textToSpeech } from "lib/util"
 import { getChatClient } from "lib/twitch"
 
+import useChannelPointRedemptions from "hooks/useChannelPointRedemptions"
+
 import { useAlerts } from "components/scaffold/AlertsProvider"
 import { useOverlayContext } from "components/scaffold/OverlayProvider"
 
@@ -12,10 +14,13 @@ const CHARACTER_LIMIT = 120
 const TwitchAlerts = () => {
   const { enqueueAlert } = useAlerts()
   const { overlay } = useOverlayContext()
+  const channelPointRedemptions = useChannelPointRedemptions(overlay?.id)
 
   const channel = overlay?.chat?.channel
-  // const overlayTTSRedemptionsHash = overlay?.ttsRedemptions?.map((r) => r.customRewardId).join() ?? ""
-  const overlayTTSRedemptionsHash = "fake-hash"
+  const ttsRedemptionsHash =
+    channelPointRedemptions?.ttsRedemptions
+      ?.map((r) => r.customRewardId)
+      .join() ?? ""
 
   useEffect(() => {
     if (!channel) return
@@ -74,30 +79,30 @@ const TwitchAlerts = () => {
 
       // Check TTS Redemptions
       if (tags["custom-reward-id"]) {
-        // const customRewardId = tags["custom-reward-id"]
-        // const foundRedemption = overlay?.ttsRedemptions?.find(
-        //   (r) => r.customRewardId === customRewardId
-        // )
-        // console.log(
-        //   `Redemption found for custom reward id (${customRewardId}): `,
-        //   foundRedemption
-        // )
-        // if (foundRedemption) {
-        //   const tts = await textToSpeech({
-        //     text: formattedMessage,
-        //     language: foundRedemption.langauge,
-        //   })
-        //   if (tts) {
-        //     enqueueAlert({
-        //       id: tags.id ?? Date.now().toString(),
-        //       hidden: true,
-        //       duration: tts.buffer?.duration,
-        //       onStart: () => {
-        //         tts.start(0)
-        //       },
-        //     })
-        //   }
-        // }
+        const customRewardId = tags["custom-reward-id"]
+        const foundRedemption = channelPointRedemptions?.ttsRedemptions?.find(
+          (r) => r.customRewardId === customRewardId
+        )
+        console.log(
+          `Redemption found for custom reward id (${customRewardId}): `,
+          foundRedemption
+        )
+        if (foundRedemption) {
+          const tts = await textToSpeech({
+            text: formattedMessage,
+            language: foundRedemption.langauge,
+          })
+          if (tts) {
+            enqueueAlert({
+              id: tags.id ?? Date.now().toString(),
+              hidden: true,
+              duration: tts.buffer?.duration,
+              onStart: () => {
+                tts.start(0)
+              },
+            })
+          }
+        }
       }
     }
 
@@ -192,7 +197,7 @@ const TwitchAlerts = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [channel, overlayTTSRedemptionsHash])
+  }, [channel, ttsRedemptionsHash])
 
   return null
 }

@@ -1,19 +1,17 @@
 import { useState } from "react"
-import { Stack, TextField, Button, Chip, chipClasses } from "@mui/material"
+import { Stack, TextField, Chip, chipClasses } from "@mui/material"
+import { LoadingButton } from "@mui/lab"
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"
 
-import useOverlay from "hooks/useOverlay"
-
-import { useAuthContext } from "components/scaffold/AuthProvider"
+import { useCurrentUserOverlay } from "hooks/useOverlay"
 
 import AdminField from "components/admin/AdminField"
 
 const Messages = () => {
-  const { user } = useAuthContext()
-  const overlay = useOverlay(user?.uid)
-  const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  const overlay = useCurrentUserOverlay()
+  const overlayDocRef = doc(firebase.firestore, `overlays/${overlay?.id}`)
 
   const [message, setMessage] = useState("")
   const addMessage = async () => {
@@ -47,9 +45,13 @@ const Messages = () => {
             }}
             InputLabelProps={{ shrink: true }}
           />
-          <Button variant="contained" onClick={() => addMessage()}>
+          <LoadingButton
+            variant="contained"
+            loading={!overlay}
+            onClick={() => addMessage()}
+          >
             Add
-          </Button>
+          </LoadingButton>
         </Stack>
 
         {Boolean(overlay?.messages?.length) && (

@@ -8,7 +8,7 @@ interface UseChatProps {
   channel?: string | string[]
 }
 
-const useOverlayChat = ({ channel }: UseChatProps): Message[] => {
+const useTwitchChat = ({ channel }: UseChatProps): Message[] => {
   const [messages, setMessages] = useState<Message[]>([])
 
   useEffect(() => {
@@ -67,4 +67,4 @@ const useOverlayChat = ({ channel }: UseChatProps): Message[] => {
   return messages
 }
 
-export default useOverlayChat
+export default useTwitchChat

@@ -5,26 +5,23 @@ import {
   Select,
   MenuItem,
   TextField,
-  Button,
   Chip,
   FormControl,
   Grid,
 } from "@mui/material"
+import { LoadingButton } from "@mui/lab"
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"
 import { SOCIAL_PLATFORMS, SocialPlatform } from "lib/types"
 
-import useOverlay from "hooks/useOverlay"
-
-import { useAuthContext } from "components/scaffold/AuthProvider"
+import { useCurrentUserOverlay } from "hooks/useOverlay"
 
 import AdminField from "components/admin/AdminField"
 
 const Socialhandles = () => {
-  const { user } = useAuthContext()
-  const overlay = useOverlay(user?.uid)
-  const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  const overlay = useCurrentUserOverlay()
+  const overlayDocRef = doc(firebase.firestore, `overlays/${overlay?.id}`)
 
   const [socialPlatform, setSocialPlatform] = useState<SocialPlatform>("twitch")
   const [socialHandle, setSocialHandle] = useState("")
@@ -82,18 +79,17 @@ const Socialhandles = () => {
             }}
             InputLabelProps={{ shrink: true }}
           />
-          <Button variant="contained" onClick={() => addSocial()}>
+          <LoadingButton
+            variant="contained"
+            loading={!overlay}
+            onClick={() => addSocial()}
+          >
             Add
-          </Button>
+          </LoadingButton>
         </Stack>
 
         {Boolean(overlay?.socials?.length) && (
-          <Grid
-            container
-            columnSpacing={2}
-            rowSpacing={1}
-            // justifyContent="center"
-          >
+          <Grid container columnSpacing={2} rowSpacing={1}>
             {overlay?.socials?.map((social) => (
               <Grid key={`${social.platform}-${social.handle}`} item xs="auto">
                 <Chip

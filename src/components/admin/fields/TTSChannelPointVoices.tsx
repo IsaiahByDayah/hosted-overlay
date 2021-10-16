@@ -5,52 +5,53 @@ import {
   Select,
   MenuItem,
   TextField,
-  Button,
-  // Chip,
+  Chip,
   FormControl,
-  // Grid,
+  Grid,
 } from "@mui/material"
-// import { doc, updateDoc } from "firebase/firestore"
+import { LoadingButton } from "@mui/lab"
+import { doc, updateDoc } from "firebase/firestore"
 
-// import firebase from "lib/firebase"
+import firebase from "lib/firebase"
 import { TTS_LANGUAGES, TTSLanguage } from "lib/types"
 
-// import useOverlay from "hooks/useOverlay"
-
-// import { useAuthContext } from "components/scaffold/AuthProvider"
+import { useCurrentChannelPointRedemptions } from "hooks/useChannelPointRedemptions"
 
 import AdminField from "components/admin/AdminField"
 
 const TTSChannelPointVoices = () => {
-  // const { user } = useAuthContext()
-  // const overlay = useOverlay(user?.uid)
-  // const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  const channelPointRedemptions = useCurrentChannelPointRedemptions()
+  const channelPointRedemptionsDocRef = doc(
+    firebase.firestore,
+    `channelPointRedemptions/${channelPointRedemptions?.id}`
+  )
 
   const [ttsLangauge, setTTSLanguage] =
     useState<TTSLanguage>("american-english")
   const [ttsCustomId, setTTSCustomId] = useState("")
 
   const addTTSRedemption = async () => {
-    // if (!ttsCustomId.trim()) return
-    // await updateDoc(overlayDocRef, {
-    //   ttsRedemptions: [
-    //     ...(overlay?.ttsRedemptions ?? []),
-    //     {
-    //       customRewardId: ttsCustomId,
-    //       langauge: ttsLangauge,
-    //     },
-    //   ],
-    // })
-    console.log("TTS Redemption Added!")
+    if (!ttsCustomId.trim()) return
+    await updateDoc(channelPointRedemptionsDocRef, {
+      ttsRedemptions: [
+        ...(channelPointRedemptions?.ttsRedemptions ?? []),
+        {
+          customRewardId: ttsCustomId,
+          langauge: ttsLangauge,
+        },
+      ],
+    })
+    setTTSCustomId("")
+    // console.log("TTS Redemption Added!")
   }
-  // const removeTTSRedemption = async (customId: string) => {
-  //   // await updateDoc(overlayDocRef, {
-  //   //   ttsRedemptions: (overlay?.ttsRedemptions ?? []).filter(
-  //   //     (r) => !(r.customRewardId === customId)
-  //   //   ),
-  //   // })
-  //   console.log("TTS Redemption Removed!")
-  // }
+  const removeTTSRedemption = async (customId: string) => {
+    await updateDoc(channelPointRedemptionsDocRef, {
+      ttsRedemptions: (channelPointRedemptions?.ttsRedemptions ?? []).filter(
+        (r) => !(r.customRewardId === customId)
+      ),
+    })
+    // console.log("TTS Redemption Removed!")
+  }
 
   return (
     <AdminField
@@ -86,14 +87,18 @@ const TTSChannelPointVoices = () => {
               ))}
             </Select>
           </FormControl>
-          <Button variant="contained" onClick={() => addTTSRedemption()}>
+          <LoadingButton
+            variant="contained"
+            loading={!channelPointRedemptions}
+            onClick={() => addTTSRedemption()}
+          >
             Add
-          </Button>
+          </LoadingButton>
         </Stack>
 
-        {/* {Boolean(overlay?.ttsRedemptions?.length) && (
+        {Boolean(channelPointRedemptions?.ttsRedemptions?.length) && (
           <Grid container columnSpacing={2} rowSpacing={1}>
-            {overlay?.ttsRedemptions?.map((redemption) => (
+            {channelPointRedemptions?.ttsRedemptions?.map((redemption) => (
               <Grid key={redemption.customRewardId} item xs="auto">
                 <Chip
                   label={`${redemption.customRewardId} - ${redemption.langauge}`}
@@ -104,7 +109,7 @@ const TTSChannelPointVoices = () => {
               </Grid>
             ))}
           </Grid>
-        )} */}
+        )}
       </Stack>
     </AdminField>
   )

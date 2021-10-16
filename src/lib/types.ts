@@ -41,6 +41,7 @@ export interface OverlayCount {
 }
 
 export interface Overlay {
+  id: string
   currentTopic?: string // Displayed on the overlay
   socials?: { platform: SocialPlatform; handle: string }[] // Displayed in the status bar
   messages?: string[] // Messages to randomly cycle through the status bar
@@ -70,6 +71,7 @@ interface TTSRedemption {
 }
 
 export interface ChannelPointRedemptions {
+  id: string
   ttsRedemptions?: TTSRedemption[]
 }
 

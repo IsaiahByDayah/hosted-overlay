@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react"
 
 import { getFakeChat } from "lib/util"
 
-import useChat from "hooks/useOverlayChat"
+import useTwitchChat from "hooks/useTwitchChat"
 
 import Chat, { ChatProps } from "components/widgets/twitch-chat/Chat"
 
@@ -51,7 +51,7 @@ export const LiveChat: Story<LiveChatStoryArgs> = (args: LiveChatStoryArgs) => (
   <LiveChatStoryWrapper {...args} />
 )
 const LiveChatStoryWrapper = ({ channel, ...args }: LiveChatStoryArgs) => {
-  const messages = useChat({ channel })
+  const messages = useTwitchChat({ channel })
   return <Chat {...args} messages={messages} />
 }
 LiveChat.args = {

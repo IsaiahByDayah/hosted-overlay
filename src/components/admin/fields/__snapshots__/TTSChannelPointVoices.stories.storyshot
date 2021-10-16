@@ -188,8 +188,8 @@ exports[`Storyshots Admin/Fields/TTS Channel Point Voices Basic 1`] = `
                   </div>
                 </div>
                 <button
-                  className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1brahwc-MuiButtonBase-root-MuiButton-root"
-                  disabled={false}
+                  className="MuiLoadingButton-root MuiLoadingButton-loading MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-ewxv8-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+                  disabled={true}
                   onBlur={[Function]}
                   onClick={[Function]}
                   onContextMenu={[Function]}
@@ -203,9 +203,38 @@ exports[`Storyshots Admin/Fields/TTS Channel Point Voices Basic 1`] = `
                   onTouchEnd={[Function]}
                   onTouchMove={[Function]}
                   onTouchStart={[Function]}
-                  tabIndex={0}
+                  tabIndex={-1}
                   type="button"
                 >
+                  <div
+                    className="MuiLoadingButton-loadingIndicator MuiLoadingButton-loadingIndicatorCenter css-1yt7yx7-MuiLoadingButton-loadingIndicator"
+                  >
+                    <span
+                      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorInherit css-62e83j-MuiCircularProgress-root"
+                      role="progressbar"
+                      style={
+                        Object {
+                          "height": 16,
+                          "width": 16,
+                        }
+                      }
+                    >
+                      <svg
+                        className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+                        viewBox="22 22 44 44"
+                      >
+                        <circle
+                          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+                          cx={44}
+                          cy={44}
+                          fill="none"
+                          r={20.2}
+                          strokeWidth={3.6}
+                          style={Object {}}
+                        />
+                      </svg>
+                    </span>
+                  </div>
                   Add
                 </button>
               </div>

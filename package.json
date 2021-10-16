@@ -11,7 +11,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "pretest": "CI=true react-scripts test --ci --watchAll=false && yarn lint",
+    "test:pre": "CI=true react-scripts test --ci --watchAll=false && yarn lint",
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
