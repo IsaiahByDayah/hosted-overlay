@@ -2,7 +2,7 @@ import { Stack } from "@mui/material"
 
 import { getFakeChat } from "lib/util"
 
-import useOverlayChat from "hooks/useOverlayChat"
+import useTwitchChat from "hooks/useTwitchChat"
 
 import { useOverlayContext } from "components/scaffold/OverlayProvider"
 
@@ -13,7 +13,7 @@ import GreenScreen from "components/common/GreenScreen"
 
 const Sidebar = () => {
   const { overlay } = useOverlayContext()
-  let messages = useOverlayChat({ channel: overlay?.chat?.channel })
+  let messages = useTwitchChat({ channel: overlay?.chat?.channel })
 
   if (process.env.NODE_ENV === "test") {
     messages = getFakeChat({ seed: 123 })

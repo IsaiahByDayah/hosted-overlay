@@ -1,53 +1,60 @@
 import { useState, useEffect } from "react"
-import { doc, onSnapshot } from "firebase/firestore"
+import { doc, onSnapshot, setDoc } from "firebase/firestore"
 
 import { Overlay } from "lib/types"
 import firebase from "lib/firebase"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
 
-const useOverlay = (userId?: string): Overlay | undefined | null => {
+export interface UseOverlayOptions {
+  createIfDoesNotExist?: boolean
+}
+
+const useOverlay = (
+  userId?: string,
+  options?: UseOverlayOptions
+): Overlay | undefined | null => {
   const [overlay, setOverlay] = useState<Overlay | undefined | null>(undefined)
 
   useEffect(() => {
     let unsubscribe: () => void
 
     if (!userId) {
-      console.log("Tried fetching overlay but no userId...")
+      // console.log("Tried fetching overlay but no userId...")
       setOverlay(null)
       return
     }
 
-    console.log("Fetching overlay for userId: ", userId)
+    // console.log("Fetching overlay for userId: ", userId)
 
     const overlayDocReference = doc(firebase.firestore, `overlays/${userId}`)
-    // .withConverter<Overlay>({
-    //   toFirestore: (overlay) => overlay,
-    //   fromFirestore: (snapshot) => snapshot.data() as Overlay,
-    // })
 
     unsubscribe = onSnapshot(overlayDocReference, (snapshot) => {
       if (snapshot.exists()) {
         var data = snapshot.data() as Overlay
-        console.log("Overlay Snapshot: ", data)
+        // console.log("Overlay Snapshot: ", data)
         setOverlay(data)
       } else {
-        console.log(`No overlay for userId: ${userId}`)
-        setOverlay(null)
+        // console.log(`No overlay for userId: ${userId}`)
+        if (options?.createIfDoesNotExist) {
+          setDoc(overlayDocReference, { id: userId }, { merge: true })
+        } else {
+          setOverlay(null)
+        }
       }
     })
 
     return () => {
       unsubscribe?.()
     }
-  }, [userId])
+  }, [options?.createIfDoesNotExist, userId])
 
   return overlay
 }
 
 export const useCurrentUserOverlay = () => {
   const { user } = useAuthContext()
-  return useOverlay(user?.uid)
+  return useOverlay(user?.uid, { createIfDoesNotExist: true })
 }
 
 export default useOverlay

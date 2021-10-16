@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react"
-import { Stack, Typography, Button, Select, MenuItem } from "@mui/material"
+import { Stack, Typography, Select, MenuItem } from "@mui/material"
+import { LoadingButton } from "@mui/lab"
 import { DarkModeRounded, LightModeRounded } from "@mui/icons-material"
 import { doc, updateDoc, deleteField } from "firebase/firestore"
 
 import firebase from "lib/firebase"
 import { OverlayTheme } from "lib/types"
 
-import useOverlay from "hooks/useOverlay"
-
-import { useAuthContext } from "components/scaffold/AuthProvider"
+import { useCurrentUserOverlay } from "hooks/useOverlay"
 
 import AdminField from "components/admin/AdminField"
 
@@ -26,9 +25,8 @@ const getFieldValue = (incoming: string, existing?: string) => {
 }
 
 const ColorAndTheming = () => {
-  const { user } = useAuthContext()
-  const overlay = useOverlay(user?.uid)
-  const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  const overlay = useCurrentUserOverlay()
+  const overlayDocRef = doc(firebase.firestore, `overlays/${overlay?.id}`)
 
   const [mode, setMode] = useState<OverlayTheme["mode"]>("light")
   const [mainSection, setMainSection] = useState("")
@@ -176,9 +174,13 @@ const ColorAndTheming = () => {
           description="What color is used for GreenScreen widgets"
         />
 
-        <Button variant="contained" onClick={() => updateColorsAndTheming()}>
+        <LoadingButton
+          variant="contained"
+          loading={!overlay}
+          onClick={() => updateColorsAndTheming()}
+        >
           Update
-        </Button>
+        </LoadingButton>
       </Stack>
     </AdminField>
   )

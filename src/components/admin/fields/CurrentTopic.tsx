@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react"
-import { Stack, TextField, Button } from "@mui/material"
+import { Stack, TextField } from "@mui/material"
+import { LoadingButton } from "@mui/lab"
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"
 
-import useOverlay from "hooks/useOverlay"
-
-import { useAuthContext } from "components/scaffold/AuthProvider"
+import { useCurrentUserOverlay } from "hooks/useOverlay"
 
 import AdminField from "components/admin/AdminField"
 
 const CurrentTopic = () => {
-  const { user } = useAuthContext()
-  const overlay = useOverlay(user?.uid)
-  const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  const overlay = useCurrentUserOverlay()
+  const overlayDocRef = doc(firebase.firestore, `overlays/${overlay?.id}`)
 
   const [currentTopic, setCurrentTopic] = useState(overlay?.currentTopic)
   const [newCurrentTopic, setNewCurrentTopic] = useState("")
@@ -50,9 +48,13 @@ const CurrentTopic = () => {
           }}
           InputLabelProps={{ shrink: true }}
         />
-        <Button variant="contained" onClick={() => updateCurrentTopic()}>
+        <LoadingButton
+          variant="contained"
+          loading={!overlay}
+          onClick={() => updateCurrentTopic()}
+        >
           Update
-        </Button>
+        </LoadingButton>
       </Stack>
     </AdminField>
   )

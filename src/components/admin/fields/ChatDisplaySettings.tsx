@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react"
-import { Stack, TextField, Button } from "@mui/material"
+import { Stack, TextField } from "@mui/material"
+import { LoadingButton } from "@mui/lab"
 import { doc, updateDoc } from "firebase/firestore"
 
 import firebase from "lib/firebase"
 
-import useOverlay from "hooks/useOverlay"
-
-import { useAuthContext } from "components/scaffold/AuthProvider"
+import { useCurrentUserOverlay } from "hooks/useOverlay"
 
 import AdminField from "components/admin/AdminField"
 
 const ChatDisplaySettings = () => {
-  const { user } = useAuthContext()
-  const overlay = useOverlay(user?.uid)
-  const overlayDocRef = doc(firebase.firestore, `overlays/${user?.uid}`)
+  const overlay = useCurrentUserOverlay()
+  const overlayDocRef = doc(firebase.firestore, `overlays/${overlay?.id}`)
   const chat = overlay?.chat
 
   const [channel, setChannel] = useState("")
@@ -48,9 +46,13 @@ const ChatDisplaySettings = () => {
           InputLabelProps={{ shrink: true }}
           helperText="twitch.tv/{Channel Name}"
         />
-        <Button variant="contained" onClick={() => updateChannel()}>
+        <LoadingButton
+          variant="contained"
+          loading={!overlay}
+          onClick={() => updateChannel()}
+        >
           Update
-        </Button>
+        </LoadingButton>
       </Stack>
     </AdminField>
   )
