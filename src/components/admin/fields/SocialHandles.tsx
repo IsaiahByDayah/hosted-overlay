@@ -10,18 +10,16 @@ import {
   Grid,
 } from "@mui/material"
 import { LoadingButton } from "@mui/lab"
-import { doc, updateDoc } from "firebase/firestore"
+import { updateDoc } from "firebase/firestore"
 
-import firebase from "lib/firebase"
 import { SOCIAL_PLATFORMS, SocialPlatform } from "lib/types"
 
-import { useCurrentUserOverlay } from "hooks/useOverlay"
+import { useCurrentOverlay } from "hooks/useOverlay"
 
 import AdminField from "components/admin/AdminField"
 
 const Socialhandles = () => {
-  const overlay = useCurrentUserOverlay()
-  const overlayDocRef = doc(firebase.firestore, `overlays/${overlay?.id}`)
+  const [overlay, overlayDocRef] = useCurrentOverlay()
 
   const [socialPlatform, setSocialPlatform] = useState<SocialPlatform>("twitch")
   const [socialHandle, setSocialHandle] = useState("")
