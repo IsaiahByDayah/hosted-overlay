@@ -4,6 +4,13 @@ import tmi from "tmi.js"
 
 import { toArray } from "lib/util"
 
+const CLIENT_ID = "fnrk8bg5ah3jh0pyrq341045l6n1o6"
+const REDIRECT_URL = ""
+const RESPONSE_TYPE = ""
+const SCOPES = ""
+const FORCE_VERIFY = true
+export const TWITCH_IMPLICIT_OAUTH_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL}&response_type=${RESPONSE_TYPE}&scope=${SCOPES}&force_verify=${FORCE_VERIFY}`
+
 // const onAuthenticationFailure = async (): Promise<string> => {
 //   console.log("onAuthenticationFailure!")
 
@@ -80,3 +87,33 @@ export const getChatClient = (
     channels: toArray(channel),
     identity,
   })
+
+export const validateToken = async (token: string): Promise<boolean> => {
+  try {
+    var res = await fetch("https://id.twitch.tv/oauth2/validate", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    if (res.status !== 200) {
+      return false
+    }
+
+    const { expires_in } = await res.json()
+
+    // check if token expires within the hour
+    console.log(`Token valid for another ${expires_in} seconds...`)
+    if (expires_in < 60 * 60) {
+      // console.log(
+      //   `Token technically valid for another ${expires_in} seconds...`
+      // )
+      return false
+    }
+
+    return true
+  } catch (e) {
+    console.log("Error Validating Token... ", e)
+  }
+
+  return false
+}

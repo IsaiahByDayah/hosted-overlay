@@ -20,7 +20,7 @@ service cloud.firestore {
       allow write: if request.auth.uid == userId;
     }
     
-    match /streamBot/{userId} {
+    match /streamBots/{userId} {
       allow read, write: if request.auth.uid == userId;
     }
   }
