@@ -11,7 +11,7 @@ import Sidebar from "components/scaffold/Sidebar"
 
 const Overlay = () => {
   const { userId } = useParams<{ userId?: string }>()
-  const overlay = useOverlay(userId)
+  const [overlay] = useOverlay(userId)
 
   // TODO: Show error if overlay == null
 

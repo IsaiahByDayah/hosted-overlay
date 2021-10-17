@@ -14,8 +14,13 @@ service cloud.firestore {
       allow read: if true;
       allow write: if request.auth.uid == userId;
     }
-
-    match /twitchIntegration/{userId} {
+    
+    match /streamStats/{userId} {
+      allow read: if true;
+      allow write: if request.auth.uid == userId;
+    }
+    
+    match /streamBot/{userId} {
       allow read, write: if request.auth.uid == userId;
     }
   }

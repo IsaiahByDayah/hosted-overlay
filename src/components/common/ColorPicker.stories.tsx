@@ -10,7 +10,7 @@ export default {
   },
 } as Meta
 
-const DEFAULT_COLOR = "#FF8811"
+const DEFAULT_COLOR: string = "#FF8811"
 
 const Template: Story<ColorPickerProps> = (args) => <ColorPicker {...args} />
 

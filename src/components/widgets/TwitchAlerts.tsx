@@ -14,7 +14,7 @@ const CHARACTER_LIMIT = 120
 const TwitchAlerts = () => {
   const { enqueueAlert } = useAlerts()
   const { overlay } = useOverlayContext()
-  const channelPointRedemptions = useChannelPointRedemptions(overlay?.id)
+  const [channelPointRedemptions] = useChannelPointRedemptions(overlay?.id)
 
   const channel = overlay?.chat?.channel
   const ttsRedemptionsHash =

@@ -10,9 +10,8 @@ import {
   Grid,
 } from "@mui/material"
 import { LoadingButton } from "@mui/lab"
-import { doc, updateDoc } from "firebase/firestore"
+import { updateDoc } from "firebase/firestore"
 
-import firebase from "lib/firebase"
 import { TTS_LANGUAGES, TTSLanguage } from "lib/types"
 
 import { useCurrentChannelPointRedemptions } from "hooks/useChannelPointRedemptions"
@@ -20,11 +19,8 @@ import { useCurrentChannelPointRedemptions } from "hooks/useChannelPointRedempti
 import AdminField from "components/admin/AdminField"
 
 const TTSChannelPointVoices = () => {
-  const channelPointRedemptions = useCurrentChannelPointRedemptions()
-  const channelPointRedemptionsDocRef = doc(
-    firebase.firestore,
-    `channelPointRedemptions/${channelPointRedemptions?.id}`
-  )
+  const [channelPointRedemptions, channelPointRedemptionsDocRef] =
+    useCurrentChannelPointRedemptions()
 
   const [ttsLangauge, setTTSLanguage] =
     useState<TTSLanguage>("american-english")

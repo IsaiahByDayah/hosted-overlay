@@ -26,11 +26,11 @@ const MainSection = () => {
       <GreenScreen aspectRatio="16:9" />
 
       <Stack sx={{ flexGrow: 1 }} spacing={5} direction="row">
-        <Stack sx={{ flexGrow: 1 }}>
+        <Stack sx={{ flexGrow: 1, overflow: "hidden" }}>
           <StatusBar />
           <Tasks />
         </Stack>
-        <Goals />
+        <Goals sx={{ flexShrink: 0 }} />
       </Stack>
     </Stack>
   )

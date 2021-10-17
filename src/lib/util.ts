@@ -1,8 +1,18 @@
+import { useState, useEffect, useMemo } from "react"
 import faker from "faker"
 import { httpsCallable } from "firebase/functions"
+import {
+  DocumentReference,
+  DocumentData,
+  doc,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore"
 
 import firebase from "lib/firebase"
 import { Message, TTSLanguage, AspectRatio } from "lib/types"
+
+import { useAuthContext } from "components/scaffold/AuthProvider"
 
 // Creates a slug formatted string from supplied string
 export const slugify = (str: string): string => {
@@ -150,4 +160,69 @@ export const getFakeChat = ({
         sent: index % sentMessageEvery === 0,
       }
     })
+}
+
+export interface UseFirestoreCollectionOptions<T> {
+  createIfDoesNotExist?: boolean
+  getInitialValue?: () => T
+}
+
+export const getFirestoreCollection = <T>(firestoreCollectionPath: string) => {
+  const useHook = (
+    userId?: string,
+    options?: UseFirestoreCollectionOptions<T>
+  ): [T | undefined | null, DocumentReference<DocumentData>] => {
+    const [value, setValue] = useState<T | undefined | null>(undefined)
+
+    const docReference = useMemo(
+      () => doc(firebase.firestore, `${firestoreCollectionPath}/${userId}`),
+      [userId]
+    )
+
+    useEffect(() => {
+      let unsubscribe: () => void
+
+      if (!userId) {
+        setValue(null)
+        return
+      }
+
+      unsubscribe = onSnapshot(docReference, (snapshot) => {
+        if (snapshot.exists()) {
+          var data = snapshot.data() as T
+          setValue(data)
+        } else {
+          if (options?.createIfDoesNotExist) {
+            setDoc(
+              docReference,
+              {
+                id: userId,
+                ...options?.getInitialValue?.(),
+              },
+              { merge: true }
+            )
+          } else {
+            setValue(null)
+          }
+        }
+      })
+
+      return () => {
+        unsubscribe?.()
+      }
+    }, [userId, options, docReference])
+
+    return [value, docReference]
+  }
+
+  const useCurrentHook = () => {
+    const { user } = useAuthContext()
+    const options = useMemo(() => ({ createIfDoesNotExist: true }), [])
+    return useHook(user?.uid, options)
+  }
+
+  return {
+    useHook,
+    useCurrentHook,
+  }
 }

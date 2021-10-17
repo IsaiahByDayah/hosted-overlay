@@ -2,12 +2,11 @@ import { useState, useEffect } from "react"
 import { Stack, Typography, Select, MenuItem } from "@mui/material"
 import { LoadingButton } from "@mui/lab"
 import { DarkModeRounded, LightModeRounded } from "@mui/icons-material"
-import { doc, updateDoc, deleteField } from "firebase/firestore"
+import { updateDoc, deleteField } from "firebase/firestore"
 
-import firebase from "lib/firebase"
 import { OverlayTheme } from "lib/types"
 
-import { useCurrentUserOverlay } from "hooks/useOverlay"
+import { useCurrentOverlay } from "hooks/useOverlay"
 
 import AdminField from "components/admin/AdminField"
 
@@ -25,8 +24,7 @@ const getFieldValue = (incoming: string, existing?: string) => {
 }
 
 const ColorAndTheming = () => {
-  const overlay = useCurrentUserOverlay()
-  const overlayDocRef = doc(firebase.firestore, `overlays/${overlay?.id}`)
+  const [overlay, overlayDocRef] = useCurrentOverlay()
 
   const [mode, setMode] = useState<OverlayTheme["mode"]>("light")
   const [mainSection, setMainSection] = useState("")

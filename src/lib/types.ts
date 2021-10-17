@@ -35,11 +35,6 @@ export interface OverlayTheme {
   chromaKey: string
 }
 
-export interface OverlayCount {
-  key: string
-  value: number
-}
-
 export interface Overlay {
   id: string
   currentTopic?: string // Displayed on the overlay
@@ -47,7 +42,6 @@ export interface Overlay {
   messages?: string[] // Messages to randomly cycle through the status bar
   chat?: OverlayChat
   defaultTheme?: Partial<OverlayTheme>
-  counts?: OverlayCount[]
 }
 
 export interface OverlayChat {
@@ -75,8 +69,42 @@ export interface ChannelPointRedemptions {
   ttsRedemptions?: TTSRedemption[]
 }
 
+export interface StreamStats {
+  id: string
+  counts?: Count[]
+  goals?: Goal[]
+}
+
+export interface Count {
+  id: string
+  value: number
+  title?: string
+}
+
+export interface Goal {
+  id: string
+  countId: string
+  target: number
+  disabled?: boolean
+}
+
+export interface StreamBot {
+  id: string
+  twitchIntegration?: TwitchIntegration
+  commands?: ChatCommand[]
+}
+
+export interface TwitchIntegration {
+  auth?: {
+    username: string
+    token: string
+  }
+  channels?: string[]
+}
+
 interface ChatCommandBase {
   command: string
+  vipOnly?: boolean
 }
 
 interface EchoChatCommand extends ChatCommandBase {
@@ -84,19 +112,18 @@ interface EchoChatCommand extends ChatCommandBase {
   message: string
 }
 
-interface CountChatCommand extends ChatCommandBase {
-  type: "count"
-  key: string
+interface CountChangeChatCommand extends ChatCommandBase {
+  type: "count-change"
+  countId: string
   change: number
 }
 
-export type ChatCommand = EchoChatCommand | CountChatCommand
-
-export interface TwitchBot {
-  auth?: {
-    username: string
-    token: string
-  }
-  channels?: string[]
-  commands?: ChatCommand[]
+interface CountEchoChatCommand extends ChatCommandBase {
+  type: "count-echo"
+  countId: string
 }
+
+export type ChatCommand =
+  | EchoChatCommand
+  | CountChangeChatCommand
+  | CountEchoChatCommand
