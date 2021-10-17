@@ -11,12 +11,12 @@ import firebase from "lib/firebase"
 
 interface AuthContextData {
   user?: User | null
-  signOut: () => void
+  signOut: () => Promise<void>
 }
 
 export const AuthContext = createContext<AuthContextData>({
   user: undefined,
-  signOut: () => {
+  signOut: async () => {
     // Noop
   },
 })
@@ -39,9 +39,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     })
   }, [])
 
-  const _signOut = () => {
-    signOut(firebase.auth)
-  }
+  const _signOut = async () => signOut(firebase.auth)
 
   return (
     <AuthContext.Provider
