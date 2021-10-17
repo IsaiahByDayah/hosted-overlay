@@ -17,7 +17,7 @@ export const Basic = Template.bind({})
 Basic.args = {
   goal: {
     id: "ABC123",
-    countId: "XYZ789",
+    countId: "",
     target: 1,
   },
   onDelete: action("On Delete!"),

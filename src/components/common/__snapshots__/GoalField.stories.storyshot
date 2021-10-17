@@ -48,8 +48,8 @@ exports[`Storyshots Common/Goal Field Basic 1`] = `
     className="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
   >
     <label
-      className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled css-13ei2sz-MuiFormLabel-root-MuiInputLabel-root"
-      data-shrink={true}
+      className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-error css-19hv6wc-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink={false}
       id="count-select-label"
     >
       Count
@@ -87,7 +87,7 @@ exports[`Storyshots Common/Goal Field Basic 1`] = `
         onChange={[Function]}
         required={false}
         tabIndex={-1}
-        value="XYZ789"
+        value=""
       />
       <svg
         aria-hidden={true}
@@ -105,7 +105,7 @@ exports[`Storyshots Common/Goal Field Basic 1`] = `
         className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          className="css-186xcr5"
+          className="css-dhh0px"
         >
           <span>
             Count
