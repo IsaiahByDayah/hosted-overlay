@@ -2,7 +2,7 @@ import { Stack, Typography, Container } from "@mui/material"
 
 import OverlaySettings from "components/admin/sections/OverlaySettings"
 import ChannelPointRedemptions from "components/admin/sections/ChannelPointRedemptions"
-import TwitchBot from "components/admin/sections/TwitchBot"
+import StreamStats from "components/admin/sections/StreamStats"
 
 import Header from "components/common/Header"
 
@@ -14,7 +14,7 @@ const Admin = () => (
         Admin Panel
       </Typography>
       <OverlaySettings />
-      <TwitchBot />
+      <StreamStats />
       <ChannelPointRedemptions />
     </Container>
   </div>

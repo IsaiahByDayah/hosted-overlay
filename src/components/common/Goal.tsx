@@ -6,7 +6,7 @@ import ProgressBar from "components/common/ProgressBar"
 export interface GoalProps {
   value: number | (() => Promise<number>)
   total: number
-  label: string
+  label?: string
   intervalTime?: number
 }
 
@@ -63,9 +63,11 @@ const Goal = ({ value, total, label, intervalTime = 1000 * 15 }: GoalProps) => {
         {_value} / {total}
       </Typography>
       <ProgressBar percent={_value / total} />
-      <Typography sx={{ marginTop: 0.5, fontWeight: "bold" }}>
-        {label}
-      </Typography>
+      {label && (
+        <Typography sx={{ marginTop: 0.5, fontWeight: "bold" }}>
+          {label}
+        </Typography>
+      )}
     </Box>
   )
 }

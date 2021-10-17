@@ -83,9 +83,8 @@ export interface Count {
 
 export interface Goal {
   id: string
-  value: number | string
+  countId: string
   target: number
-  title?: string
   disabled?: boolean
 }
 
