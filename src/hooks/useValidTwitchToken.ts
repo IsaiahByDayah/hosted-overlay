@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 import { validateTwitchIntegration } from "lib/util"
 
-import { useCurrentStreamBot } from "hooks/useStreamBots"
+import { useCurrentStreamBot } from "hooks/useStreamBot"
 
 const useValidTwitchToken = () => {
   const [streamBot] = useCurrentStreamBot()

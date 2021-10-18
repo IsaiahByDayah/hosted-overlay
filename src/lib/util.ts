@@ -8,6 +8,8 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore"
+import { customAlphabet } from "nanoid"
+import { nolookalikesSafe } from "nanoid-dictionary"
 
 import firebase from "lib/firebase"
 import { Message, TTSLanguage, AspectRatio, TwitchIntegration } from "lib/types"
@@ -94,6 +96,8 @@ export const str2ab = (str: string): ArrayBuffer => {
   }
   return buf
 }
+
+export const uid = () => customAlphabet(nolookalikesSafe, 6)()
 
 interface TTSMessage {
   text: string

@@ -111,24 +111,27 @@ export interface TwitchIntegration {
 }
 
 interface ChatCommandBase {
+  id: string
   command: string
   vipOnly?: boolean
+  disabled?: boolean
 }
 
-interface EchoChatCommand extends ChatCommandBase {
+export interface EchoChatCommand extends ChatCommandBase {
   type: "echo"
   message: string
 }
 
-interface CountChangeChatCommand extends ChatCommandBase {
+export interface CountChangeChatCommand extends ChatCommandBase {
   type: "count-change"
   countId: string
   change: number
 }
 
-interface CountEchoChatCommand extends ChatCommandBase {
+export interface CountEchoChatCommand extends ChatCommandBase {
   type: "count-echo"
   countId: string
+  template?: string
 }
 
 export type ChatCommand =

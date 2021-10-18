@@ -5,7 +5,7 @@ import { updateDoc, deleteField } from "firebase/firestore"
 
 import { TWITCH_IMPLICIT_OAUTH_URL } from "lib/twitch"
 
-import { useCurrentStreamBot } from "hooks/useStreamBots"
+import { useCurrentStreamBot } from "hooks/useStreamBot"
 
 const OpenOverlayButton = () => {
   const [streamBot, streamBotDocRef] = useCurrentStreamBot()
@@ -33,7 +33,7 @@ const OpenOverlayButton = () => {
         endIcon={<SiTwitch />}
         loading={!streamBot}
       >
-        Connect Twitch Bot
+        Connect Bot
       </LoadingButton>
     )
 
@@ -52,7 +52,7 @@ const OpenOverlayButton = () => {
       loading={!streamBot}
       onClick={disconnectTwitch}
     >
-      Remove Twitch Connection
+      Remove Connection
     </LoadingButton>
   )
 }

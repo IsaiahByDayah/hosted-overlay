@@ -18,6 +18,7 @@ import {
 import { SxProps, Theme } from "@mui/system"
 
 import { Goal } from "lib/types"
+
 import { useCurrentStreamStats } from "hooks/useStreamStats"
 
 export interface GoalFieldProps {

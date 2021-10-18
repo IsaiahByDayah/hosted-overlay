@@ -26,7 +26,6 @@ export const validateToken = async (
     const tokenData = (await res.json()) as TwitchValidateTokenResponse
     const { expires_in } = tokenData
 
-    console.log(`Token valid for another ${expires_in} seconds...`)
     if (expires_in < 60 * 190) {
       throw error
     }

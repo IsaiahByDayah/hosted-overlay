@@ -4,7 +4,7 @@ import { Stack, Typography, Container } from "@mui/material"
 
 import { validateTwitchIntegration } from "lib/util"
 
-import { useCurrentStreamBot } from "hooks/useStreamBots"
+import { useCurrentStreamBot } from "hooks/useStreamBot"
 
 import Header from "components/common/Header"
 
