@@ -60,7 +60,7 @@ const GoalField = ({ sx, goal, onSave, onDelete }: GoalFieldProps) => {
         <Select
           labelId="count-select-label"
           label="Count"
-          value={_goal.countId}
+          value={Boolean(streamStats?.counts) ? _goal.countId : ""}
           onChange={(e) => {
             setGoal((g) => ({
               ...g,
@@ -108,22 +108,26 @@ const GoalField = ({ sx, goal, onSave, onDelete }: GoalFieldProps) => {
         </Button>
       </Tooltip>
       <Tooltip title="Clear Changes">
-        <Button
-          variant="outlined"
-          disabled={!valueDifferent}
-          onClick={() => setGoal(goal)}
-        >
-          <BackspaceRounded />
-        </Button>
+        <span>
+          <Button
+            variant="outlined"
+            disabled={!valueDifferent}
+            onClick={() => setGoal(goal)}
+          >
+            <BackspaceRounded />
+          </Button>
+        </span>
       </Tooltip>
       <Tooltip title="Save">
-        <Button
-          variant="contained"
-          disabled={!valueDifferent}
-          onClick={() => onSave(_goal)}
-        >
-          <SaveRounded />
-        </Button>
+        <span>
+          <Button
+            variant="contained"
+            disabled={!valueDifferent}
+            onClick={() => onSave(_goal)}
+          >
+            <SaveRounded />
+          </Button>
+        </span>
       </Tooltip>
     </Stack>
   )

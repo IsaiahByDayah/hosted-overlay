@@ -1,16 +1,16 @@
 import * as functions from "firebase-functions"
+import * as admin from "firebase-admin"
 import textToSpeech from "@google-cloud/text-to-speech"
 import express from "express"
-// import { TextDecoder } from "util"
-// import { promisify } from "util"
-// import os from "os"
-// import fs from "fs"
-// import path from "path"
 
-import { TTSLanguage } from "./lib/types"
+import { TTSLanguage, StreamBot, TwitchIntegration } from "./lib/types"
 import { LANGUAGE_MAPS } from "./lib/util"
+import { validateToken } from "./lib/twitch"
 
 import cors from "./middleware/cors"
+
+admin.initializeApp()
+const db = admin.firestore()
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -55,3 +55,69 @@ export const tts = functions.https.onCall(async (msg: TTSMessage, _context) => {
 
   return Buffer.from(res.audioContent).toString("base64")
 })
+
+interface ValidateTwitchIntegrationParams {
+  token?: string
+}
+type ValidateTwitchIntegrationReturn = NonNullable<
+  TwitchIntegration["auth"]
+> | null
+export const validateTwitchIntegration = functions.https.onCall(
+  async (
+    { token }: ValidateTwitchIntegrationParams,
+    { auth }
+  ): Promise<ValidateTwitchIntegrationReturn> => {
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        "unauthenticated",
+        "Must be logged in to validate twitch integration."
+      )
+    }
+
+    const streamBotDocRef = db.collection("streamBots").doc(auth.uid)
+
+    if (!token) {
+      const streamBotDocData = await streamBotDocRef.get()
+      if (!streamBotDocData.exists) {
+        throw new functions.https.HttpsError(
+          "failed-precondition",
+          "StreamBot data does not exist for current user."
+        )
+      }
+
+      const streamBot = streamBotDocData.data() as StreamBot
+      if (!streamBot.twitchIntegration?.auth) {
+        throw new functions.https.HttpsError(
+          "failed-precondition",
+          "Twitch Integration data does not exist for current user."
+        )
+      }
+
+      token = streamBot.twitchIntegration.auth.token
+    }
+
+    if (!token) {
+      throw new functions.https.HttpsError(
+        "failed-precondition",
+        "No Twitch token provided."
+      )
+    }
+
+    try {
+      const tokenData = await validateToken(token)
+      const auth: NonNullable<TwitchIntegration["auth"]> = {
+        token,
+        username: tokenData.login,
+      }
+      await streamBotDocRef.update({
+        "twitchIntegration.auth": auth,
+      })
+      return auth
+    } catch (e) {
+      await streamBotDocRef.update({
+        "twitchIntegration.auth": admin.firestore.FieldValue.delete(),
+      })
+      return null
+    }
+  }
+)

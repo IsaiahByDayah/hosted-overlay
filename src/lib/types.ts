@@ -94,6 +94,14 @@ export interface StreamBot {
   commands?: ChatCommand[]
 }
 
+export interface TwitchValidateTokenResponse {
+  client_id: string
+  login: string
+  scopes: string[]
+  user_id: string
+  expires_in: number
+}
+
 export interface TwitchIntegration {
   auth?: {
     username: string

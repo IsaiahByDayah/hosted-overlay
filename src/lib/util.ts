@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore"
 
 import firebase from "lib/firebase"
-import { Message, TTSLanguage, AspectRatio } from "lib/types"
+import { Message, TTSLanguage, AspectRatio, TwitchIntegration } from "lib/types"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
 
@@ -226,3 +226,14 @@ export const getFirestoreCollection = <T>(firestoreCollectionPath: string) => {
     useCurrentHook,
   }
 }
+
+interface ValidateTwitchIntegrationParams {
+  token?: string
+}
+type ValidateTwitchIntegrationReturn = NonNullable<
+  TwitchIntegration["auth"]
+> | null
+export const validateTwitchIntegration = createCallable<
+  ValidateTwitchIntegrationParams,
+  ValidateTwitchIntegrationReturn
+>("validateTwitchIntegration")

@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { AppBar, Toolbar, Typography, Button, Stack } from "@mui/material"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
@@ -24,8 +24,16 @@ const Header = () => {
         <Typography sx={{ flexGrow: 1 }}>Hosted Overlay</Typography>
         <SignedIn>
           <Stack spacing={2} direction="row">
-            <Button color="inherit" variant="outlined" onClick={handleSignOut}>
+            <Button color="inherit" onClick={handleSignOut}>
               Sign Out
+            </Button>
+            <Button
+              component={Link}
+              to="/admin"
+              color="inherit"
+              variant="outlined"
+            >
+              Admin Panel
             </Button>
           </Stack>
         </SignedIn>

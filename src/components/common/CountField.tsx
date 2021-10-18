@@ -76,22 +76,26 @@ const CountField = ({ sx, count, onSave, onDelete }: CountFieldProps) => {
         </Button>
       </Tooltip>
       <Tooltip title="Clear Changes">
-        <Button
-          variant="outlined"
-          disabled={!valueDifferent}
-          onClick={() => setCount(count)}
-        >
-          <BackspaceRounded />
-        </Button>
+        <span>
+          <Button
+            variant="outlined"
+            disabled={!valueDifferent}
+            onClick={() => setCount(count)}
+          >
+            <BackspaceRounded />
+          </Button>
+        </span>
       </Tooltip>
       <Tooltip title="Save">
-        <Button
-          variant="contained"
-          disabled={!valueDifferent}
-          onClick={() => onSave(_count)}
-        >
-          <SaveRounded />
-        </Button>
+        <span>
+          <Button
+            variant="contained"
+            disabled={!valueDifferent}
+            onClick={() => onSave(_count)}
+          >
+            <SaveRounded />
+          </Button>
+        </span>
       </Tooltip>
     </Stack>
   )
