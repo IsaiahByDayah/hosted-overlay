@@ -8,6 +8,9 @@ import EchoChatCommandField, {
 export default {
   title: "Common/Chat Command Field/Echo",
   component: EchoChatCommandField,
+  parameters: {
+    storyshots: { disable: true },
+  },
 } as Meta
 
 const Template: Story<EchoChatCommandFieldProps> = (args) => (
