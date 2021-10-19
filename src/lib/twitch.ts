@@ -3,6 +3,27 @@
 import tmi from "tmi.js"
 
 import { toArray } from "lib/util"
+import constants from "lib/constants"
+
+const CLIENT_ID = "fnrk8bg5ah3jh0pyrq341045l6n1o6"
+const PROD_REDIRECT_URL = "https://hosted-overlay.web.app/twitch-integration"
+const DEV_REDIRECT_URL = "http://localhost:3000/twitch-integration"
+const REDIRECT_URL = constants.IS_EMULATOR
+  ? DEV_REDIRECT_URL
+  : PROD_REDIRECT_URL
+const RESPONSE_TYPE = "token"
+const SCOPES = [
+  "chat:read",
+  "chat:edit",
+  "channel:moderate",
+  "whispers:read",
+  "whispers:edit",
+  "channel_editor",
+]
+const FORCE_VERIFY = true
+export const TWITCH_IMPLICIT_OAUTH_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL}&response_type=${RESPONSE_TYPE}&scope=${encodeURIComponent(
+  SCOPES.join(" ")
+)}&force_verify=${FORCE_VERIFY}`
 
 // const onAuthenticationFailure = async (): Promise<string> => {
 //   console.log("onAuthenticationFailure!")

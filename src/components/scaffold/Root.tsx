@@ -4,13 +4,16 @@ import { Box, BoxProps } from "@mui/material"
 
 import CssBaselined from "components/scaffold/CssBaselined"
 import HostedOverlayThemeProvider from "components/scaffold/HostedOverlayThemeProvider"
+import AuthProvider from "components/scaffold/AuthProvider"
 
 const Root: FC<BoxProps> = (props) => (
   <HostedOverlayThemeProvider>
     <CssBaselined>
-      <BrowserRouter>
-        <Box id="scaffold-root" {...props} />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Box id="scaffold-root" {...props} />
+        </BrowserRouter>
+      </AuthProvider>
     </CssBaselined>
   </HostedOverlayThemeProvider>
 )

@@ -8,9 +8,11 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore"
+import { customAlphabet } from "nanoid"
+import { nolookalikesSafe } from "nanoid-dictionary"
 
 import firebase from "lib/firebase"
-import { Message, TTSLanguage, AspectRatio } from "lib/types"
+import { Message, TTSLanguage, AspectRatio, TwitchIntegration } from "lib/types"
 
 import { useAuthContext } from "components/scaffold/AuthProvider"
 
@@ -94,6 +96,8 @@ export const str2ab = (str: string): ArrayBuffer => {
   }
   return buf
 }
+
+export const uid = () => customAlphabet(nolookalikesSafe, 6)()
 
 interface TTSMessage {
   text: string
@@ -226,3 +230,14 @@ export const getFirestoreCollection = <T>(firestoreCollectionPath: string) => {
     useCurrentHook,
   }
 }
+
+interface ValidateTwitchIntegrationParams {
+  token?: string
+}
+type ValidateTwitchIntegrationReturn = NonNullable<
+  TwitchIntegration["auth"]
+> | null
+export const validateTwitchIntegration = createCallable<
+  ValidateTwitchIntegrationParams,
+  ValidateTwitchIntegrationReturn
+>("validateTwitchIntegration")

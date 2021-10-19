@@ -9,7 +9,7 @@ const OpenOverlayButton = () => {
   return (
     <Button
       variant="contained"
-      href={`/${user?.uid}/overlay`}
+      href={`/overlay/${user?.uid}`}
       target="_blank"
       endIcon={<HiOutlineExternalLink />}
       disabled={!user}

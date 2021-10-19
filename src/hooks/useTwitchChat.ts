@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import tmi from "tmi.js"
+import { Events } from "tmi.js"
 
 import { getChatClient } from "lib/twitch"
 import { Message } from "lib/types"
@@ -21,7 +21,7 @@ const useTwitchChat = ({ channel }: UseChatProps): Message[] => {
     const chatClient = getChatClient(channel)
 
     // Handle new messages
-    const onMessage: tmi.Events["message"] = (channel, tags, message, self) => {
+    const onMessage: Events["message"] = (channel, tags, message, self) => {
       console.log(
         `Overlay Chat || ${tags["display-name"]}: ${message}`,
         channel,

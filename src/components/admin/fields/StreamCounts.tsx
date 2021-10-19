@@ -1,10 +1,9 @@
 import { Stack, Divider } from "@mui/material"
 import { LoadingButton } from "@mui/lab"
 import { updateDoc } from "firebase/firestore"
-import { customAlphabet } from "nanoid"
-import { nolookalikesSafe } from "nanoid-dictionary"
 
 import { Count } from "lib/types"
+import { uid } from "lib/util"
 
 import { useCurrentStreamStats } from "hooks/useStreamStats"
 
@@ -12,14 +11,12 @@ import AdminField from "components/admin/AdminField"
 
 import CountField from "components/common/CountField"
 
-const nanoid = customAlphabet(nolookalikesSafe, 6)
-
 const StreamCounts = () => {
   const [streamStats, streamStatsDocRef] = useCurrentStreamStats()
 
   const createCount = async () => {
     const count: Count = {
-      id: nanoid(),
+      id: uid(),
       value: 0,
     }
 
