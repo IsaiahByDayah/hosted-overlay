@@ -52,7 +52,7 @@ const OpenOverlayButton = () => {
       loading={!streamBot}
       onClick={disconnectTwitch}
     >
-      Remove Connection
+      Disconnect {streamBot?.twitchIntegration?.auth?.username}
     </LoadingButton>
   )
 }
