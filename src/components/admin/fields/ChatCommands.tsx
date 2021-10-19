@@ -2,7 +2,12 @@ import { Stack, Divider } from "@mui/material"
 import { LoadingButton } from "@mui/lab"
 import { updateDoc } from "firebase/firestore"
 
-import { ChatCommand, EchoChatCommand, CountEchoChatCommand } from "lib/types"
+import {
+  ChatCommand,
+  EchoChatCommand,
+  CountEchoChatCommand,
+  CountChangeChatCommand,
+} from "lib/types"
 import { uid } from "lib/util"
 
 import { useCurrentStreamBot } from "hooks/useStreamBot"
@@ -32,6 +37,20 @@ const ChatCommands = () => {
       command: "",
       type: "count-echo",
       countId: "",
+    }
+
+    await updateDoc(streamBotDocRef, {
+      commands: [command, ...(streamBot?.commands ?? [])],
+    })
+  }
+
+  const createCountChangeChatCommand = async () => {
+    const command: CountChangeChatCommand = {
+      id: uid(),
+      command: "",
+      type: "count-change",
+      countId: "",
+      change: 0,
     }
 
     await updateDoc(streamBotDocRef, {
@@ -77,6 +96,13 @@ const ChatCommands = () => {
             onClick={() => createCountEchoChatCommand()}
           >
             Create Count Echo Command
+          </LoadingButton>
+          <LoadingButton
+            variant="contained"
+            loading={!streamBot}
+            onClick={() => createCountChangeChatCommand()}
+          >
+            Create Count Change Command
           </LoadingButton>
         </Stack>
 

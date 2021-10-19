@@ -41,7 +41,7 @@ const CountField = ({ sx, count, onSave, onDelete }: CountFieldProps) => {
         value={_count.value}
         type="number"
         onChange={(e) => {
-          var val = parseInt(e.currentTarget.value)
+          const val = parseInt(e.currentTarget.value)
           if (!isNaN(val))
             setCount((c) => ({
               ...c,

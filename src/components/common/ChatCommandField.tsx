@@ -4,6 +4,7 @@ import { ChatCommand } from "lib/types"
 
 import EchoChatCommandField from "components/common/EchoChatCommandField"
 import CountEchoChatCommandField from "components/common/CountEchoChatCommandField"
+import CountChangeChatCommandField from "components/common/CountChangeChatCommandField"
 
 export interface ChatCommandFieldProps {
   sx?: SxProps<Theme> | undefined
@@ -18,6 +19,10 @@ const ChatCommandField = ({ chatCommand, ...props }: ChatCommandFieldProps) => {
       return <EchoChatCommandField {...props} chatCommand={chatCommand} />
     case "count-echo":
       return <CountEchoChatCommandField {...props} chatCommand={chatCommand} />
+    case "count-change":
+      return (
+        <CountChangeChatCommandField {...props} chatCommand={chatCommand} />
+      )
     default:
       return null
   }

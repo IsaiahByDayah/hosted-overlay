@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react"
+import { useMemo, useCallback, useState } from "react"
 import { Stack, Typography, Fab } from "@mui/material"
 import { PlayArrowRounded, StopRounded } from "@mui/icons-material"
-import { Events } from "tmi.js"
 import { updateDoc } from "firebase/firestore"
-
-import { getChatClient } from "lib/twitch"
 
 import { useCurrentStreamBot } from "hooks/useStreamBot"
 import { useCurrentStreamStats } from "hooks/useStreamStats"
+import useChatClient, { UseChatClientProps } from "hooks/useChatClient"
+import { toArray } from "lib/util"
 
 const StreamBotWidget = () => {
   const [streamBot] = useCurrentStreamBot()
@@ -17,22 +16,25 @@ const StreamBotWidget = () => {
 
   const canRun = Boolean(streamBot?.twitchIntegration?.auth)
 
-  useEffect(() => {
-    let running = true
+  // Handle connection
+  const onConnected = useCallback<
+    NonNullable<UseChatClientProps["onConnected"]>
+  >(() => {
+    console.log("Chat Connected!")
+    setConnected(true)
+  }, [])
 
-    if (!canRun) return
-    if (status !== "running") return
+  // Handle disconnection
+  const onDisconnected = useCallback<
+    NonNullable<UseChatClientProps["onDisconnected"]>
+  >(() => {
+    console.log("Chat Disconnected!")
+    setConnected(false)
+  }, [])
 
-    const channels = streamBot?.twitchIntegration?.channels!
-    const auth = streamBot?.twitchIntegration?.auth!
-
-    const chatClient = getChatClient(channels, {
-      username: auth.username,
-      password: auth.token,
-    })
-
-    // Handle new messages
-    const onMessage: Events["message"] = (channel, tags, message, self) => {
+  // Handle new messages
+  const onMessage = useCallback<NonNullable<UseChatClientProps["onMessage"]>>(
+    (chatClient, channel, tags, message, self) => {
       console.log(
         `Stream Bot || ${tags["display-name"]}: ${message}`,
         channel,
@@ -118,12 +120,10 @@ const StreamBotWidget = () => {
                     return c
                   }),
                 }).then(() => {
-                  if (running) {
-                    chatClient.say(
-                      channel,
-                      `Current count: ${count.value + chatCommand.change}`
-                    )
-                  }
+                  chatClient.say(
+                    channel,
+                    `Current count: ${count.value + chatCommand.change}`
+                  )
                 })
                 break
               }
@@ -133,26 +133,44 @@ const StreamBotWidget = () => {
             }
           }
         })
-    }
+    },
+    [streamBot, streamStats, streamStatsDocRef]
+  )
 
-    const onConnected = () => setConnected(true)
-    const onDisconnected = () => setConnected(false)
-
-    chatClient.addListener("message", onMessage)
-    chatClient.addListener("connected", onConnected)
-    chatClient.addListener("disconnected", onDisconnected)
-    chatClient.connect()
-
-    return () => {
-      running = false
-      chatClient.disconnect()
-      // chatClient.removeListener("message", onMessage)
-      // chatClient.addListener("connected", onConnected)
-      // chatClient.addListener("disconnected", onDisconnected)
-      setConnected(false)
-    }
+  const channelsHash = streamBot?.twitchIntegration?.channels
+    ? toArray(streamBot?.twitchIntegration?.channels).join()
+    : undefined
+  const channel = useMemo<string[]>(
+    () => streamBot?.twitchIntegration?.channels ?? [],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [streamBot, streamStats, status])
+    [channelsHash]
+  )
+  const identity = useMemo<UseChatClientProps["chatClientParams"][1]>(
+    () =>
+      streamBot?.twitchIntegration?.auth
+        ? {
+            username: streamBot.twitchIntegration.auth.username,
+            password: streamBot.twitchIntegration.auth.token,
+          }
+        : undefined,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [
+      streamBot?.twitchIntegration?.auth?.token,
+      streamBot?.twitchIntegration?.auth?.username,
+    ]
+  )
+  const chatClientParams = useMemo<UseChatClientProps["chatClientParams"]>(
+    () => [channel, identity],
+    [channel, identity]
+  )
+
+  useChatClient({
+    chatClientParams,
+    disabled: status !== "running",
+    onMessage,
+    onConnected,
+    onDisconnected,
+  })
 
   const getTitle = () => {
     if (!streamBot) return "Loading..."

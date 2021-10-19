@@ -8,9 +8,6 @@ import EchoChatCommandField, {
 export default {
   title: "Common/Chat Command Field/Echo",
   component: EchoChatCommandField,
-  parameters: {
-    layout: "centered",
-  },
 } as Meta
 
 const Template: Story<EchoChatCommandFieldProps> = (args) => (

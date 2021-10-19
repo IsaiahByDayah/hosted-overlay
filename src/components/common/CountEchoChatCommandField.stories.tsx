@@ -8,9 +8,6 @@ import CountEchoChatCommandField, {
 export default {
   title: "Common/Chat Command Field/Count Echo",
   component: CountEchoChatCommandField,
-  parameters: {
-    layout: "centered",
-  },
 } as Meta
 
 const Template: Story<CountEchoChatCommandFieldProps> = (args) => (
