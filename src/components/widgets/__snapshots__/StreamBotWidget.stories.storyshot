@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Widgets/Stream Bot Basic 1`] = `
+<div
+  className="css-1yo1jo6-MuiStack-root"
+>
+  <button
+    className="MuiButtonBase-root Mui-disabled MuiFab-root MuiFab-circular MuiFab-sizeSmall css-14dfzp4-MuiButtonBase-root-MuiFab-root"
+    disabled={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={-1}
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="PlayArrowRoundedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+      />
+    </svg>
+  </button>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-16ixxcf-MuiTypography-root"
+  >
+    Loading...
+  </p>
+</div>
+`;

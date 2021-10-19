@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Common/OpenOverlayButton Basic 1`] = `
+exports[`Storyshots Common/Open Overlay Button Basic 1`] = `
 <a
   aria-disabled={true}
   className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-1brahwc-MuiButtonBase-root-MuiButton-root"
-  href="/undefined/overlay"
+  href="/overlay/undefined"
   onBlur={[Function]}
   onContextMenu={[Function]}
   onDragLeave={[Function]}

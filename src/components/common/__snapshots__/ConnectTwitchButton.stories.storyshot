@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common/Connect Twitch Button Basic 1`] = `
+<a
+  aria-disabled={true}
+  className="MuiLoadingButton-root MuiLoadingButton-loading MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-5qo5j2-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+  href="https://id.twitch.tv/oauth2/authorize?client_id=fnrk8bg5ah3jh0pyrq341045l6n1o6&redirect_uri=http://localhost:3000/twitch-integration&response_type=token&scope=chat%3Aread%20chat%3Aedit%20channel%3Amoderate%20whispers%3Aread%20whispers%3Aedit%20channel_editor&force_verify=true"
+  onBlur={[Function]}
+  onContextMenu={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={-1}
+>
+  <div
+    className="MuiLoadingButton-loadingIndicator MuiLoadingButton-loadingIndicatorCenter css-1yt7yx7-MuiLoadingButton-loadingIndicator"
+  >
+    <span
+      className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorInherit css-62e83j-MuiCircularProgress-root"
+      role="progressbar"
+      style={
+        Object {
+          "height": 16,
+          "width": 16,
+        }
+      }
+    >
+      <svg
+        className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx={44}
+          cy={44}
+          fill="none"
+          r={20.2}
+          strokeWidth={3.6}
+          style={Object {}}
+        />
+      </svg>
+    </span>
+  </div>
+  Connect Bot
+  <span
+    className="MuiLoadingButton-endIconLoadingCenter MuiButton-endIcon MuiButton-iconSizeMedium css-1gnd1fd-MuiButton-endIcon"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      role="img"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title />
+      <path
+        d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"
+      />
+    </svg>
+  </span>
+</a>
+`;

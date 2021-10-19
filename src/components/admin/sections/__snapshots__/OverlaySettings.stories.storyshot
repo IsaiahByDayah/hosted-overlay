@@ -15,7 +15,7 @@ exports[`Storyshots Admin/Sections/Overlay Settings Basic 1`] = `
     <a
       aria-disabled={true}
       className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-1brahwc-MuiButtonBase-root-MuiButton-root"
-      href="/undefined/overlay"
+      href="/overlay/undefined"
       onBlur={[Function]}
       onContextMenu={[Function]}
       onDragLeave={[Function]}
